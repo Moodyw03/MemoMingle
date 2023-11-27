@@ -1,5 +1,5 @@
 Create a virtual environment named 'venv' for dependency isolation.
-`python3 -m venv venv`
+`python3 -m venv env`
 
 Activate the created virtual environment.
 `source venv/bin/activate`

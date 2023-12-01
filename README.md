@@ -1,8 +1,10 @@
+# Note Taking App
+
 Create a virtual environment named 'venv' for dependency isolation.
 `python3 -m venv env`
 
 Activate the created virtual environment.
-`source venv/bin/activate`
+`source env/bin/activate`
 
 Install Flask, a lightweight web application framework.
 `pip install flask`
@@ -25,3 +27,5 @@ Enable debug mode for more detailed error logs and interactive debugging.
 Run the Flask web application on a local development server.
 `flask run`
 
+Combined
+`export FLASK_APP=app; export FLASK_ENV=development; export FLASK_DEBUG=1; flask run`

@@ -1,9 +1,7 @@
 import os
-import datetime
-
 from dotenv import load_dotenv
-from flask import Flask, request, jsonify
-from bson import ObjectId
+from flask import Flask, render_template
+
 from controllers.note_controller import (
     create_note,
     get_notes,
@@ -11,7 +9,6 @@ from controllers.note_controller import (
     update_note,
     delete_note,
 )
-
 
 from config.db import db
 
@@ -32,4 +29,5 @@ app.route("/api/notes/<string:note_id>", methods=["DELETE"])(delete_note)
 @app.route("/")
 # Get all notes from the database
 def index():
-    return jsonify({"message": "Welcome to the Notes API"})
+    # return index.html from the templates folder
+    return render_template("index.html")

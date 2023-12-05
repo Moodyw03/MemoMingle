@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body class="container">
+    <section class="sign-in">
+      <nav class="sign-in__nav">
+        <a href="{{ url_for('index') }}">
+          <img
+            src="https://unpkg.com/lucide-static@latest/icons/chevron-left.svg"
+          />
+        </a>
+      </nav>
+      <div class="sign-in__form-container">
+        <h2 class="sign-in__heading">Sign In</h2>
+        <form
+          class="sign-in__form"
+          action="{{ url_for('auth.sign_in') }}"
+          method="post"
+        >
+          <label class="sign-in__form--label" for="username">Username</label>
+          <input
+            class="sign-in__form--input"
+            type="text"
+            name="username"
+            placeholder="Username"
+          />
+          <label class="sign-in__form--label" for="password">Password</label>
+          <input
+            class="sign-in__form--input"
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+          <input
+            class="sign-in__form--submit"
+            type="submit"
+            value="Sign In"
+            class="button"
+          />
+        </form>
+        <div class="sign-in__link">
+          <span>Don't have an account? </span>
+          <a href="{{ url_for('auth.sign_up') }}">Sign Up</a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

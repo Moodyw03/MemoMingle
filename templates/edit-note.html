@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h2 class="note__heading">Edit Note</h2>
+
+    {% if note %}
+    <form
+      class="note__form"
+      action="{{ url_for('note.edit_note', note_id=note._id) }}"
+      method="POST"
+    >
+      <label class="note__form--label" for="title">Title</label>
+      <input
+        class="note__form--input"
+        type="text"
+        name="title"
+        placeholder="Title"
+        value="{{ note.title }}"
+      />
+
+      <label class="note__form--label" for="content">Content</label>
+      <textarea class="note__form--input" name="content" placeholder="Content">
+        {{ note.content }}
+      </textarea>
+
+      <!-- TAGS -->
+      <label class="note__form--label" for="tags">Tags</label>
+      <input
+        class="note__form--input"
+        type="text"
+        name="tags"
+        placeholder="Enter tags separated by semi-colons"
+        value="{{ note.tags }}"
+      />
+
+      <input
+        class="note__form--submit"
+        type="submit"
+        value="Update Note"
+        class="button"
+      />
+    </form>
+    {% endif %}
+
+    <!-- SIGN OUT -->
+    <form action="{{ url_for('auth.sign_out') }}">
+      <input type="submit" value="Sign Out" />
+    </form>
+  </body>
+</html>

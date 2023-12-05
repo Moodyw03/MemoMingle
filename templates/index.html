@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <p>Welcome to the Notes API</p>
-</body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body class="container">
+    <section class="homepage">
+      <h1 class="homepage_hero--heading">
+        <span>Welcome to the</span> <strong>World of Notes...</strong>
+      </h1>
+      <div class="homepage_hero--image">
+        <img
+          src="{{ url_for('static', filename='images/hero-image.png') }}"
+          alt="hero image"
+        />
+      </div>
+      <div class="homepage_hero--button">
+        <a href="{{ url_for('auth.sign_up') }}" class="button">Get Started</a>
+      </div>
+      <!-- Already have an account -->
+      <div class="homepage_hero--link">
+        <span>Already have an account? </span>
+        <a href="{{ url_for('auth.sign_in') }}">Sign In</a>
+      </div>
+    </section>
+  </body>
 </html>

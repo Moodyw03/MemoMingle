@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Success -->
+    {% if success %}
+    <div id="success">
+      <p>{{ success }}</p>
+    </div>
+    {% endif %}
+
+    <!-- Error -->
+    {% if error %}
+    <div id="error">
+      <p>{{ error }}</p>
+    </div>
+    {% endif %}
+
+    <!-- NAV -->
+    <nav class="notes__nav">
+      <h2>Notes</h2>
+      <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
+        <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
+      </a>
+    </nav>
+
+    <section class="notes_new_section">
+      <form
+        class="notes__form"
+        action="{{ url_for('note.create_note') }}"
+        method="POST"
+      >
+        <input
+          class="notes__form--input"
+          type="text"
+          name="title"
+          placeholder="TITLE"
+          value=""
+        />
+
+        <textarea
+          class="notes__form--input"
+          name="content"
+          placeholder="A new note ..."
+        ></textarea>
+
+        <button class="notes__form--button" type="submit">
+          <img src="https://unpkg.com/lucide-static@latest/icons/send.svg" />
+        </button>
+
+        <input
+          class="notes__form--input"
+          type="text"
+          name="tags"
+          placeholder="tags (';' separated)"
+          value=""
+        />
+      </form>
+    </section>
+
+    <section class="notes__section">
+      <!-- NOTES -->
+      {% if notes %}
+      <div class="notes">
+        {% for note in notes %}
+        <a
+          href="{{ url_for('note.edit_note', note_id=note._id) }}"
+          class="notes__container"
+        >
+          <h3 class="notes__container--title">{{ note.title }}</h3>
+
+          <p class="notes__container--content">{{ note.content }}</p>
+          <div class="notes__container--actions">
+            <!-- Delete note -->
+            <form
+              action="{{ url_for('note.delete_note', note_id=note._id) }}"
+              method="post"
+            >
+              <button type="submit" class="notes__container--actions--button">
+                <img
+                  src="https://unpkg.com/lucide-static@latest/icons/trash-2.svg"
+                />
+              </button>
+            </form>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="notes__empty">
+        <p>No notes yet</p>
+      </div>
+      {% endif %}
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

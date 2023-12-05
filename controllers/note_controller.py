@@ -7,6 +7,7 @@ from flask import (
     render_template,
 )
 
+
 from models.note import Note
 from decorators import login_required
 

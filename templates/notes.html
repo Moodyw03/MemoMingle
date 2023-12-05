@@ -24,34 +24,37 @@
     </div>
     {% endif %}
 
-    <!-- NAV -->
-    <nav class="notes__nav">
-      <h2>Notes</h2>
-      <!-- Search bar -->
-      <form
-        class="notes__nav--search"
-        method="POST"
-      >
-        <input
-          class="notes__nav--search--input"
-          type="text"
-          name="search"
-          placeholder="Search"
-          value=""
-        />
-        <button class="notes__nav--search--button" type="submit">
-          <img
-            class="notes__nav--search--button--icon"
-            src="https://unpkg.com/lucide-static@latest/icons/search.svg"
-          />
-        </button>
-      </form>
+ <!-- NAV -->
+ <nav class="notes__nav">
+  <h2>
+    <a href="{{ url_for('note.get_notes') }}" title="Notes"> Notes </a>
+  </h2>
+  <!-- Search bar -->
+  <form
+    class="notes__nav--search"
+    action="{{ url_for('note.search_notes') }}"
+    method="POST"
+  >
+    <input
+      class="notes__nav--search--input"
+      type="text"
+      name="search"
+      placeholder="Search"
+      value="{% if search %}{{ search }}{% endif %}"
+    />
+    <button class="notes__nav--search--button" type="submit">
+      <img
+        class="notes__nav--search--button--icon"
+        src="https://unpkg.com/lucide-static@latest/icons/search.svg"
+      />
+    </button>
+  </form>
 
-      <!-- Sign Out -->
-      <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
-        <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
-      </a>
-    </nav>
+  <!-- Sign Out -->
+  <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
+    <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
+  </a>
+</nav>
 
     <!-- NEW NOTE -->
     <section class="notes_new_section">

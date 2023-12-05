@@ -10,10 +10,25 @@
     />
   </head>
   <body class="container">
+
+    <!-- Success -->
+    {% if success %}
+    <div id="success">
+      <p>{{ success }}</p>
+    </div>
+    {% endif %}
+
+    <!-- Error -->
+    {% if error %}
+    <div id="error">
+      <p>{{ error }}</p>
+    </div>
+    {% endif %}
+
     <section class="sign-in">
       <!-- If there is any error, display -->
       {% if error %}
-      <div class="sign-in__error">
+      <div id="error">
         <p>{{ error }}</p>
       </div>
       {% endif %}
@@ -71,5 +86,7 @@
         </div>
       </div>
     </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>

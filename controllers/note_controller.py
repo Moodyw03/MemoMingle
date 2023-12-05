@@ -111,3 +111,20 @@ def edit_note(note_id):
         note["tags"] = "; ".join(note["tags"])
 
     return render_template("edit-note.html", note=note)
+
+
+@note.route("/", methods=["POST"])
+@login_required
+def search_notes():
+    user_id = session["user_id"]
+    if not user_id:
+        return redirect(url_for("auth.sign_in"))
+
+    if request.method == "POST":
+        search = request.form["search"]
+        query = search.strip()
+
+        print(query)
+
+        notes = Note.search(query, user_id)
+        return render_template("notes.html", notes=notes, search=query)

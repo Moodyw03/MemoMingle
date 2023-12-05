@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h2 class="note__heading">New Note</h2>
+
+    <form
+      class="note__form"
+      action="{{ url_for('note.create_note') }}"
+      method="POST"
+    >
+      <label class="note__form--label" for="title">Title</label>
+      <input
+        class="note__form--input"
+        type="text"
+        name="title"
+        placeholder="Title"
+        value=""
+      />
+
+      <label class="note__form--label" for="content">Content</label>
+      <textarea
+        class="note__form--input"
+        name="content"
+        placeholder="Content"
+      ></textarea>
+
+      <!-- TAGS -->
+      <label class="note__form--label" for="tags">Tags</label>
+      <input
+        class="note__form--input"
+        type="text"
+        name="tags"
+        placeholder="Enter tags separated by semi-colons"
+        value=""
+      />
+
+      <input
+        class="note__form--submit"
+        type="submit"
+        value="Create Note"
+        class="button"
+      />
+    </form>
+
+    <!-- SIGN OUT -->
+    <form action="{{ url_for('auth.sign_out') }}">
+      <input type="submit" value="Sign Out" />
+    </form>
+  </body>
+</html>

@@ -1,29 +1,32 @@
 from datetime import datetime
-from config.db import db
 from bson import ObjectId
+
+from config.db import db
 
 
 class Note:
-    def __init__(self, title, content, tags=None):
+    def __init__(self, title, content, tags=None, user_id=None):
         self.title = title
         self.content = content
-        self.dateCreated = datetime.now()
-        self.lastModified = self.dateCreated
+        self.dateCreated = datetime.now()  # Set on object creation
         self.tags = tags if tags else []
+        self.user_id = user_id
 
     def insert(self):
+        # Set 'lastModified' to the current time on insert
         result = db.notes.insert_one({
             'title': self.title,
             'content': self.content,
             'dateCreated': self.dateCreated,
-            'lastModified': self.lastModified,
-            'tags': self.tags
+            'lastModified': datetime.now(),
+            'tags': self.tags,
+            'user_id': self.user_id,
         })
         return result.inserted_id
 
     @staticmethod
-    def find_all():
-        return db.notes.find()
+    def find_all(user_id=None):
+        return db.notes.find({'user_id': user_id}).sort('lastModified', -1)
 
     @staticmethod
     def find_by_id(note_id):
@@ -31,6 +34,7 @@ class Note:
 
     @staticmethod
     def update(note_id, new_data):
+        new_data['lastModified'] = datetime.now()
         db.notes.update_one({'_id': ObjectId(note_id)}, {'$set': new_data})
 
     @staticmethod

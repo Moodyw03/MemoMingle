@@ -27,7 +27,7 @@
  <!-- NAV -->
  <nav class="notes__nav">
   <h2 class="writtennote">
-    <a href="{{ url_for('note.get_notes') }}" title="NemoMingle"> Notes, </a>
+    <a class="memo" href="{{ url_for('note.get_notes') }}" title="NemoMingle"> MemoMingle<span class="slogan">At Your Fingertips, Anywhere, Anytime!</span></a>
   </h2>
   <!-- Search bar -->
   <form
@@ -81,7 +81,7 @@
         />
 
         <textarea
-          class="notes__form--input"
+          class="notes__form--input textarea"
           name="content"
           placeholder="A new note ..."
         ></textarea>

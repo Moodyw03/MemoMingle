@@ -26,8 +26,8 @@
 
  <!-- NAV -->
  <nav class="notes__nav">
-  <h2>
-    <a href="{{ url_for('note.get_notes') }}" title="Notes"> Notes </a>
+  <h2 class="writtennote">
+    <a href="{{ url_for('note.get_notes') }}" title="NemoMingle"> Notes </a>
   </h2>
   <!-- Search bar -->
   <form
@@ -50,10 +50,19 @@
     </button>
   </form>
 
+ 
+ 
+    <div class="containerlogo"><img
+      class="memologo"
+      src="../static/images/logo memomingle.png"
+    >
+    
+    
   <!-- Sign Out -->
   <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
     <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
   </a>
+</div>
 </nav>
 
     <!-- NEW NOTE -->

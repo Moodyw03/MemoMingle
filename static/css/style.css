@@ -10,22 +10,34 @@ body {
 
 }
 
-.notes__nav--search {
-  width: 50%;
-  display: flex;
-  align-items: center;
 
 
-}
 
 .writtennote {
   width: 15%;
-  background-color: blue;
+
+}
+
+.memo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+
+}
+
+.slogan {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  flex-direction: column;
+  margin-left: -62px;
+
+
 }
 
 .notes__nav--search--input {
   width: 80%;
-  margin: 0 13px 0 15px;
+  margin: 0 13px 0 23px;
   padding: 6px;
   border-radius: 10px;
 }
@@ -290,6 +302,25 @@ a {
   gap: 20px;
 }
 
+.notes__nav--search {
+  width: 52%;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+
+
+
+}
+
+.notes__nav--search--button {
+  background: none;
+  border: none;
+  margin-left: -50px;
+  margin-top: 5px;
+
+
+}
+
 .notes .notes__container {
   position: relative;
   display: block;
@@ -297,6 +328,8 @@ a {
   border-radius: 1rem;
   padding: 1rem;
   background-color: #fff;
+  height: 200px;
+  overflow: scroll;
 }
 
 .notes__container--title {
@@ -343,6 +376,9 @@ a {
 }
 
 /* New note */
+
+
+
 .notes_new_section {
   display: flex;
   justify-content: center;
@@ -350,7 +386,7 @@ a {
   margin-bottom: 1rem;
 }
 
-textarea {
+.textarea {
   width: 100%;
   max-width: 600px;
   max-height: auto;
@@ -445,6 +481,36 @@ textarea {
 
 .notes__form--button:hover {
   background-color: #d4f1c5dd;
+}
+
+/* edit note */
+.note__form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+
+}
+
+.note__form--input {
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0.30rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 0.2s ease-in-out;
+
+}
+
+.oi {
+  max-width: 100%;
+  height: auto;
+  min-height: 500px;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 /* MESSAGE */

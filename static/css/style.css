@@ -4,6 +4,41 @@
 
 body {
   font-family: Inter, Arial, sans-serif;
+  background-image: url("notesimage.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+.notes__nav--search {
+  width: 50%;
+  display: flex;
+  align-items: center;
+
+
+}
+
+.writtennote {
+  width: 15%;
+  background-color: blue;
+}
+
+.notes__nav--search--input {
+  width: 80%;
+  margin: 0 13px 0 15px;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.logo {
+  width: 10%;
+  display: block;
+  margin: auto;
+
+}
+
+.logonotes {
+  width: 100px;
 }
 
 /* CSS RESET */
@@ -204,6 +239,17 @@ a {
 }
 
 /* NOTES */
+
+.containerlogo {
+  display: flex;
+
+}
+
+.memologo {
+  width: 100px;
+
+}
+
 .notes__nav {
   margin: 1rem 2rem;
   display: flex;
@@ -243,12 +289,13 @@ a {
   gap: 20px;
 }
 
-.notes__container {
+.notes .notes__container {
   position: relative;
   display: block;
   border: 1px solid #ccc;
   border-radius: 1rem;
   padding: 1rem;
+  background-color: #fff;
 }
 
 .notes__container--title {
@@ -302,14 +349,24 @@ a {
   margin-bottom: 1rem;
 }
 
+textarea {
+  width: 100%;
+  max-width: 600px;
+  max-height: auto;
+  min-height: 200px;
+  min-width: 390px;
+  resize: none;
+}
+
 .notes_new_section form {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: 2px solid #ccc;
+
 
   border-radius: 0.5rem;
   padding: 0.1rem 0.1rem;
@@ -325,11 +382,12 @@ a {
   padding: 0.2rem 0.4rem;
   border: none;
   border-bottom: 1px solid #ccc;
-  border-radius: 0.1rem;
+  border-radius: 0.10rem;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   transition: all 0.2s ease-in-out;
+
 }
 
 .notes__form--input:first-child {

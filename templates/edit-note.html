@@ -10,7 +10,25 @@
     />
   </head>
   <body>
-    <h2 class="note__heading">Edit Note</h2>
+    <nav class="notes__nav">
+      <h2 class="writtennote">
+        <a class="memo" href="{{ url_for('note.get_notes') }}" title="NemoMingle"> MemoMingle<span class="slogan">At Your Fingertips, Anywhere, Anytime!</span></a>
+      </h2>
+      
+    
+     
+     
+        <div class="containerlogo"><img
+          class="memologo"
+        src= "../static/images/logo memomingle.png"
+        
+        
+      <!-- Sign Out -->
+      <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
+        <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
+      </a>
+    </div>
+    </nav>
 
     {% if note %}
     <form
@@ -28,7 +46,7 @@
       />
 
       <label class="note__form--label" for="content">Content</label>
-      <textarea class="note__form--input" name="content" placeholder="Content">
+      <textarea class="textarea oi" name="content" placeholder="Content">
         {{ note.content }}
       </textarea>
 

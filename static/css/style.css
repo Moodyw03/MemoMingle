@@ -125,6 +125,13 @@ a {
   margin-left: 2rem;
 }
 
+.homepage_hero--image img {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+
 .homepage_hero--button a {
   cursor: pointer;
   font-size: 1.5rem;

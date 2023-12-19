@@ -26,17 +26,25 @@
 
     <!-- NAV -->
     <nav class="notes__nav">
-      <h2 class="writtennote">
-        <a
-          class="memo"
-          href="{{ url_for('note.get_notes') }}"
-          title="NemoMingle"
-        >
-          MemoMingle<span class="slogan"
-            >At Your Fingertips, Anywhere, Anytime!</span
-          ></a
-        >
-      </h2>
+      <div class="">
+        <div class="containerlogo">
+          <img
+            class="memologo"
+            src="{{ url_for('static', filename='images/logo memomingle.png') }}"
+          />
+        </div>
+        <h2 class="writtennote">
+          <a
+            class="memo"
+            href="{{ url_for('note.get_notes') }}"
+            title="NemoMingle"
+          >
+            MemoMingle<span class="slogan"
+              >At Your Fingertips, Anywhere, Anytime!</span
+            ></a
+          >
+        </h2>
+      </div>
       <!-- Search bar -->
       <form
         class="notes__nav--search"
@@ -57,10 +65,6 @@
           />
         </button>
       </form>
-
-      <div class="containerlogo">
-        <img class="memologo" src="../static/images/logo memomingle.png" />
-      </div>
 
       <!-- Sign Out -->
       <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">

@@ -4,7 +4,8 @@
 
 body {
   font-family: Inter, Arial, sans-serif;
-  background-image: url("notesimage.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("notesimage.jpg");
+  /* background-image: url("notesimage.jpg"); */
   background-size: cover;
   background-attachment: fixed;
 

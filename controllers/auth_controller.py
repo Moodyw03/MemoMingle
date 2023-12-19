@@ -31,11 +31,21 @@ def sign_up():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+
+        # Check if username or password is less than 4 characters
+        if len(username) < 4 or len(password) < 4:
+            return render_template(
+                "sign-up.html",
+                error="Username and password must be at least 4 characters long",
+            )
+
         if User.find_by_username(username):
-            return render_template("sign-up.html", error="username already exists")
+            return render_template("sign-up.html", error="Username already exists")
+
         user = User(username, password)
         user.insert()
         return render_template("sign-in.html", success="Account created successfully")
+
     return render_template("sign-up.html")
 
 

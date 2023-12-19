@@ -12,22 +12,29 @@
   <body>
     <nav class="notes__nav">
       <h2 class="writtennote">
-        <a class="memo" href="{{ url_for('note.get_notes') }}" title="NemoMingle"> MemoMingle<span class="slogan">At Your Fingertips, Anywhere, Anytime!</span></a>
+        <a
+          class="memo"
+          href="{{ url_for('note.get_notes') }}"
+          title="NemoMingle"
+        >
+          MemoMingle<span class="slogan"
+            >At Your Fingertips, Anywhere, Anytime!</span
+          ></a
+        >
       </h2>
-      
-    
-     
-     
-        <div class="containerlogo"><img
+
+      <div class="containerlogo">
+        <img
           class="memologo"
-        src= "../static/images/memomingle.png"
-        
-        
+          src="{{ url_for('static', filename='images/logo memomingle.png') }}"
+          alt="MemoMingle"
+        />
+      </div>
+
       <!-- Sign Out -->
       <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
         <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
       </a>
-    </div>
     </nav>
 
     {% if note %}
@@ -68,10 +75,5 @@
       />
     </form>
     {% endif %}
-
-    <!-- SIGN OUT -->
-    <form action="{{ url_for('auth.sign_out') }}">
-      <input type="submit" value="Sign Out" />
-    </form>
   </body>
 </html>

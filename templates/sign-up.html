@@ -10,7 +10,6 @@
     />
   </head>
   <body class="container">
-
     <!-- Success -->
     {% if success %}
     <div id="success">
@@ -44,14 +43,19 @@
       <div class="sign-in__image-container">
         <img
           class="logo"
-          src="../static/images/logo memomingle.png"
+          src="{{ url_for('static', filename='images/logo memomingle.png') }}"
         />
+      </div>
       <div class="sign-in__form-container">
-        <h2 class="sign-in__heading"><strong>MemoMingle</strong><br>Notes at Your Fingertips, Anywhere, Anytime!</h2>
+        <h2 class="sign-in__heading">
+          <strong>MemoMingle</strong><br />Notes at Your Fingertips, Anywhere,
+          Anytime!
+        </h2>
         <form
           class="sign-in__form"
           action="{{ url_for('auth.sign_up') }}"
           method="post"
+          onsubmit="return checkPasswords()"
         >
           <label class="sign-in__form--label" for="username">Username</label>
           <input
@@ -67,6 +71,7 @@
             class="sign-in__form--input"
             type="password"
             name="password"
+            id="password"
             placeholder="Password"
             minlength="4"
           />
@@ -77,6 +82,7 @@
             class="sign-in__form--input"
             type="password"
             name="confirm-password"
+            id="confirm-password"
             placeholder="Confirm Password"
             minlength="4"
           />

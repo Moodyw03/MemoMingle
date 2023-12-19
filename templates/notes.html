@@ -24,46 +24,49 @@
     </div>
     {% endif %}
 
- <!-- NAV -->
- <nav class="notes__nav">
-  <h2 class="writtennote">
-    <a class="memo" href="{{ url_for('note.get_notes') }}" title="NemoMingle"> MemoMingle<span class="slogan">At Your Fingertips, Anywhere, Anytime!</span></a>
-  </h2>
-  <!-- Search bar -->
-  <form
-    class="notes__nav--search"
-    action="{{ url_for('note.search_notes') }}"
-    method="POST"
-  >
-    <input
-      class="notes__nav--search--input"
-      type="text"
-      name="search"
-      placeholder="Search"
-      value="{% if search %}{{ search }}{% endif %}"
-    />
-    <button class="notes__nav--search--button" type="submit">
-      <img
-        class="notes__nav--search--button--icon"
-        src="https://unpkg.com/lucide-static@latest/icons/search.svg"
-      />
-    </button>
-  </form>
+    <!-- NAV -->
+    <nav class="notes__nav">
+      <h2 class="writtennote">
+        <a
+          class="memo"
+          href="{{ url_for('note.get_notes') }}"
+          title="NemoMingle"
+        >
+          MemoMingle<span class="slogan"
+            >At Your Fingertips, Anywhere, Anytime!</span
+          ></a
+        >
+      </h2>
+      <!-- Search bar -->
+      <form
+        class="notes__nav--search"
+        action="{{ url_for('note.search_notes') }}"
+        method="POST"
+      >
+        <input
+          class="notes__nav--search--input"
+          type="text"
+          name="search"
+          placeholder="Search"
+          value="{% if search %}{{ search }}{% endif %}"
+        />
+        <button class="notes__nav--search--button" type="submit">
+          <img
+            class="notes__nav--search--button--icon"
+            src="https://unpkg.com/lucide-static@latest/icons/search.svg"
+          />
+        </button>
+      </form>
 
- 
- 
-    <div class="containerlogo"><img
-      class="memologo"
-      src="../static/images/logo memomingle.png"
-    >
-    
-    
-  <!-- Sign Out -->
-  <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
-    <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
-  </a>
-</div>
-</nav>
+      <div class="containerlogo">
+        <img class="memologo" src="../static/images/logo memomingle.png" />
+      </div>
+
+      <!-- Sign Out -->
+      <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
+        <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
+      </a>
+    </nav>
 
     <!-- NEW NOTE -->
     <section class="notes_new_section">
@@ -118,7 +121,7 @@
             {% endfor %}
           </div>
           <div class="notes__container--date">
-            <span>{{ note.lastModified.strftime('%H:%M  %d/%m/%Y') }}</span>
+            <span>{{ note.lastModified.strftime('%H:%M %d/%m/%Y') }}</span>
           </div>
           <div class="notes__container--actions">
             <!-- Delete note -->

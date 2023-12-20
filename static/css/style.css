@@ -580,3 +580,22 @@ a {
   text-align: center;
   z-index: 999;
 }
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+.sign-in__image-container {
+ 
+  margin-top: 300px;
+}
+.sign-in__form-container {
+  margin-top: -300px;
+ 
+  padding-top: 0;
+}
+}

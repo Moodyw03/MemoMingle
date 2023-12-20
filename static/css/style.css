@@ -598,6 +598,12 @@ a {
  
   padding-top: 0;
 }
+.notes__nav--search {
+  width: 100%;
+  margin-left: 0px;
+  margin-top: 100px;
+
+}
 }
 
 @media only screen and (max-width: 992px) {

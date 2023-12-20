@@ -585,19 +585,24 @@ a {
 
 
 
+@media only screen and (max-width: 1370px) {
+  .logo {
+   position: absolute;
+   top: 150px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 150px;
+  }
+.sign-in__form-container {
+  margin-top: 250px;
+}
 
+
+}
 
 
 @media only screen and (max-width: 1024px) {
-.sign-in__image-container {
- 
-  margin-top: 300px;
-}
-.sign-in__form-container {
-  margin-top: -300px;
- 
-  padding-top: 0;
-}
+
 .notes__nav--search {
   width: 100%;
   margin-left: 0px;
@@ -607,12 +612,9 @@ a {
 }
 
 @media only screen and (max-width: 992px) {
-  .sign-in__image-container {
-   
-    margin-top: 200px;
-  }
+ 
   .sign-in__form-container {
-    margin-top: -150px;
+    margin-top: 250px;
    
     padding-top: 0;
   }

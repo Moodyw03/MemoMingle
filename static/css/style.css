@@ -16,7 +16,7 @@ body {
 
 .writtennote {
   /* width: 15%; */
-  background-color: blue;
+ 
 
 }
 .writtennote a {
@@ -27,7 +27,6 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 50px;
-  background-color: blue;
 
 }
 
@@ -41,12 +40,6 @@ body {
 
 }
 
-.notes__nav--search--input {
-  width: 80%;
-  margin: 0 13px 0 23px;
-  padding: 6px;
-  border-radius: 10px;
-}
 
 .logo {
   width: 10%;
@@ -321,13 +314,19 @@ a {
 }
 
 .notes__nav--search {
-  width: 52%;
-  margin-left: 25px;
+  width: 100%;
+  margin-left: 310px;
   display: flex;
   align-items: center;
+  margin-bottom: -50px;
 
+}
 
-
+.notes__nav--search--input {
+  width: 600px;
+  margin: 0 13px 0 23px;
+  padding: 6px;
+  border-radius: 10px;
 }
 
 .notes__nav--search--button {
@@ -507,7 +506,13 @@ a {
   flex-direction: column;
   width: 50%;
   margin: auto;
+  border-radius: 10px;
+  margin-top: -50px;
+ 
 
+}
+.note__form:not(:last-child):focus {
+  border-bottom: 1px solid #000;
 }
 
 .note__form--input {
@@ -527,8 +532,24 @@ a {
   max-width: 100%;
   height: auto;
   min-height: 500px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px;
+}
+.note__form--submit {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+.note__form--submit:hover {
+  border: 2px solid #000;
+  background-color: #fff;
+  color: #000;
 }
 
 /* MESSAGE */

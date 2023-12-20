@@ -27,12 +27,6 @@
     <!-- NAV -->
     <nav class="notes__nav">
       <div class="">
-        <div class="containerlogo">
-          <img
-            class="memologo"
-            src="{{ url_for('static', filename='images/logo-memomingle.png') }}"
-          />
-        </div>
         <h2 class="writtennote">
           <a
             class="memo"
@@ -65,11 +59,17 @@
           />
         </button>
       </form>
+      <div class="containerlogo">
+        <img
+          class="memologo"
+          src="{{ url_for('static', filename='images/logo-memomingle.png') }}"
+        />
+        <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
+          <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
+        </a>
+      </div>
 
       <!-- Sign Out -->
-      <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
-        <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
-      </a>
     </nav>
 
     <!-- NEW NOTE -->

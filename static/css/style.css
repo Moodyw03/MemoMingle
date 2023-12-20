@@ -602,7 +602,11 @@ a {
 
 
 @media only screen and (max-width: 1024px) {
-
+  .sign-in__form-container {
+    margin-top: 20px;
+   
+    padding-top: 0;
+  }
 .notes__nav--search {
   width: 100%;
   margin-left: 0px;

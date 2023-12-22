@@ -10,6 +10,9 @@ body {
   background-attachment: fixed;
 
 }
+html, body {
+  overflow-x: hidden
+}
 
 
 
@@ -580,73 +583,185 @@ a {
   text-align: center;
   z-index: 999;
 }
-
-
-
-
-
-@media only screen and (max-width: 1370px) {
+@media only screen and (max-width: 600px) {
   .logo {
-   position: absolute;
-   top: 150px;
-   left: 50%;
-   transform: translateX(-50%);
-   width: 150px;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
   }
-.sign-in__form-container {
-  margin-top: 250px;
-}
 
-
-}
-
-
-@media only screen and (max-width: 1024px) {
   .sign-in__form-container {
-    margin-top: 20px;
-   
-    padding-top: 0;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
   }
-.notes__nav--search {
-  width: 100%;
-  margin-left: 0px;
-  margin-top: 100px;
 
-}
-}
+  .notes__nav--search {
+    position: relative; /* Adjusted to be relative */
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    margin: 1rem 0; /* Added margin for spacing */
+  }
 
-@media only screen and (max-width: 992px) {
- 
+  .notes__nav--search--input {
+    width: 70%; /* Adjust input field width */
+  }
+
+  .notes__nav--search--button {
+    width: 20%; /* Adjust button width */
+  }
+}
+@media only screen and (max-width: 1366px) and (max-height: 1024px) {
+  .logo {
+    width: 100px;
+    top: 10%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
   .sign-in__form-container {
-    margin-top: 250px;
-   
+    
+    top: 10%;
     padding-top: 0;
+   
   }
+}
+
+@media only screen and (max-width: 1024px) and (max-height: 1366px) {
+  .logo {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+  }
+  .sign-in {
+    height: 70vh;
   }
 
-  @media only screen and (max-width: 600px) {
+  .sign-in__form-container {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+  }
 
-    .sign-in__heading {
-      margin-top: 100px;
-      font-size: 18px;
-      
-      
-    }
+  .notes__nav--search {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+@media only screen and (max-width: 1024px) and (max-height: 768px) {
+  .logo {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12%;
+  }
+  .sign-in {
+    height: 70vh;
+  }
 
-    .logo {
-      width: 20%;
-      margin-top: -40px;
-      margin-bottom: 30px;
-      
-     
-    }
-    .sign-in__image-container {
-     
-      margin-top: 80px;
-    }
-    .sign-in__form-container {
-      margin-top: 0 0;
-     
-      padding-top: 0;
-    }
-    }
+  .sign-in__form-container {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+  }
+
+  .notes__nav--search {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+/* @media only screen and (min-width: 1370px) {
+  .logo {
+    position: relative;
+    width: 15%;
+    margin: 0 auto;
+  }
+
+  .sign-in__form-container {
+    position: relative;
+    width: auto;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+
+  .notes__nav--search {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    margin: 1rem 0;
+  }
+} */
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .logo {
+    position: absolute;
+    top: 5%; /* Adjust position for iPhone X */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%; /* Adjust size for iPhone X */
+  }
+
+  .sign-in__form-container {
+    position: absolute;
+    top: 20%; /* Adjust top position for visibility */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%; /* Increase width for better readability */
+  }
+
+  .notes__nav--search {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    margin: 1rem 0; /* Add margin for spacing */
+  }
+
+  .notes__nav--search--input {
+    width: 70%; /* Adjust input field width */
+  }
+
+  .notes__nav--search--button {
+    width: 20%; /* Adjust button width */
+  }
+}
+
+@media only screen and (max-width: 768px) and (max-height: 1024px) {
+  .logo {
+    top: 100px !important; 
+
+    width: 15%;
+    
+  }
+  .sign-in__form-container {
+    margin-top: -100px;
+  }
+}
+
+
+

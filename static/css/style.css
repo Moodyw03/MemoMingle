@@ -631,6 +631,12 @@ a {
     padding-top: 0;
    
   }
+ .sino {
+  margin-top: 200px;
+
+ }
+ .signin img {
+  width: 150px;
 }
 
 @media only screen and (max-width: 1024px) and (max-height: 1366px) {
@@ -652,7 +658,17 @@ a {
     transform: translateX(-50%);
     width: 60%;
   }
+  .signin img {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+  }
 
+  .sino {
+    margin-top: 200px;
+    background-color: royalblue;
+  }
+  
   .notes__nav--search {
     position: relative;
     top: 0;
@@ -680,6 +696,12 @@ a {
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
+  }
+  .signin img {
+    top: 13%;
+  }
+  .sino {
+    margin-top: 30px;
   }
 
   .notes__nav--search {

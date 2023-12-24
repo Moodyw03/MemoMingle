@@ -578,13 +578,18 @@ a {
 @media only screen and (max-width: 767px) {
   /* HOMEPAGE */
   .homepage_hero--heading {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    gap: 0.25rem;
   }
   .homepage_hero--heading span {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
   .homepage_hero--image {
     width: 33vw;
+  }
+  .homepage_hero--button a{
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
   /* SIGN IN, UP */
   .container {
@@ -609,17 +614,26 @@ a {
   /* HOMEPAGE */
   .homepage {
     margin: 2rem 0;
+    min-height: 100vh;
+    min-height: 100dvh;
     height: 100%;
     gap: 1rem;
   }
   .homepage_hero--heading {
+    font-size: 2rem;
     margin-bottom: 0px;
+    gap: 0.2rem;
   }
   .homepage_hero--heading span {
-    display: none;
+    font-size: 1.25rem;
   }
   .homepage_hero--image {
     margin-bottom: 0px;
+    width: 12vw;
+  }
+  .homepage_hero--button a{
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
   /* SIGN IN, UP */
   .sign-in {

@@ -125,7 +125,7 @@
             class="notes__container"
           >
             <h3 class="notes__container--title">{{ note.title }}</h3>
-            <p class="notes__container--content">{{ note.content }}</p>
+            <p class="notes__container--content">{{ note.content | nl2br }}</p>
             <div class="notes__container--metadata">
               <div class="notes__container--tags">
                 {% for tag in note.tags %}

@@ -558,15 +558,13 @@ a {
 /* Styles for iPhone in portrait */
 @media only screen 
   and (min-device-width : 390px) 
-  and (max-device-width : 428px) 
-  and (-webkit-device-pixel-ratio : 3) {
+  and (max-device-width : 428px) {
     .container {
       padding: 0 1rem;
     }
     .sign-in__nav {
       margin: 1.5rem 0.5rem;
     }
-
     .sign-in__heading span {
       font-size: 22px;
     }
@@ -579,8 +577,10 @@ a {
 @media only screen 
   and (min-device-width : 390px) 
   and (max-device-width : 428px) 
-  and (orientation : landscape) 
-  and (-webkit-device-pixel-ratio : 3) {
+  and (orientation : landscape) {
+    .sign-in__image-container {
+      margin-bottom: 3rem;
+    }
     .sign-in__heading {
       display: none;
     }
@@ -597,22 +597,19 @@ a {
 @media only screen 
   and (min-device-width : 768px) 
   and (max-device-width : 1024px) 
-  and (orientation : landscape) 
-  and (-webkit-device-pixel-ratio : 2) {
+  and (orientation : landscape) {
 }
 
 /*  */
 /* Styles for iPad Pro | Desktop in portrait */
 @media only screen 
   and (min-device-width : 1024px) 
-  and (max-device-width : 1366px) 
-  and (-webkit-device-pixel-ratio : 2) {
+  and (max-device-width : 1366px) {
 }
 
 /* Styles for iPad Pro | Desktop in landscape */
 @media only screen 
   and (min-device-width : 1024px) 
   and (max-device-width : 1366px) 
-  and (orientation : landscape) 
-  and (-webkit-device-pixel-ratio : 2) {
+  and (orientation : landscape) {
 }

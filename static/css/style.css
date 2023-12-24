@@ -634,7 +634,7 @@ a {
 /* MEDIA QUERIES */
 /* Medium devices (tablets, portrait) */
 @media only screen and (max-width: 991px) {
-  .memo {
+  .memo{
     display: none;
   }
   .memologo {
@@ -706,13 +706,15 @@ a {
     max-width: 48px;
   }
   .notes_new_section {
-    justify-content: flex-start;
-    /* width - calc -> 100vw - 3rem */
-    width: calc(100vw - 3rem);
     padding: 0 0.5rem;
+    margin-bottom: 2.5rem;
   }
   .notes_new_section form {
     max-width: 100%;
+  }
+  .notes__form--button {
+    bottom: -3rem;
+    right: 0;
   }
   /* EDIT NOTE */
   .note_edit_form {

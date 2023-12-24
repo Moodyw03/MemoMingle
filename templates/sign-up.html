@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
@@ -40,16 +41,16 @@
           />
         </a>
       </nav>
-      <div class="sign-in__image-container">
-        <img
-          class="logo"
-          src="{{ url_for('static', filename='images/logo-memomingle.png') }}"
-        />
-      </div>
       <div class="sign-in__form-container">
+        <div class="sign-in__image-container">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/logo-memomingle.png') }}"
+          />
+        </div>
         <h2 class="sign-in__heading">
-          <strong>MemoMingle</strong><br />Notes at Your Fingertips, Anywhere,
-          Anytime!
+          <strong>MemoMingle</strong>
+          <span> Notes at Your Fingertips, Anywhere, Anytime! </span>
         </h2>
         <form
           class="sign-in__form"

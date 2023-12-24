@@ -95,10 +95,15 @@ a {
   line-height: 1.2;
   text-align: center;
   display: flex;
+  gap: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+}
+
+.homepage_hero--heading span {
+  font-size: 2rem;
 }
 
 .homepage_hero--image {
@@ -166,16 +171,18 @@ a {
 }
 
 .sign-in {
+  min-height: 100vh;
   height: 100vh;
+  margin-bottom: 2rem;
 }
 
 .sign-in__heading {
   margin-top: 30px;
   font-size: 30px;
   font-weight: 400;
-  line-height: 1.2;
   text-align: center;
   display: flex;
+  gap: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -555,60 +562,79 @@ a {
 }
 
 /* MEDIA QUERIES */
-/* Styles for iPhone in portrait */
-@media only screen 
-  and (min-device-width : 390px) 
-  and (max-device-width : 428px) {
-    .container {
-      padding: 0 1rem;
-    }
-    .sign-in__nav {
-      margin: 1.5rem 0.5rem;
-    }
-    .sign-in__heading span {
-      font-size: 22px;
-    }
-    .sign-in__form {
-      width: 100%;
-    }
+/* Medium devices (tablets, portrait) */
+@media only screen and (max-width: 991px) {
+
 }
 
-/* Styles for iPhone in landscape */
-@media only screen 
-  and (min-device-width : 390px) 
-  and (max-device-width : 428px) 
-  and (orientation : landscape) {
-    .sign-in__image-container {
-      margin-bottom: 3rem;
-    }
-    .sign-in__heading {
-      display: none;
-    }
+/* Medium devices (tablets, landscape) */
+@media only screen and (max-width: 991px) and (orientation: landscape) {
+  .homepage_hero--image {
+    width: 16vw;
+  }
 }
 
-/* Styles for iPad in portrait */
-@media only screen 
-  and (min-device-width : 768px) 
-  and (max-device-width : 1024px) {
+/* Small devices (phones, portrait) */
+@media only screen and (max-width: 767px) {
+  /* HOMEPAGE */
+  .homepage_hero--heading {
+    font-size: 2.5rem;
+  }
+  .homepage_hero--heading span {
+    font-size: 1.5rem;
+  }
+  .homepage_hero--image {
+    width: 33vw;
+  }
+  /* SIGN IN, UP */
+  .container {
+    padding: 0 1rem;
+  }
+  .sign-in__nav {
+    margin: 1.5rem 0rem;
+  }
+  .sign-in__heading {
+    gap: 0.25rem;
+  }
+  .sign-in__heading span {
+    font-size: 1.25rem;
+  }
+  .sign-in__form {
+    width: 100%;
+  }
 }
 
-/* Styles for iPad in landscape */
-@media only screen 
-  and (min-device-width : 768px) 
-  and (max-device-width : 1024px) 
-  and (orientation : landscape) {
-}
-
-/*  */
-/* Styles for iPad Pro | Desktop in portrait */
-@media only screen 
-  and (min-device-width : 1024px) 
-  and (max-device-width : 1366px) {
-}
-
-/* Styles for iPad Pro | Desktop in landscape */
-@media only screen 
-  and (min-device-width : 1024px) 
-  and (max-device-width : 1366px) 
-  and (orientation : landscape) {
+/* Small devices (phones, landscape) */
+@media only screen and (max-width: 845px) and (max-height: 450px) {
+  /* HOMEPAGE */
+  .homepage {
+    margin: 2rem 0;
+    height: 100%;
+    gap: 1rem;
+  }
+  .homepage_hero--heading {
+    margin-bottom: 0px;
+  }
+  .homepage_hero--heading span {
+    display: none;
+  }
+  .homepage_hero--image {
+    margin-bottom: 0px;
+  }
+  /* SIGN IN, UP */
+  .sign-in {
+    height: 100%;
+  }
+  .sign-in__form-container {
+    gap: 1rem;
+  }
+  .sign-in__heading {
+    display: none;
+  }
+  .sign-in__form {
+    gap: 0.25rem;
+  }
+  .sign-in__form--input {
+    margin-bottom: 0.25rem;
+  }
 }

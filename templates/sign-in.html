@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
   </head>
   <body class="container">
-
     <!-- Success -->
     {% if success %}
     <div id="success">
@@ -24,22 +24,26 @@
       <p>{{ error }}</p>
     </div>
     {% endif %}
-    
-    <section class="sign-in">
-      <nav class="sign-in__nav">
-        <a href="{{ url_for('index') }}">
-          <img
-            src="https://unpkg.com/lucide-static@latest/icons/chevron-left.svg"
-          />
-        </a>
-      </nav>
-      <div class="sign-in__image-container signin">
+
+    <nav class="sign-in__nav">
+      <a href="{{ url_for('index') }}">
         <img
-          class="logo"
-          src="{{ url_for('static', filename='images/logo-memomingle.png') }}"
+          src="https://unpkg.com/lucide-static@latest/icons/chevron-left.svg"
         />
+      </a>
+    </nav>
+    <section class="sign-in">
       <div class="sign-in__form-container sino">
-        <h2 class="sign-in__heading"><strong>MemoMingle</strong><br><span class="">Notes at Your Fingertips, Anywhere, Anytime!</span></h2>
+        <div class="sign-in__image-container signin">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/logo-memomingle.png') }}"
+          />
+        </div>
+        <h2 class="sign-in__heading">
+          <strong>MemoMingle</strong>
+          <span class="">Notes at Your Fingertips, Anywhere, Anytime!</span>
+        </h2>
         <form
           class="sign-in__form"
           action="{{ url_for('auth.sign_in') }}"

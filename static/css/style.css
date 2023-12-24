@@ -4,33 +4,21 @@
 
 body {
   font-family: Inter, Arial, sans-serif;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("notesimage.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("notesimage.jpg");
   /* background-image: url("notesimage.jpg"); */
   background-size: cover;
   background-attachment: fixed;
-
 }
-html, body {
-  overflow-x: hidden
-}
-
-
-
-
-.writtennote {
-  /* width: 15%; */
- 
-
-}
-.writtennote a {
-  background-color: ;
+html,
+body {
+  overflow-x: hidden;
 }
 
 .memo {
   display: flex;
   flex-direction: column;
   margin-left: 50px;
-
 }
 
 .slogan {
@@ -39,16 +27,13 @@ html, body {
   line-height: 1.2;
   flex-direction: column;
   margin-left: -62px;
-
-
 }
-
 
 .logo {
   width: 10%;
+  min-width: 100px;
   display: block;
   margin: auto;
-
 }
 
 .logonotes {
@@ -132,7 +117,6 @@ a {
   margin: 0 auto;
   display: block;
 }
-
 
 .homepage_hero--button a {
   cursor: pointer;
@@ -266,18 +250,14 @@ a {
   display: flex;
   justify-content: flex-end;
   width: 100%;
-
 }
 
 .memologo {
   width: 100px;
-
-
 }
 .memologo .edit {
   margin-left: 200px;
 }
-
 
 .notes__nav {
   margin: 1rem 2rem;
@@ -322,7 +302,6 @@ a {
   display: flex;
   align-items: center;
   margin-bottom: -50px;
-
 }
 
 .notes__nav--search--input {
@@ -337,8 +316,6 @@ a {
   border: none;
   margin-left: -50px;
   margin-top: 5px;
-
-
 }
 
 .notes .notes__container {
@@ -397,8 +374,6 @@ a {
 
 /* New note */
 
-
-
 .notes_new_section {
   display: flex;
   justify-content: center;
@@ -424,7 +399,6 @@ a {
   justify-content: center;
   border: 2px solid #ccc;
 
-
   border-radius: 0.5rem;
   padding: 0.1rem 0.1rem;
   /* overflow: hidden; */
@@ -439,12 +413,11 @@ a {
   padding: 0.2rem 0.4rem;
   border: none;
   border-bottom: 1px solid #ccc;
-  border-radius: 0.10rem;
+  border-radius: 0.1rem;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   transition: all 0.2s ease-in-out;
-
 }
 
 .notes__form--input:first-child {
@@ -511,8 +484,6 @@ a {
   margin: auto;
   border-radius: 10px;
   margin-top: -50px;
- 
-
 }
 .note__form:not(:last-child):focus {
   border-bottom: 1px solid #000;
@@ -523,12 +494,11 @@ a {
   padding: 0.5rem 0.5rem;
   border: none;
   border-bottom: 1px solid #ccc;
-  border-radius: 0.30rem;
+  border-radius: 0.3rem;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   transition: all 0.2s ease-in-out;
-
 }
 
 .oi {
@@ -583,207 +553,63 @@ a {
   text-align: center;
   z-index: 999;
 }
-@media only screen and (max-width: 600px) {
-  .logo {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%;
-  }
 
-  .sign-in__form-container {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-  }
+/* MEDIA QUERIES */
+/* Styles for iPhone in portrait */
+@media only screen 
+  and (min-device-width : 390px) 
+  and (max-device-width : 428px) 
+  and (-webkit-device-pixel-ratio : 3) {
+    .container {
+      padding: 0 1rem;
+    }
+    .sign-in__nav {
+      margin: 1.5rem 0.5rem;
+    }
 
-  .notes__nav--search {
-    position: relative; /* Adjusted to be relative */
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    margin: 1rem 0; /* Added margin for spacing */
-  }
-
-  .notes__nav--search--input {
-    width: 70%; /* Adjust input field width */
-  }
-
-  .notes__nav--search--button {
-    width: 20%; /* Adjust button width */
-  }
-}
-@media only screen and (max-width: 1366px) and (max-height: 1024px) {
-  .logo {
-    width: 100px;
-    top: 10%;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-  }
-  .sign-in__form-container {
-    
-    top: 10%;
-    padding-top: 0;
-   
-  }
- .sino {
-  margin-top: 200px;
-
- }
- .signin img {
-  width: 150px;
+    .sign-in__heading span {
+      font-size: 22px;
+    }
+    .sign-in__form {
+      width: 100%;
+    }
 }
 
-@media only screen and (max-width: 1024px) and (max-height: 1366px) {
-  .logo {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20%;
-  }
-  .sign-in {
-    height: 70vh;
-  }
-
-  .sign-in__form-container {
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-  }
-  .signin img {
-    position: absolute;
-    left: 50%;
-    top: 20%;
-  }
-
-  .sino {
-    margin-top: 200px;
-    background-color: royalblue;
-  }
-  
-  .notes__nav--search {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    margin: 1rem 0;
-  }
-}
-@media only screen and (max-width: 1024px) and (max-height: 768px) {
-  .logo {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 12%;
-  }
-  .sign-in {
-    height: 70vh;
-  }
-
-  .sign-in__form-container {
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-  }
-  .signin img {
-    top: 13%;
-  }
-  .sino {
-    margin-top: 30px;
-  }
-
-  .notes__nav--search {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    margin: 1rem 0;
-  }
-}
-/* @media only screen and (min-width: 1370px) {
-  .logo {
-    position: relative;
-    width: 15%;
-    margin: 0 auto;
-  }
-
-  .sign-in__form-container {
-    position: relative;
-    width: auto;
-    top: 0;
-    left: 0;
-    transform: none;
-  }
-
-  .notes__nav--search {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    margin: 1rem 0;
-  }
-} */
-
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-  .logo {
-    position: absolute;
-    top: 5%; /* Adjust position for iPhone X */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%; /* Adjust size for iPhone X */
-  }
-
-  .sign-in__form-container {
-    position: absolute;
-    top: 20%; /* Adjust top position for visibility */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85%; /* Increase width for better readability */
-  }
-
-  .notes__nav--search {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    margin: 1rem 0; /* Add margin for spacing */
-  }
-
-  .notes__nav--search--input {
-    width: 70%; /* Adjust input field width */
-  }
-
-  .notes__nav--search--button {
-    width: 20%; /* Adjust button width */
-  }
+/* Styles for iPhone in landscape */
+@media only screen 
+  and (min-device-width : 390px) 
+  and (max-device-width : 428px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio : 3) {
 }
 
-@media only screen and (max-width: 768px) and (max-height: 1024px) {
-  .logo {
-    top: 100px !important; 
-
-    width: 15%;
-    
-  }
-  .sign-in__form-container {
-    margin-top: -100px;
-  }
+/* Styles for iPad in portrait */
+@media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (-webkit-device-pixel-ratio : 2) {
 }
 
+/* Styles for iPad in landscape */
+@media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio : 2) {
+}
 
+/*  */
+/* Styles for iPad Pro | Desktop in portrait */
+@media only screen 
+  and (min-device-width : 1024px) 
+  and (max-device-width : 1366px) 
+  and (-webkit-device-pixel-ratio : 2) {
+}
 
+/* Styles for iPad Pro | Desktop in landscape */
+@media only screen 
+  and (min-device-width : 1024px) 
+  and (max-device-width : 1366px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio : 2) {
+}

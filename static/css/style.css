@@ -595,11 +595,16 @@ a {
   .container {
     padding: 0 1rem;
   }
+  .sign-in__form-container {
+    height: unset;
+    padding-bottom: 2rem;
+  }
   .sign-in__nav {
     margin: 1.5rem 0rem;
   }
   .sign-in__heading {
     gap: 0.25rem;
+    margin: 0px;
   }
   .sign-in__heading span {
     font-size: 1.25rem;

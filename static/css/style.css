@@ -259,13 +259,13 @@ a {
   gap: 0.25rem;
 }
 
+.memologo {
+  max-width: 100px;
+}
+
 .memo {
   font-size: 1.5rem;
   font-weight: 700;
-}
-
-.memologo {
-  max-width: 100px;
 }
 
 .slogan {
@@ -274,16 +274,6 @@ a {
   color: #222;
   display: flex;
   flex-direction: column;
-}
-
-.notes__section {
-  padding: 1rem 2rem;
-}
-
-.notes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
 }
 
 .notes__nav--search {
@@ -346,6 +336,16 @@ a {
   background-color: #ffdddddd;
 }
 
+.notes__section {
+  padding: 1rem 2rem;
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
 .notes .notes__container {
   position: relative;
   display: block;
@@ -354,7 +354,7 @@ a {
   padding: 1rem;
   background-color: #fff;
   height: 200px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .notes__container--title {
@@ -426,9 +426,7 @@ a {
   flex-direction: column;
   justify-content: center;
   border: 2px solid #ccc;
-
-  border-radius: 0.5rem;
-  padding: 0.1rem 0.1rem;
+  border-radius: 10px;
 }
 
 .notes_new_section form:focus-within {
@@ -447,13 +445,24 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
-.notes__form--input:first-child {
+.notes__form--input.title {
   font-weight: 700;
+
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
-.notes__form--input:last-child {
+.note__form--input.textarea {
+  overflow: auto;
+  resize: none;
+}
+
+.notes__form--input.tags {
   font-size: 0.8rem;
   border: none;
+
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .notes__form--input:focus {
@@ -584,12 +593,29 @@ a {
 /* MEDIA QUERIES */
 /* Medium devices (tablets, portrait) */
 @media only screen and (max-width: 991px) {
+  .memo {
+    display: none;
+  }
+  .memologo {
+    max-width: 72px;
+  }
 }
 
 /* Medium devices (tablets, landscape) */
 @media only screen and (max-width: 991px) and (orientation: landscape) {
   .homepage_hero--image {
     width: 16vw;
+  }
+  /* NOTES */
+  .memologo {
+    max-width: 72px;
+  }
+  .memo {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .slogan {
+    font-size: 0.8rem;
   }
 }
 
@@ -630,6 +656,22 @@ a {
   }
   .sign-in__form {
     width: 100%;
+  }
+  /* NOTES */
+  .notes__nav {
+    padding: 1rem 1rem;
+  }
+  .memologo {
+    max-width: 48px;
+  }
+  .notes_new_section {
+    justify-content: flex-start;
+    /* width - calc -> 100vw - 3rem */
+    width: calc(100vw - 3rem);
+    padding: 0 0.5rem;
+  }
+  .notes_new_section form {
+    max-width: 100%;
   }
 }
 
@@ -674,5 +716,9 @@ a {
   }
   .sign-in__form--input {
     margin-bottom: 0.25rem;
+  }
+  /* NOTES */
+  .memologo {
+    max-width: 48px;
   }
 }

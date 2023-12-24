@@ -85,7 +85,7 @@
         method="POST"
       >
         <input
-          class="notes__form--input"
+          class="notes__form--input title"
           type="text"
           name="title"
           placeholder="TITLE"
@@ -93,9 +93,11 @@
         />
 
         <textarea
-          class="notes__form--input"
+          class="notes__form--input textarea"
           name="content"
           placeholder="A new note ..."
+          rows="6"
+          wrap="soft"
         ></textarea>
 
         <button class="notes__form--button" type="submit">
@@ -103,7 +105,7 @@
         </button>
 
         <input
-          class="notes__form--input"
+          class="notes__form--input tags"
           type="text"
           name="tags"
           placeholder="tags (';' separated)"

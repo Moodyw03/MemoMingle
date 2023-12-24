@@ -581,6 +581,9 @@ a {
   and (max-device-width : 428px) 
   and (orientation : landscape) 
   and (-webkit-device-pixel-ratio : 3) {
+    .sign-in__heading {
+      display: none;
+    }
 }
 
 /* Styles for iPad in portrait */

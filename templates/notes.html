@@ -126,13 +126,24 @@
           >
             <h3 class="notes__container--title">{{ note.title }}</h3>
             <p class="notes__container--content">{{ note.content }}</p>
-            <div class="notes__container--tags">
-              {% for tag in note.tags %}
-              <span class="notes__container--tags--tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
-            <div class="notes__container--date">
-              <span>{{ note.lastModified.strftime('%H:%M %d/%m/%Y') }}</span>
+            <div class="notes__container--metadata">
+              <div class="notes__container--tags">
+                {% for tag in note.tags %}
+                <span class="notes__container--tags--tag">{{ tag }}</span>
+                {% endfor %}
+              </div>
+              <div class="notes__container--date">
+                <!-- <span>{{ note.lastModified.strftime('%d/%m/%Y %H:%M') }}</span> -->
+
+                {% if note.lastModified.date() == current_date %}
+                <div>{{ note.lastModified.strftime('%I:%M %p') }}</div>
+                {% else %}
+                <div>
+                  <span>{{ note.lastModified.strftime('%b %d, %Y') }}</span>
+                  <span>{{ note.lastModified.strftime('%I:%M %p') }}</span>
+                </div>
+                {% endif %}
+              </div>
             </div>
             <div class="notes__container--actions">
               <!-- Delete note -->

@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import (
     Blueprint,
     request,
@@ -31,7 +32,15 @@ def get_notes():
     success = request.args.get("success")
     error = request.args.get("error")
     notes = Note.find_all(user_id)
-    return render_template("notes.html", notes=notes, success=success, error=error)
+
+    current_date = datetime.now().date()
+    return render_template(
+        "notes.html",
+        notes=notes,
+        current_date=current_date,
+        success=success,
+        error=error,
+    )
 
 
 # New Note
@@ -127,4 +136,7 @@ def search_notes():
         print(query)
 
         notes = Note.search(query, user_id)
-        return render_template("notes.html", notes=notes, search=query)
+        current_date = datetime.now().date()
+        return render_template(
+            "notes.html", notes=notes, current_date=current_date, search=query
+        )

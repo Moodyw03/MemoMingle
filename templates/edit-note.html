@@ -10,57 +10,89 @@
       href="{{ url_for('static', filename='css/style.css') }}"
     />
   </head>
-  <body>
+  <body class="">
+    <!-- NAV -->
     <nav class="notes__nav">
-      <h2 class="writtennote">
-        <a
-          class="memo"
-          href="{{ url_for('note.get_notes') }}"
-          title="NemoMingle"
-        >
-          MemoMingle
-          <span class="slogan">At Your Fingertips, Anywhere, Anytime!</span></a
-        >
-      </h2>
-
-      <div class="containerlogo">
+      <div class="written-note">
         <img
-          class="memologo edit"
+          class="memologo"
           src="{{ url_for('static', filename='images/logo-memomingle.png') }}"
-          alt="MemoMingle"
         />
+        <h2>
+          <a
+            class="memo"
+            href="{{ url_for('note.get_notes') }}"
+            title="NemoMingle"
+          >
+            <strong class="">MemoMingle</strong>
+            <span class="slogan">
+              <span>At Your Fingertips,</span>
+              <span>Anywhere,</span>
+              <span>Anytime!</span>
+            </span>
+          </a>
+        </h2>
+      </div>
+
+      <!-- Search bar -->
+      <form
+        class="notes__nav--search"
+        action="{{ url_for('note.search_notes') }}"
+        method="POST"
+      >
+        <input
+          class="notes__nav--search--input"
+          type="text"
+          name="search"
+          placeholder="Search"
+          value="{% if search %}{{ search }}{% endif %}"
+        />
+        <button class="notes__nav--search--button" type="submit">
+          <img
+            class="notes__nav--search--button--icon"
+            src="https://unpkg.com/lucide-static@latest/icons/search.svg"
+          />
+        </button>
+      </form>
+      <div class="notes__nav--logout">
+        <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
+          <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
+        </a>
       </div>
 
       <!-- Sign Out -->
-      <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
-        <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
-      </a>
     </nav>
 
     {% if note %}
     <form
-      class="note__form"
+      class="note_edit_form"
       action="{{ url_for('note.edit_note', note_id=note._id) }}"
       method="POST"
     >
-      <label class="note__form--label" for="title">Title</label>
+      <label class="note_edit_form--label" for="title">Title</label>
       <input
-        class="note__form--input"
+        class="note_edit_form--input title"
         type="text"
         name="title"
         placeholder="Title"
         value="{{ note.title }}"
       />
 
-      <label class="note__form--label" for="content">Content</label>
-      <textarea class="textarea oi" name="content" placeholder="Content">
+      <label class="note_edit_form--label" for="content">Content</label>
+      <textarea
+        class="note_edit_form--input textarea"
+        name="content"
+        placeholder="Content"
+        rows="12"
+        wrap="soft"
+      >
         {{ note.content }}
       </textarea>
 
       <!-- TAGS -->
-      <label class="note__form--label" for="tags">Tags</label>
+      <label class="note_edit_form--label" for="tags">Tags</label>
       <input
-        class="note__form--input"
+        class="note_edit_form--input tags"
         type="text"
         name="tags"
         placeholder="Enter tags separated by semi-colons"
@@ -68,7 +100,7 @@
       />
 
       <input
-        class="note__form--submit"
+        class="button note_edit_form--submit"
         type="submit"
         value="Update Note"
         class="button"

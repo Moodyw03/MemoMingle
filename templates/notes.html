@@ -119,35 +119,36 @@
       {% if notes %}
       <div class="notes">
         {% for note in notes %}
-        <a
-          href="{{ url_for('note.edit_note', note_id=note._id) }}"
-          class="notes__container"
-        >
-          <h3 class="notes__container--title">{{ note.title }}</h3>
-
-          <p class="notes__container--content">{{ note.content }}</p>
-          <div class="notes__container--tags">
-            {% for tag in note.tags %}
-            <span class="notes__container--tags--tag">{{ tag }}</span>
-            {% endfor %}
-          </div>
-          <div class="notes__container--date">
-            <span>{{ note.lastModified.strftime('%H:%M %d/%m/%Y') }}</span>
-          </div>
-          <div class="notes__container--actions">
-            <!-- Delete note -->
-            <form
-              action="{{ url_for('note.delete_note', note_id=note._id) }}"
-              method="post"
-            >
-              <button type="submit" class="notes__container--actions--button">
-                <img
-                  src="https://unpkg.com/lucide-static@latest/icons/trash-2.svg"
-                />
-              </button>
-            </form>
-          </div>
-        </a>
+        <div class="note">
+          <a
+            href="{{ url_for('note.edit_note', note_id=note._id) }}"
+            class="notes__container"
+          >
+            <h3 class="notes__container--title">{{ note.title }}</h3>
+            <p class="notes__container--content">{{ note.content }}</p>
+            <div class="notes__container--tags">
+              {% for tag in note.tags %}
+              <span class="notes__container--tags--tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <div class="notes__container--date">
+              <span>{{ note.lastModified.strftime('%H:%M %d/%m/%Y') }}</span>
+            </div>
+            <div class="notes__container--actions">
+              <!-- Delete note -->
+              <form
+                action="{{ url_for('note.delete_note', note_id=note._id) }}"
+                method="post"
+              >
+                <button type="submit" class="notes__container--actions--button">
+                  <img
+                    src="https://unpkg.com/lucide-static@latest/icons/trash-2.svg"
+                  />
+                </button>
+              </form>
+            </div>
+          </a>
+        </div>
         {% endfor %}
       </div>
       {% else %}

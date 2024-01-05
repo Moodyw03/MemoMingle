@@ -100,7 +100,18 @@ For more information on testing, [click here](https://github.com/Moodyw03/MemoMi
 
 
 
+## Deployment
+Steps to deploy [App Name] in a production environment:
+1. [Step 1]
+2. [Step 2]
 
+
+## Troubleshooting
+Encounter an issue? Check out our common troubleshooting solutions.
+
+
+## Acknowledgments
+Special thanks to [individuals, resources, and communities that supported the project].
 
 
 

@@ -1,3 +1,5 @@
+## Testing
+
 ### Manual Testing
 
 During the development of MemoMingle, I conducted manual testing at every stage, ensuring individual components functioned correctly upon implementation. Google Chrome DevTools was instrumental in this process, allowing me to inspect the code and its rendered output simultaneously.
@@ -22,11 +24,9 @@ Any additional information about HTML validation, links to validation tools, or 
 <details>
 <summary>CSS Validate</summary>
 
-Any additional information about CSS validation, links to validation tools, or related content can go here.
+<div align="center"><a href="https://ibb.co/vxZV336"><img src="https://i.ibb.co/VW2Jggc/Screenshot-2024-01-05-at-21-15-51.png" alt="Screenshot-2024-01-05-at-21-15-51" border="0"></a></div>
 
 </details>
-
-
 
 
 

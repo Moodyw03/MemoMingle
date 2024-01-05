@@ -1,4 +1,4 @@
-# MemoMingle
+
 <h1 align="center">MemoMingle</h1>
 
 [View the live project here.](https://memomingle.vercel.app/)

@@ -61,7 +61,7 @@ Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For
 <div align="center"><a href="https://ibb.co/vvSkVMb"><img src="https://i.ibb.co/yBrqdxD/flowchart.jpg" alt="flowchart" border="0"></a></div>
 
 ## Functionality
-<div align="center"><a href="https://ibb.co/Y74Z6qF"><img src="https://i.ibb.co/N6gSXHd/Screenshot-2024-01-05-at-17-56-33.png" alt="Screenshot-2024-01-05-at-17-56-33" border="0"></a></div>
+<div align="center"><a href="https://ibb.co/zXMX6TZ"><img src="https://i.ibb.co/rxjxdRH/crud.jpg" alt="crud" border="0"></a></div>
 
 ### Authentication
 

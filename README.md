@@ -109,6 +109,22 @@ The Lighthouse report for MemoMingle demonstrates exceptional results, with perf
 
 <div align="center"><a href="https://ibb.co/n832QRN"><img src="https://i.ibb.co/dJb9k7w/Screenshot-2024-01-05-at-21-14-45.png" alt="Screenshot-2024-01-05-at-21-14-45" border="0"></a></div>
 
+<details>
+<summary>Sign-in</summary>
+
+Any additional information about HTML validation, links to validation tools, or related content can go here.
+<div align="center"><a href="https://ibb.co/n832QRN"><img src="https://i.ibb.co/dJb9k7w/Screenshot-2024-01-05-at-21-14-45.png" alt="Screenshot-2024-01-05-at-21-14-45" border="0"></a></div>
+
+
+</details>
+
+<details>
+<summary>CSS Validate</summary>
+
+Any additional information about CSS validation, links to validation tools, or related content can go here.
+
+</details>
+
 
 
 

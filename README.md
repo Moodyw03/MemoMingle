@@ -10,9 +10,14 @@ Whether you're jotting down quick reminders or compiling detailed research notes
 This submission represents Milestone Project 3 for the Code Institute's Diploma in Web Application Development program. My website comprises of a note-taking app and utilizes the HTML, CSS,  Javascript, and Python technologies I have acquired throughout the course.
 <div align="center">
 
+
+
 <a href="https://ibb.co/T1yzLCd"><img src="https://i.ibb.co/hc0pfqw/memomingle-copy.jpg" alt="memomingle-copy" border="0"></a>
 
 </div>
+## Repository
+
+[Find the project repository here:](https://github.com/Moodyw03/moodloop-final)
 
 ## User Interface
 MemoMingle's user interface (UI) is crafted with a focus on simplicity and ease of use, ensuring that users can navigate the app intuitively. The UI employs a warm, pastel colour palette that creates a welcoming and calming environment, aimed at enhancing user concentration and reducing visual strain during note management tasks.

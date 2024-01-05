@@ -25,14 +25,18 @@ The Lighthouse report for MemoMingle demonstrates exceptional results, with perf
 <div align="center"><a href="https://ibb.co/SmWYybS"><img src="https://i.ibb.co/FYNZ32p/Screenshot-2024-01-05-at-21-17-23.png" alt="Screenshot-2024-01-05-at-21-17-23" border="0"></a></div>
 
 
-</details>
+### Html Validate 
 
-<details>
-<summary>CSS Validate</summary>
 
-<div align="center"><a href="https://ibb.co/vxZV336"><img src="https://i.ibb.co/VW2Jggc/Screenshot-2024-01-05-at-21-15-51.png" alt="Screenshot-2024-01-05-at-21-15-51" border="0"></a></div>
+### CSS Validate 
 
-</details>
+### Javascript
+JavaScript
+I used JsHint to check the script.js file for errors and after adding the /*jshint esversion: 6 */ line to the top of the file to counter the ES6 errors, I only received undefined variable notes from the jquery materialize calls and unused variable notes from the functions which are all called directly from on clicks on the HTML files.
+
+### CI Python Linter
+I used the Code Institue Python Linter to check the app.py for errors, after fixing some whitespace errors and lines which were too long, I retested to find there were no errors.
+
 
 
 

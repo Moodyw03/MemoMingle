@@ -96,7 +96,8 @@ Input Validation: All user inputs are validated and sanitized to protect against
 These technologies and strategies form a robust security posture for MemoMingle, ensuring user data integrity and confidentiality.
 
 ## Testing 
-For more information on testing, click here.
+For more information on testing, [click here](https://github.com/Moodyw03/MemoMingle/blob/main/testing.md).
+
 
 
 

@@ -21,8 +21,8 @@ The Lighthouse report for MemoMingle demonstrates exceptional results, with perf
 </details>
 <details>
 <summary>Notes</summary>
-
-<div align="center"><a href="https://ibb.co/vxZV336"><img src="https://i.ibb.co/VW2Jggc/Screenshot-2024-01-05-at-21-15-51.png" alt="Screenshot-2024-01-05-at-21-15-51" border="0"></a></div>
+  
+<div align="center"><a href="https://ibb.co/SmWYybS"><img src="https://i.ibb.co/FYNZ32p/Screenshot-2024-01-05-at-21-17-23.png" alt="Screenshot-2024-01-05-at-21-17-23" border="0"></a></div>
 
 
 </details>

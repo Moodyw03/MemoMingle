@@ -95,6 +95,10 @@ Secure Transport Layer: The application is configured to enforce HTTPS to ensure
 Input Validation: All user inputs are validated and sanitized to protect against SQL injection and XSS attacks.
 These technologies and strategies form a robust security posture for MemoMingle, ensuring user data integrity and confidentiality.
 
+## Testing
+
+
+
 
 
 

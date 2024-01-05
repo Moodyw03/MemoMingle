@@ -37,9 +37,28 @@ The choice of colours and layout is informed by psychological principles that as
 </div>
 
 
-## Repository
+## Code Overview
 
-[Find the project repository here:](https://github.com/Moodyw03/moodloop-final)
+### App Structure
+
+config/: Contains configuration files, like db.py for database connections.
+controllers/: Holds the auth_controller.py and note_controller.py for handling authentication and note operations respectively.
+models/: Includes user.py and note.py defining the data models.
+static/: Stores static files like CSS, JS, and images for the front end.
+templates/: Contains HTML templates for rendering views.
+app.py: The main entry point of the Flask application.
+.env: Stores environment variables (not to be uploaded to version control).
+Database Schema:
+
+Users Collection: Stores username and hashed passwords.
+Notes Collection: Stores notes with fields for title, content, tags, creation, and last modified timestamps.
+
+API Endpoints:
+Authentication (/auth/sign-in, /auth/sign-up, /auth/sign-out): For user login, registration, and logout.
+Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For listing, creating, deleting, and editing notes.
+
+
+<div align="center"><a href="https://ibb.co/vvSkVMb"><img src="https://i.ibb.co/yBrqdxD/flowchart.jpg" alt="flowchart" border="0"></a></div>
 
 
 

@@ -60,6 +60,31 @@ Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For
 
 <div align="center"><a href="https://ibb.co/vvSkVMb"><img src="https://i.ibb.co/yBrqdxD/flowchart.jpg" alt="flowchart" border="0"></a></div>
 
+## Functionality
+<div align="center"><a href="https://ibb.co/Y74Z6qF"><img src="https://i.ibb.co/N6gSXHd/Screenshot-2024-01-05-at-17-56-33.png" alt="Screenshot-2024-01-05-at-17-56-33" border="0"></a></div>
+
+### Authentication
+
+Sign-Up: Users register by providing a username and password. The password is hashed for security and stored in the Users collection.
+Sign-In: Users log in using their credentials. The system validates the input against the stored hashed password. Upon success, a session is initiated.
+Sign-Out: Users sign out to end their session, clearing their session data and preventing further access to their notes without re-authentication.
+
+### Notes Management
+
+Creating Notes: Users can create notes by entering a title and content, along with optional tags.
+Updating Notes: Existing notes can be updated. Users can modify the title, content, and tags of their notes.
+Deleting Notes: Users can delete any of their notes. This action is irreversible.
+Searching Notes: Users can search through their notes using keywords. The search can match note titles, content, and tags.
+
+### Error Handling
+
+User Feedback: Clear messages are displayed to users upon errors, like invalid login attempts or issues in note operations.
+Validation Errors: Input validation errors, such as short usernames or passwords, prompt the user to correct their input.
+
+
+
+
+
 
 
 

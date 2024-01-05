@@ -17,7 +17,7 @@ This submission represents Milestone Project 3 for the Code Institute's Diploma 
 
 <div align="center">
 
-<a href="https://ibb.co/T1yzLCd"><img src="https://i.ibb.co/2nng3H0/moodloop-mockup.jpg" alt="memominglep-mockup" border="0"></a>
+<a href="https://ibb.co/T1yzLCd"><img src="https://i.ibb.co/hc0pfqw/memomingle-copy.jpg" alt="memomingle-copy" border="0"></a>
 
 </div>
 

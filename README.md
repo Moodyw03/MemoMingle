@@ -27,7 +27,9 @@ Key design elements include:
 
 Minimalistic Layout: The clean interface avoids clutter, directing user focus to the task at hand.
 Intuitive Controls: Commonly used actions are prominently placed and easily accessible, promoting a fluid user experience.
+
 Consistent Visual Elements: The use of familiar icons and consistent colour coding helps users quickly associate functions with symbols.
+
 Responsive Design: The UI adjusts seamlessly across various devices, ensuring functionality and aesthetics are maintained on screens of all sizes.
 The choice of colours and layout is informed by psychological principles that associate certain hues with memory and cognitive function, which is essential for a note-taking application. This thoughtful design approach aims to make the note-taking process as effortless and pleasant as possible for the user.
 

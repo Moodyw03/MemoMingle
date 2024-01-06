@@ -62,7 +62,9 @@ Similarly, the app.py module, which serves as the nerve center of the applicatio
 
 These exemplary linter outcomes not only highlight the developer's adherence to coding standards but also provide assurance of the application's technical solidity, paving the way for a secure and reliable user experience in MemoMingle.
 
+<div align="center"><a href="https://ibb.co/zffFFT4"><img src="https://i.ibb.co/3hhvv9C/Screenshot-2024-01-05-at-21-04-22.png" alt="Screenshot-2024-01-05-at-21-04-22" border="0"></a></div>
 
+<div align="center"><a href="https://ibb.co/Hx6djCK"><img src="https://i.ibb.co/Nm5SMrF/Screenshot-2024-01-05-at-21-05-29.png" alt="Screenshot-2024-01-05-at-21-05-29" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>image hosting free</a><br /></div>
 
 
 

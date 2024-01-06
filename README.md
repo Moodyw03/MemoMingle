@@ -22,8 +22,6 @@ This submission represents Milestone Project 3 for the Code Institute's Diploma 
 
 
 
-
-    - 
 ## User Interface
 MemoMingle's user interface (UI) is crafted with a focus on simplicity and ease of use, ensuring that users can navigate the app intuitively. The UI employs a warm, pastel colour palette that creates a welcoming and calming environment, aimed at enhancing user concentration and reducing visual strain during note management tasks.
 

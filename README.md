@@ -36,6 +36,19 @@ The choice of colours and layout is informed by psychological principles that as
 <div align="center"><a href="https://ibb.co/FY9j5t5"><img src="https://i.ibb.co/vdbK383/memomingle-colors-copy.jpg" alt="memomingle-colors-copy" border="0"></a>
 </div>
 
+## colour Scheme 
+
+The colour scheme displayed appears to be carefully selected to offer a balance between aesthetic appeal and functional design. The muted tones like 'Moon Mist' and 'Cape Cod' suggest a professional and minimalist interface, while the 'Median Cut' scheme introduces warmer colours like 'Granite Green' and 'Crocodile' to add subtle energy without overwhelming the user. For text, colours like 'Shark' and 'Heavy Metal' offer excellent readability against lighter backgrounds, ensuring that the user interface remains accessible and easy on the eyes. These choices likely contribute to a user-friendly experience that prioritizes clarity and focus.
+
+div align="center"><a href="https://ibb.co/BVZPvB2"><img src="https://i.ibb.co/4ZTfCpR/color-scheme-memomingle-copy.jpg" alt="color-scheme-memomingle-copy" border="0"></a></div>
+
+
+
+
+
+
+
+
 
 ## Code Overview
 

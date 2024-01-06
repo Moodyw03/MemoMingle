@@ -257,6 +257,7 @@ a {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  max-width: 280px;
 }
 
 .memologo {

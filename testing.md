@@ -34,8 +34,27 @@ To ensure web standards compliance for MemoMingle, I used the W3C HTML Validator
 ### CSS Validate 
 
 ### Javascript
-JavaScript
-I used JsHint to check the script.js file for errors and after adding the /*jshint esversion: 6 */ line to the top of the file to counter the ES6 errors, I only received undefined variable notes from the jquery materialize calls and unused variable notes from the functions which are all called directly from on clicks on the HTML files.
+
+To ensure the JavaScript code for MemoMingle operates flawlessly, rigorous testing has been conducted:
+
+**Code Analysis:** Using tools like JSHint, the code has been evaluated for potential issues and modern ECMAScript compatibility, addressing any warnings such as the use of 'const' and arrow function syntax, which are ES6 features.
+
+**Function Testing:**
+
+removeParam(): Tested to verify that URL parameters for success and error messages are properly removed after a short display time.
+checkPasswords(): Confirmed that it correctly validates the matching of passwords and prevents form submission if there is a mismatch.
+User Interaction Simulation: Automated scripts have been used to simulate user interactions, ensuring functions behave as expected under various scenarios, including both successful and error-inducing inputs.
+
+Cross-Browser Testing: The JavaScript has been tested across multiple browsers to ensure consistent functionality and compatibility.
+
+Performance Testing: Timed tests have confirmed that success and error messages are displayed and cleared within the expected timeframe.
+
+Security Testing: The password confirmation script has been verified for its execution in a secure context to prevent any exposure of sensitive information.
+
+The combined approach of automated tool analysis and hands-on function testing ensures that the JavaScript code in MemoMingle not only meets performance expectations but also adheres to best practices for security and compatibility.
+
+<div align="center"><a href="https://ibb.co/Jc7xCNn"><img src="https://i.ibb.co/nwc3RTr/Screenshot-2024-01-05-at-21-13-08.png" alt="Screenshot-2024-01-05-at-21-13-08" border="0"></a></div>
+
 
 ### CI Python Linter
 I used the Code Institue Python Linter to check the app.py for errors, after fixing some whitespace errors and lines which were too long, I retested to find there were no errors.

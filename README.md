@@ -39,7 +39,7 @@ The choice of colours and layout is informed by psychological principles that as
 
 ## colour Scheme 
 
-The colour scheme displayed appears to be carefully selected to offer a balance between aesthetic appeal and functional design. The muted tones like 'Moon Mist' and 'Cape Cod' suggest a professional and minimalist interface, while the 'Median Cut' scheme introduces warmer colours like 'Granite Green' and 'Crocodile' to add subtle energy without overwhelming the user. For text, colours like 'Shark' and 'Heavy Metal' offer excellent readability against lighter backgrounds, ensuring that the user interface remains accessible and easy on the eyes. These choices likely contribute to a user-friendly experience that prioritizes clarity and focus.
+The colour scheme displayed is carefully selected to offer a balance between aesthetic appeal and functional design. The muted tones like 'Moon Mist' and 'Cape Cod' suggest a professional and minimalist interface, while the 'Median Cut' scheme introduces warmer colours like 'Granite Green' and 'Crocodile' to add subtle energy without overwhelming the user. For text, colours like 'Shark' and 'Heavy Metal' offer excellent readability against lighter backgrounds, ensuring that the user interface remains accessible and easy on the eyes. These choices likely contribute to a user-friendly experience that prioritizes clarity and focus.
 
 <div align="center"><a href="https://ibb.co/BVZPvB2"><img src="https://i.ibb.co/4ZTfCpR/color-scheme-memomingle-copy.jpg" alt="color-scheme-memomingle-copy" border="0"></a></div>
 

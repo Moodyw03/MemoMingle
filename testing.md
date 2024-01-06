@@ -46,11 +46,8 @@ checkPasswords(): Confirmed that it correctly validates the matching of password
 User Interaction Simulation: Automated scripts have been used to simulate user interactions, ensuring functions behave as expected under various scenarios, including both successful and error-inducing inputs.
 
 Cross-Browser Testing: The JavaScript has been tested across multiple browsers to ensure consistent functionality and compatibility.
-
 Performance Testing: Timed tests have confirmed that success and error messages are displayed and cleared within the expected timeframe.
-
 Security Testing: The password confirmation script has been verified for its execution in a secure context to prevent any exposure of sensitive information.
-
 The combined approach of automated tool analysis and hands-on function testing ensures that the JavaScript code in MemoMingle not only meets performance expectations but also adheres to best practices for security and compatibility.
 
 <div align="center"><a href="https://ibb.co/5cT9PP1"><img src="https://i.ibb.co/x5hsNN2/Screenshot-2024-01-06-at-09-09-13.png" alt="Screenshot-2024-01-06-at-09-09-13" border="0"></a></div>

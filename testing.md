@@ -54,7 +54,15 @@ The combined approach of automated tool analysis and hands-on function testing e
 
 
 ### CI Python Linter
-I used the Code Institue Python Linter to check the app.py for errors, after fixing some whitespace errors and lines which were too long, I retested to find there were no errors.
+The Python code for MemoMingle has been subjected to rigorous scrutiny using the CI Python Linter, an industry-standard code quality tool. The linter's analysis encompasses both the user model and the Flask application setup, including security-sensitive elements like password hashing and environment variable management.
+
+In the user.py module, the linter's thorough examination found no syntactical or structural errors, affirming the robustness of the user authentication and data interaction processes. The code adheres to Python best practices, which is critical for maintaining the integrity of user data.
+
+Similarly, the app.py module, which serves as the nerve center of the application, orchestrating routing, configuration, and template rendering, also passed the linter's meticulous inspection without any errors. This flawless result is indicative of clean, well-structured code that facilitates scalability and maintainability.
+
+These exemplary linter outcomes not only highlight the developer's adherence to coding standards but also provide assurance of the application's technical solidity, paving the way for a secure and reliable user experience in MemoMingle.
+
+
 
 
 

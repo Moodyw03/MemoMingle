@@ -535,8 +535,9 @@ a {
 
 .notes__form--button {
   position: absolute;
-  bottom: transform(50%);
+  transform: translateY(50%);
   right: -3rem;
+
 
   cursor: pointer;
   display: flex;

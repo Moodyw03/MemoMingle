@@ -89,8 +89,11 @@ Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For
 ### Notes Management
 
 **Creating Notes:** Users can create notes by entering a title and content, along with optional tags.
+
 **Updating Notes:** Existing notes can be updated. Users can modify the title, content, and tags of their notes.
+
 **Deleting Notes:** Users can delete any of their notes. This action is irreversible.
+
 **Searching Notes:** Users can search through their notes using keywords. The search can match note titles, content, and tags.
 
 ### Error Handling

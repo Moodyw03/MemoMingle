@@ -20,6 +20,56 @@ This submission represents Milestone Project 3 for the Code Institute's Diploma 
 
 [Find the project repository here:](https://github.com/Moodyw03/MemoMingle)
 
+
+
+# MemoMingle Project Documentation
+
+## Table of Contents
+
+1. **Introduction**
+    - Overview of MemoMingle
+    - Purpose and Functionality
+    - Target Audience
+
+2. **User Interface Design**
+    - Key Design Elements
+    - Color Scheme
+    - Typography
+
+3. **App Structure**
+    - Directory and File Structure
+    - Database Schema
+    - API Endpoints
+
+4. **Functionality**
+    - Authentication Process
+    - Notes Management
+    - Error Handling
+    - Security Measures
+
+5. **Testing**
+    - Testing Strategies and Results
+
+6. **Deployment**
+    - Local Environment Setup
+    - Installation of Dependencies
+    - Preparing for Production
+    - Production Server Setup
+    - Application Deployment
+    - DNS and Environment Variables
+    - Monitoring and Logging
+
+7. **Technologies Used**
+    - List of Technologies and Their Roles
+
+8. **Conclusion and Future Enhancements**
+    - Summary of Project
+    - Plans for Future Development
+
+9. **References**
+    - Sources and Resources Used
+  
+    - 
 ## User Interface
 MemoMingle's user interface (UI) is crafted with a focus on simplicity and ease of use, ensuring that users can navigate the app intuitively. The UI employs a warm, pastel colour palette that creates a welcoming and calming environment, aimed at enhancing user concentration and reducing visual strain during note management tasks.
 

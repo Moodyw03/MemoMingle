@@ -89,10 +89,15 @@ Validation Errors: Input validation errors, such as short usernames or passwords
 In MemoMingle, security is a top priority, and several measures are implemented to protect user data:
 
 Password Hashing: We use Werkzeug's security features to hash passwords before storing them in the database. This means that actual passwords are never stored, only their secure hashes.
+
 Session Management: Flask-Session is utilized for secure session management. User sessions are encrypted and managed server-side, mitigating the risks associated with client-side sessions.
+
 Environment Variables: Sensitive information, such as database URI and secret keys, are stored in environment variables, not in the codebase, to prevent exposure.
+
 Secure Transport Layer: The application is configured to enforce HTTPS to ensure that data transmitted between the client and server is encrypted.
+
 Input Validation: All user inputs are validated and sanitized to protect against SQL injection and XSS attacks.
+
 These technologies and strategies form a robust security posture for MemoMingle, ensuring user data integrity and confidentiality.
 
 ## Testing 

@@ -25,12 +25,13 @@ MemoMingle's user interface (UI) is crafted with a focus on simplicity and ease 
 
 Key design elements include:
 
-Minimalistic Layout: The clean interface avoids clutter, directing user focus to the task at hand.
-Intuitive Controls: Commonly used actions are prominently placed and easily accessible, promoting a fluid user experience.
+**Minimalistic Layout:** The clean interface avoids clutter, directing user focus to the task at hand.
 
-Consistent Visual Elements: The use of familiar icons and consistent colour coding helps users quickly associate functions with symbols.
+**Intuitive Controls:** Commonly used actions are prominently placed and easily accessible, promoting a fluid user experience.
 
-Responsive Design: The UI adjusts seamlessly across various devices, ensuring functionality and aesthetics are maintained on screens of all sizes.
+**Consistent Visual Elements:** The use of familiar icons and consistent colour coding helps users quickly associate functions with symbols.
+
+**Responsive Design:** The UI adjusts seamlessly across various devices, ensuring functionality and aesthetics are maintained on screens of all sizes.
 The choice of colours and layout is informed by psychological principles that associate certain hues with memory and cognitive function, which is essential for a note-taking application. This thoughtful design approach aims to make the note-taking process as effortless and pleasant as possible for the user.
 
 
@@ -62,8 +63,8 @@ static/: Stores static files like CSS, JS, and images for the front end.
 templates/: Contains HTML templates for rendering views.
 app.py: The main entry point of the Flask application.
 .env: Stores environment variables (not to be uploaded to version control).
-Database Schema:
 
+Database Schema:
 Users Collection: Stores username and hashed passwords.
 Notes Collection: Stores notes with fields for title, content, tags, creation, and last modified timestamps.
 
@@ -79,38 +80,38 @@ Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For
 
 ### Authentication
 
-Sign-Up: Users register by providing a username and password. The password is hashed for security and stored in the Users collection.
+**Sign-Up:** Users register by providing a username and password. The password is hashed for security and stored in the Users collection.
 
-Sign-In: Users log in using their credentials. The system validates the input against the stored hashed password. Upon success, a session is initiated.
+**Sign-In:** Users log in using their credentials. The system validates the input against the stored hashed password. Upon success, a session is initiated.
 
-Sign-Out: Users sign out to end their session, clearing their session data and preventing further access to their notes without re-authentication.
+**Sign-Out:** Users sign out to end their session, clearing their session data and preventing further access to their notes without re-authentication.
 
 ### Notes Management
 
-Creating Notes: Users can create notes by entering a title and content, along with optional tags.
-Updating Notes: Existing notes can be updated. Users can modify the title, content, and tags of their notes.
-Deleting Notes: Users can delete any of their notes. This action is irreversible.
-Searching Notes: Users can search through their notes using keywords. The search can match note titles, content, and tags.
+**Creating Notes:** Users can create notes by entering a title and content, along with optional tags.
+**Updating Notes:** Existing notes can be updated. Users can modify the title, content, and tags of their notes.
+**Deleting Notes:** Users can delete any of their notes. This action is irreversible.
+**Searching Notes:** Users can search through their notes using keywords. The search can match note titles, content, and tags.
 
 ### Error Handling
 
-User Feedback: Clear messages are displayed to users upon errors, like invalid login attempts or issues in note operations.
-Validation Errors: Input validation errors, such as short usernames or passwords, prompt the user to correct their input.
+**User Feedback:** Clear messages are displayed to users upon errors, like invalid login attempts or issues in note operations.
+**Validation Errors:** Input validation errors, such as short usernames or passwords, prompt the user to correct their input.
 
 
 ### Security
 
 In MemoMingle, security is a top priority, and several measures are implemented to protect user data:
 
-Password Hashing: We use Werkzeug's security features to hash passwords before storing them in the database. This means that actual passwords are never stored, only their secure hashes.
+**Password Hashing:** We use Werkzeug's security features to hash passwords before storing them in the database. This means that actual passwords are never stored, only their secure hashes.
 
-Session Management: Flask-Session is utilized for secure session management. User sessions are encrypted and managed server-side, mitigating the risks associated with client-side sessions.
+**Session Management:** Flask-Session is utilized for secure session management. User sessions are encrypted and managed server-side, mitigating the risks associated with client-side sessions.
 
-Environment Variables: Sensitive information, such as database URI and secret keys, are stored in environment variables, not in the codebase, to prevent exposure.
+**Environment Variables:** Sensitive information, such as database URI and secret keys, are stored in environment variables, not in the codebase, to prevent exposure.
 
-Secure Transport Layer: The application is configured to enforce HTTPS to ensure that data transmitted between the client and server is encrypted.
+**Secure Transport Layer:** The application is configured to enforce HTTPS to ensure that data transmitted between the client and server is encrypted.
 
-Input Validation: All user inputs are validated and sanitized to protect against SQL injection and XSS attacks.
+**Input Validation:** All user inputs are validated and sanitized to protect against SQL injection and XSS attacks.
 
 These technologies and strategies form a robust security posture for MemoMingle, ensuring user data integrity and confidentiality.
 

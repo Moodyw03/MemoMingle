@@ -38,7 +38,7 @@ The choice of colours and layout is informed by psychological principles that as
   <div align="center"><a href="https://ibb.co/FY9j5t5"><img src="https://i.ibb.co/vdbK383/memomingle-colors-copy.jpg" alt="memomingle-colors-copy" border="0"></a></div>
 
 
-## colour Scheme 
+## Colour Scheme 
 
 The colour scheme displayed is carefully selected to offer a balance between aesthetic appeal and functional design. The muted tones like 'Moon Mist' and 'Cape Cod' suggest a professional and minimalist interface, while the 'Median Cut' scheme introduces warmer colours like 'Granite Green' and 'Crocodile' to add subtle energy without overwhelming the user. For text, colours like 'Shark' and 'Heavy Metal' offer excellent readability against lighter backgrounds, ensuring that the user interface remains accessible and easy on the eyes. These choices likely contribute to a user-friendly experience that prioritizes clarity and focus.
 
@@ -211,7 +211,7 @@ Implement monitoring and logging to keep track of your application's performance
 Remember to adapt these commands and steps to fit the specific needs of your production environment and the hosting provider you choose.
 
 
-## technologies used 
+## Technologies used 
 The MemoMingle app employs a variety of technologies, each serving a specific role within the project:
 
 **Python:** The primary programming language used for server-side logic.

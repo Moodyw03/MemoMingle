@@ -27,6 +27,8 @@ The Lighthouse report for MemoMingle demonstrates exceptional results, with perf
 
 ### Html Validate 
 
+To ensure web standards compliance for MemoMingle, I used the W3C HTML Validator service to validate all HTML files by their URIs. I addressed specific issues such as modifying a section element to a div and correcting a self-closing tag on an image element. Following these adjustments, all pages were successfully validated with no errors reported, ensuring the markup is up to current HTML specifications.
+<div align="center"><a href="https://ibb.co/vd52rvT"><img src="https://i.ibb.co/gW1sXFf/Screenshot-2024-01-06-at-08-53-57.png" alt="Screenshot-2024-01-06-at-08-53-57" border="0"></a></div>
 
 ### CSS Validate 
 

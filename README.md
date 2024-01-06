@@ -185,25 +185,45 @@ Remember to adapt these commands and steps to fit the specific needs of your pro
 The MemoMingle app employs a variety of technologies, each serving a specific role within the project:
 
 Python: The primary programming language used for server-side logic.
+
 Flask: A micro web framework for Python used to handle HTTP requests and serve web pages.
+
 Jinja2: Templating engine for rendering HTML templates into dynamic web pages.
+
 Werkzeug: Utility library for Python used for password hashing and other HTTP related utilities.
+
 MongoDB: NoSQL database used to store user and notes data.
+
 pymongo: MongoDB driver for Python, allowing for database interactions.
+
 dotenv: Library for loading environment variables from a .env file into os.environ.
+
 HTML/CSS: Markup and styling languages used for creating and styling the frontend.
+
 JavaScript: Scripting language used for dynamic client-side functionalities.
+
 Git: Version control system for tracking changes in source code during development.
+
 GitHub: Hosting for software development and version control using Git.
+
 Gunicorn: WSGI HTTP Server for UNIX, used to run Python web applications in production.
+
 Vercel: Cloud platforms used for deploying, managing, and scaling the app.
+
 SSL/TLS: Protocols for secure communication over the internet.
+
 Let's Encrypt/Certbot: Tools used to obtain free SSL/TLS certificates for encrypting HTTP traffic.
+
 Nginx/Apache: Web servers used to handle HTTP requests, serve static files, and manage SSL/TLS.
+
 Flask-Session: Flask extension for server-side session management.
+
 W3C Validator: Service used to validate HTML and CSS for web standards compliance.
+
 JSHint: A static code analysis tool used for detecting errors and potential problems in JavaScript code.
+
 Flask-Migrate: An extension that handles SQLAlchemy database migrations for Flask applications.
+
 Bootstrap: Front-end framework for designing responsive and mobile-first websites.
 
 

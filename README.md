@@ -256,8 +256,6 @@ The MemoMingle app employs a variety of technologies, each serving a specific ro
 
 **Flask-Migrate**: An extension that handles SQLAlchemy database migrations for Flask applications.
 
-**Bootstrap:** Front-end framework for designing responsive and mobile-first websites.
-
 **chat GPT** GPT was leveraged for advanced problem resolution.
 
 **VS Code** The application was developed and executed using Visual Studio Code as the preferred Integrated Development Environment (IDE).

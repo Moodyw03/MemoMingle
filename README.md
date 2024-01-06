@@ -248,8 +248,6 @@ The MemoMingle app employs a variety of technologies, each serving a specific ro
 
 **Let's Encrypt/Certbot:** Tools used to obtain free SSL/TLS certificates for encrypting HTTP traffic.
 
-**Nginx/Apache:** Web servers used to handle HTTP requests, serve static files, and manage SSL/TLS.
-
 **Flask-Session:** Flask extension for server-side session management.
 
 **W3C Validator:** Service used to validate HTML and CSS for web standards compliance.

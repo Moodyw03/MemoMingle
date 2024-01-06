@@ -104,7 +104,7 @@ Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For
 **Validation Errors:** Input validation errors, such as short usernames or passwords, prompt the user to correct their input.
 
 
-### Security
+## Security
 
 In MemoMingle, security is a top priority, and several measures are implemented to protect user data:
 

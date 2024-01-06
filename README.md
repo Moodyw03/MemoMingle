@@ -44,11 +44,13 @@ The colour scheme displayed is carefully selected to offer a balance between aes
 
 <div align="center"><a href="https://ibb.co/BVZPvB2"><img src="https://i.ibb.co/4ZTfCpR/color-scheme-memomingle-copy.jpg" alt="color-scheme-memomingle-copy" border="0"></a></div>
 
-## Fonts used
+## Typography 
 
 MemoMingle employs a thoughtful combination of fonts in its design, prominently featuring 'Inter' as the primary typeface. Inter is a highly legible sans-serif font that was crafted with digital screens in mind, ensuring that text is readable at various sizes and weights. Its clean lines and open shapes contribute to the modern and uncluttered feel of the user interface. As a fallback, the application uses 'Arial', a ubiquitous sans-serif font known for its wide availability and straightforward appearance. The generic 'sans-serif' as the final fallback ensures that, in any environment where the primary fonts are not available, the browser can use a default sans-serif font, maintaining the integrity of the app's design. This font stack not only guarantees a seamless and accessible reading experience but also aligns with MemoMingle's sleek and user-centric design principles.
 
 
+## Wireframes
+Home Page Wireframe - [View](https://pdfhost.io/v/2JUYSOaP4_moodloop_wireframe)
 
 
 

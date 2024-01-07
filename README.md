@@ -108,7 +108,8 @@ Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For
 ## Functionality
 <div align="center"><a href="https://ibb.co/DMP8830"><img src="https://i.ibb.co/X5f33mc/crud1.jpg" alt="crud1" border="0"></a></div>
 
-### Authentication
+### Features 
+## Authentication
 
 **Sign-Up:** Users register by providing a username and password. The password is hashed for security and stored in the Users collection.
 

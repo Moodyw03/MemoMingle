@@ -1,7 +1,7 @@
 
 <h1 align="center">MemoMingle</h1>
 
-[View the live project here.](https://memomingle.vercel.app/)
+[View the live project here.](https://memomingle.vercel.app/){:target="_blank"}
 
 Welcome to MemoMingle, an intuitive and robust note-taking application designed to streamline the way individuals capture and organize their thoughts. This application serves as a personal and professional aid, allowing users to create, edit, and manage notes with ease. The sleek user interface, tailored for an optimal user experience, incorporates contemporary design principles to ensure that navigation and note management are both seamless and efficient.
 
@@ -18,7 +18,7 @@ This submission represents Milestone Project 3 for the Code Institute's Diploma 
 
 ## Repository
 
-[Find the project repository here:](https://github.com/Moodyw03/MemoMingle)
+[Find the project repository here:](https://github.com/Moodyw03/MemoMingle){:target="_blank"}
 
 
 ### UX 
@@ -74,9 +74,8 @@ The colour scheme displayed is carefully selected to offer a balance between aes
 
 MemoMingle employs a thoughtful combination of fonts in its design, prominently featuring 'Inter' as the primary typeface. Inter is a highly legible sans-serif font that was crafted with digital screens in mind, ensuring that text is readable at various sizes and weights. Its clean lines and open shapes contribute to the modern and uncluttered feel of the user interface. As a fallback, the application uses 'Arial', a ubiquitous sans-serif font known for its wide availability and straightforward appearance. The generic 'sans-serif' as the final fallback ensures that, in any environment where the primary fonts are not available, the browser can use a default sans-serif font, maintaining the integrity of the app's design. This font stack not only guarantees a seamless and accessible reading experience but also aligns with MemoMingle's sleek and user-centric design principles.
 
-
 ## Wireframes
-Home Page Wireframe - [View](https://pdfhost.io/v/sJqhKgCY7_MemoMingle_Wireframes)
+Home Page Wireframe - [View](https://pdfhost.io/v/sJqhKgCY7_MemoMingle_Wireframes){:target="_blank"}
 
 
 
@@ -150,7 +149,7 @@ In MemoMingle, security is a top priority, and several measures are implemented 
 These technologies and strategies form a robust security posture for MemoMingle, ensuring user data integrity and confidentiality.
 
 ## Testing 
-For more information on testing, [click here](https://github.com/Moodyw03/MemoMingle/blob/main/testing.md).
+For more information on testing, [click here](https://github.com/Moodyw03/MemoMingle/blob/main/testing.md){:target="_blank"}
 
 ## Bug Fixes and Improvements in MemoMingle
 

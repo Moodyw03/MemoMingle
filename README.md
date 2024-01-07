@@ -385,6 +385,30 @@ The MemoMingle app employs a variety of technologies, each serving a specific ro
 **Eraser** for the creation of flowcharts and wireframes during the design process.
 
 
+## Credits
+
+images by Dalle 
+
+
+## Acknowledgements
+
+Gratitude to fellow Code Institute students and alumni for their assistance.
+
+I'd like to extend my sincere gratitude to Manu Perez and Pasquale for their invaluable support and mentorship at Bristol College.
+
+Many thanks to the tutors and staff at the Code Institute for their unwavering support.
+
+A special thanks to the Code Institute London Community for their continuous encouragement and technical insights.
+
+Much gratitude to my family for their patience and understanding with me.
+
+Gabriel Pereira, 2024.
+
+## Content
+
+All content was written by the developer.
+
+
 
 
 

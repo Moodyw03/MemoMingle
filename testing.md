@@ -32,6 +32,9 @@ To ensure web standards compliance for MemoMingle, I used the W3C HTML Validator
 <div align="center"><a href="https://ibb.co/vd52rvT"><img src="https://i.ibb.co/gW1sXFf/Screenshot-2024-01-06-at-08-53-57.png" alt="Screenshot-2024-01-06-at-08-53-57" border="0"></a></div>
 
 ### CSS Validate 
+In the development of 'MemoMingle,' I utilized the W3C CSS Validator to ensure the quality and standards-compliance of our style.css file. We're pleased to report that it passed the validation process without any errors, reflecting our commitment to professional, high-quality web standards.
+
+<div align="center"><a href="https://ibb.co/yWbj5fX"><img src="https://i.ibb.co/xJRTGCD/Screenshot-2024-01-06-at-13-29-05.png" alt="Screenshot-2024-01-06-at-13-29-05" border="0"></a></div>
 
 ### Javascript
 

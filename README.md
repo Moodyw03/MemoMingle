@@ -151,6 +151,27 @@ These technologies and strategies form a robust security posture for MemoMingle,
 ## Testing 
 For more information on testing, [click here](https://github.com/Moodyw03/MemoMingle/blob/main/testing.md).
 
+## Bug Fixes and Improvements in MemoMingle
+
+As part of My commitment to providing a seamless and secure user experience, I've identified and addressed several key issues in MemoMingle:
+
+**Bug 1:** Authentication without a Password
+Issue: Users were able to attempt logging in without entering a password.
+Fix: Implemented a mandatory password field with a minimum character limit. This ensures that every login attempt is accompanied by a password, enhancing security and adhering to best practices in user authentication.
+
+**Bug 2:** Invalid Credentials Message Display
+Issue: The app was not consistently displaying messages for invalid login credentials.
+Fix: Refined the error handling logic to reliably trigger and display appropriate feedback for invalid login attempts. This update provides users with clear communication regarding authentication failures, improving the overall user experience.
+
+**Bug 3:** Note Deletion Confirmation
+Issue: The lack of a confirmation prompt for note deletion was leading to unintentional loss of data.
+Fix: Introduced a confirmation dialogue for note deletion. This extra step ensures that users are making deliberate choices when removing notes, preventing accidental data loss.
+
+**Bug 4:** Searching Notes by Tags, Title, and Description
+Issue: The search functionality was not effectively filtering notes based on tags, titles, or descriptions.
+Fix: Enhanced the search algorithm to include tags, titles, and descriptions in the search criteria. This enhancement allows users to retrieve notes more efficiently and accurately, based on a variety of relevant parameters.
+These updates and bug fixes are a testament to our ongoing effort to refine MemoMingle, ensuring it remains a reliable and user-friendly platform for all our users. We're continually monitoring and improving the app to address any issues that arise and to incorporate feedback from our valued user community.
+
 
 
 ## Deployment
@@ -287,7 +308,7 @@ The MemoMingle app employs a variety of technologies, each serving a specific ro
 **Eraser** for the creation of flowcharts and wireframes during the design process.
 
 
-## Deployment
+
 
 
 

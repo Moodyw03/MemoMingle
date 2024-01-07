@@ -76,7 +76,7 @@ MemoMingle employs a thoughtful combination of fonts in its design, prominently 
 
 
 ## Wireframes
-Home Page Wireframe - [View](https://pdfhost.io/v/2JUYSOaP4_moodloop_wireframe)
+Home Page Wireframe - [View](https://pdfhost.io/v/sJqhKgCY7_MemoMingle_Wireframes)
 
 
 

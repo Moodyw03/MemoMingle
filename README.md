@@ -21,6 +21,30 @@ This submission represents Milestone Project 3 for the Code Institute's Diploma 
 [Find the project repository here:](https://github.com/Moodyw03/MemoMingle)
 
 
+### UX 
+
+## User Stories
+
+**As a New Visitor:**
+
+I want to quickly understand the purpose and benefits of MemoMingle so that I can decide whether it's the right tool for me.
+I should be able to navigate the site easily and intuitively to explore features that MemoMingle offers.
+I expect to find compelling reasons to register, such as productivity and secure note management.
+I need to be able to contact the site administrators easily through a contact form for any inquiries or feedback.
+
+**As a Registered User:**
+
+I want a simple and secure sign-in process to access my personal note dashboard.
+I need to be able to create a new note with minimal steps and organize them with tags or categories.
+I should be able to edit or delete my notes, reflecting changes in real-time.
+I want the ability to search through my notes using keywords or tags to find the information I need quickly.
+I need a profile area where I can view my activity and update my account details or password as needed.
+
+**As a Frequent User:**
+
+I want features that support advanced note-taking, to enhance my note content.
+I would appreciate having access to version history for my notes.
+
 
 ## User Interface
 MemoMingle's user interface (UI) is crafted with a focus on simplicity and ease of use, ensuring that users can navigate the app intuitively. The UI employs a warm, pastel colour palette that creates a welcoming and calming environment, aimed at enhancing user concentration and reducing visual strain during note management tasks.

@@ -178,13 +178,13 @@ Fix: Enhanced the search algorithm to include tags, titles, and descriptions in 
 
 ## Deployment
 
-# Live Version
+### Live Version
 Explore the live version of "MemoMingle," now hosted on Vercel! Experience the full functionality of our project by visiting [MemoMingle Live Site](https://memomingle.vercel.app/).
 
-# Local Development
+### Local Development
 Interested in contributing to or exploring "MemoMingle" locally? You can interact with our GitHub Repository by either cloning or forking it. Here's how:
 
-## Cloning the Repository
+### Cloning the Repository
 Cloning creates a local copy of our repository on your computer or a remote server, allowing you to sync changes. To clone the "MemoMingle" repository, follow these steps:
 
 1. Visit the "MemoMingle" GitHub Repository at [MemoMingle Repository](https://github.com/Moodyw03/MemoMingle).

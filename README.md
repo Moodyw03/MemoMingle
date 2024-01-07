@@ -295,8 +295,46 @@ Run the Flask web application on a local development server.
 Combined
 `export FLASK_APP=app; export FLASK_ENV=development; export FLASK_DEBUG=1; flask run`
 
-Implement monitoring and logging to keep track of your application's performance and errors.
-Remember to adapt these commands and steps to fit the specific needs of your production environment and the hosting provider you choose.
+
+Certainly! Here's an adapted version of the MongoDB setup instructions for your project, "MemoMingle":
+
+## MongoDB Setup for MemoMingle
+
+"MemoMingle" utilizes MongoDB, a non-relational database. To link your repository to a MongoDB database, follow these steps:
+
+Sign Up for MongoDB:
+
+Create an account with MongoDB.
+Configure Your Cluster:
+
+Choose a service tier, cloud provider, and region. For example, if you are in the UK, you might select a provider with a data center in Ireland.
+You can name your cluster (like MemoMingleCluster) or use the default name Cluster0. Then, click 'Create'.
+Database Access Configuration:
+
+In the MongoDB dashboard, navigate to 'Database Access' and set up a new database user.
+Choose 'Password' as the authentication method.
+Create a username and password. Remember these credentials as they will be used in your env.py file. Stick to letters and numbers to avoid connection issues.
+Assign a role of 'read and write to any database'.
+Network Access Setup:
+
+Go to 'Network Access' and click 'Add IP Address'.
+Decide to add a local IP address or allow access from anywhere.
+Confirm your choice.
+Initialize Database and Collections:
+
+Navigate to 'Databases', and next to your cluster name, click on 'Browse Collections'.
+Click 'Add My Own Data'. Enter a database name (like MemoMingleDB) and a collection name.
+The database name you choose should be added to your env.py file as the value for MONGO_DBNAME.
+Add the necessary collections for MemoMingle: users, memos, categories, messages. If you use different names, update these accordingly in the app.py file.
+Database Connection:
+
+From the Cluster's 'Overview' tab, click 'Connect'.
+Follow the instructions to connect using the Python Driver (or your preferred method).
+Copy the provided connection string to your env.py file as the value for MONGO_URI.
+Replace <password> in the connection string with the user password created earlier.
+Additional Note:
+
+If you encounter connection issues, try adding the database name (from step 5) directly into the connection string between the / and ?. This often resolves common connectivity problems.
 
 
 ## Technologies used 

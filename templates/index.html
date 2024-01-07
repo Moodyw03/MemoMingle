@@ -31,5 +31,8 @@
         <a href="{{ url_for('auth.sign_in') }}">Sign In</a>
       </div>
     </section>
+
+    {% include 'footer.html' %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>

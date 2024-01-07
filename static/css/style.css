@@ -642,14 +642,14 @@ footer {
   z-index: 999;
 
   height: 50px;
-  background-color: #f8f9fa;
+  background-color: #94999d61;
   text-align: center;
   line-height: 50px;
   border-top: 1px solid #e7e7e7;
 }
 
 footer a {
-  color: #007bff;
+  color: #060606;
   text-decoration: none;
   padding: 0 10px;
 }
@@ -696,7 +696,7 @@ footer a:hover {
 
 /* The Close Button */
 .close {
-  color: #aaa;
+  color: #111010;
   float: right;
   font-size: 28px;
   font-weight: bold;

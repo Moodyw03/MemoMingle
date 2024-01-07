@@ -1,7 +1,7 @@
 <footer>
   <span>© 2024 MemoMingle</span>
   <a href="mailto:abc@gmail.com" id="contact-link">Contact Us</a>
-  <button id="modal-btn">How to Use</button>
+  <button class="" id="modal-btn">How to Use</button>
 </footer>
 
 <!-- Modal -->
@@ -13,68 +13,70 @@
   aria-labelledby="howToUseModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="howToUseModalLabel">How to Use</h3>
-        <span class="close">&times;</span>
-      </div>
-      <div class="modal-body">
-        <!-- TODO: div open -->
-
-        <p>
-          Welcome to MemoMingle, the user-friendly note-taking application
-          designed for simplicity and security. Here's a quick guide on how it
-          works:
-        </p>
-        <br />
-        <p>
-          Creating and Managing Notes: Start by jotting down your thoughts,
-          ideas, or reminders in a new note with just a few clicks. You can
-          easily organize these notes with custom tags, making them simple to
-          find later. Editing and updating your notes is just as
-          straightforward.
-        </p>
-        <br />
-        <p>
-          Searching for Notes: Need to find something specific? Our search
-          feature lets you quickly locate any note by keyword, tag, or content,
-          saving you time and hassle.
-        </p>
-        <p>
-          Safety and Security: We understand the importance of keeping your
-          notes safe. That's why MemoMingle uses advanced security measures,
-          such as data encryption, to protect your information both when it's
-          stored and when it's being sent over the internet. Your privacy and
-          security are our top concerns.
-        </p>
-        <br />
-        <p>
-          User-Friendly Design: MemoMingle is designed for ease of use, so you
-          don't need to be tech-savvy to navigate through it. Our intuitive
-          interface ensures a smooth experience, whether you're a first-time
-          user or a daily note-taker.
-        </p>
-        <br />
-        <p>
-          Accessible Anywhere: Access your notes from any device, anywhere. All
-          you need is an internet connection, and your notes will be there,
-          securely stored and ready when you need them. With MemoMingle, taking
-          notes is simple, efficient, and secure. It’s the perfect tool for
-          anyone looking to organize their thoughts in a safe, digital space.
-        </p>
-        <br />
-        <!-- div close -->
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-primary"
-          id="cancel"
-          data-dismiss="modal"
-        >
-          Close
-        </button>
+  <div class="modal-wrapper">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="howToUseModalLabel">How to Use</h3>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- TODO: div open -->
+          <p>
+            Welcome to MemoMingle, the user-friendly note-taking application
+            designed for simplicity and security. Here's a quick guide on how it
+            works:
+          </p>
+          <br />
+          <p>
+            Creating and Managing Notes: Start by jotting down your thoughts,
+            ideas, or reminders in a new note with just a few clicks. You can
+            easily organize these notes with custom tags, making them simple to
+            find later. Editing and updating your notes is just as
+            straightforward.
+          </p>
+          <br />
+          <p>
+            Searching for Notes: Need to find something specific? Our search
+            feature lets you quickly locate any note by keyword, tag, or
+            content, saving you time and hassle.
+          </p>
+          <p>
+            Safety and Security: We understand the importance of keeping your
+            notes safe. That's why MemoMingle uses advanced security measures,
+            such as data encryption, to protect your information both when it's
+            stored and when it's being sent over the internet. Your privacy and
+            security are our top concerns.
+          </p>
+          <br />
+          <p>
+            User-Friendly Design: MemoMingle is designed for ease of use, so you
+            don't need to be tech-savvy to navigate through it. Our intuitive
+            interface ensures a smooth experience, whether you're a first-time
+            user or a daily note-taker.
+          </p>
+          <br />
+          <p>
+            Accessible Anywhere: Access your notes from any device, anywhere.
+            All you need is an internet connection, and your notes will be
+            there, securely stored and ready when you need them. With
+            MemoMingle, taking notes is simple, efficient, and secure. It’s the
+            perfect tool for anyone looking to organize their thoughts in a
+            safe, digital space.
+          </p>
+          <br />
+          <!-- div close -->
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="cancel"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   </div>

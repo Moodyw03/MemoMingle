@@ -18,7 +18,7 @@ This submission represents Milestone Project 3 for the Code Institute's Diploma 
 
 ## Repository
 
-[Find the project repository here:](https://github.com/Moodyw03/MemoMingle)
+[Find the project repository here:](https://github.com/Moodyw03/new-world-disorder)
 
 
 ### UX 

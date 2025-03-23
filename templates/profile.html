@@ -57,9 +57,9 @@
         {% if not session.get('is_parent') and session.get('user_id') %}
           {% set user = user or {} %}
           {% if user.get('daily_time_limit') %}
-            <div id="time-tracker" class="time-tracker">
+            <div id="time-tracker" class="time-tracker" data-time-limit="{{ user.daily_time_limit }}">
               <span class="icon"><i class="fas fa-clock"></i></span>
-              <span id="time-remaining">{{ user.daily_time_limit }} minutes remaining</span>
+              <span id="time-remaining">{{ user.daily_time_limit }} minutes remaining for automatic logoff</span>
             </div>
           {% endif %}
         {% endif %}

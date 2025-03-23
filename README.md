@@ -1,3 +1,8 @@
+# MemoMingle
+
+## 🚨 Important Update: Now Using Supabase
+
+This application has been migrated from MongoDB to Supabase for enhanced performance, reliability, and security. See [SUPABASE_MIGRATION.md](SUPABASE_MIGRATION.md) for details on the migration process.
 
 <h1 align="center">MemoMingle</h1>
 
@@ -7,10 +12,7 @@ Welcome to MemoMingle, an intuitive and robust note-taking application designed 
 
 Whether you're jotting down quick reminders or compiling detailed research notes, MemoMingle is your go-to solution for storing information efficiently. This document will guide you through every aspect of using MemoMingle, from initial setup to advanced features.
 
-This submission represents Milestone Project 3 for the Code Institute's Diploma in Web Application Development program. My website comprises of a note-taking app and utilizes the HTML, CSS,  Javascript, and Python technologies I have acquired throughout the course.
-
-
-
+This submission represents Milestone Project 3 for the Code Institute's Diploma in Web Application Development program. My website comprises of a note-taking app and utilizes the HTML, CSS, Javascript, and Python technologies I have acquired throughout the course.
 
 <div align="center">
 <a href="https://ibb.co/T1yzLCd"><img src="https://i.ibb.co/hc0pfqw/memomingle-copy.jpg" alt="memomingle-copy" border="0"></a>
@@ -20,8 +22,7 @@ This submission represents Milestone Project 3 for the Code Institute's Diploma 
 
 [Find the project repository here:](https://github.com/Moodyw03/new-world-disorder)
 
-
-### UX 
+### UX
 
 ## User experience
 
@@ -46,7 +47,9 @@ I want features that support advanced note-taking, to enhance my note content.
 I would appreciate having access to version history for my notes.
 
 ### UI
+
 ## User Interface
+
 MemoMingle's user interface (UI) is crafted with a focus on simplicity and ease of use, ensuring that users can navigate the app intuitively. The UI employs a warm, pastel colour palette that creates a welcoming and calming environment, aimed at enhancing user concentration and reducing visual strain during note management tasks.
 
 Key design elements include:
@@ -60,26 +63,21 @@ Key design elements include:
 **Responsive Design:** The UI adjusts seamlessly across various devices, ensuring functionality and aesthetics are maintained on screens of all sizes.
 The choice of colours and layout is informed by psychological principles that associate certain hues with memory and cognitive function, which is essential for a note-taking application. This thoughtful design approach aims to make the note-taking process as effortless and pleasant as possible for the user.
 
-
   <div align="center"><a href="https://ibb.co/FY9j5t5"><img src="https://i.ibb.co/vdbK383/memomingle-colors-copy.jpg" alt="memomingle-colors-copy" border="0"></a></div>
 
-
-## Colour Scheme 
+## Colour Scheme
 
 The colour scheme displayed is carefully selected to offer a balance between aesthetic appeal and functional design. The muted tones like 'Moon Mist' and 'Cape Cod' suggest a professional and minimalist interface, while the 'Median Cut' scheme introduces warmer colours like 'Granite Green' and 'Crocodile' to add subtle energy without overwhelming the user. For text, colours like 'Shark' and 'Heavy Metal' offer excellent readability against lighter backgrounds, ensuring that the user interface remains accessible and easy on the eyes. These choices likely contribute to a user-friendly experience that prioritizes clarity and focus.
 
 <div align="center"><a href="https://ibb.co/BVZPvB2"><img src="https://i.ibb.co/4ZTfCpR/color-scheme-memomingle-copy.jpg" alt="color-scheme-memomingle-copy" border="0"></a></div>
 
-## Typography 
+## Typography
 
 MemoMingle employs a thoughtful combination of fonts in its design, prominently featuring 'Inter' as the primary typeface. Inter is a highly legible sans-serif font that was crafted with digital screens in mind, ensuring that text is readable at various sizes and weights. Its clean lines and open shapes contribute to the modern and uncluttered feel of the user interface. As a fallback, the application uses 'Arial', a ubiquitous sans-serif font known for its wide availability and straightforward appearance. The generic 'sans-serif' as the final fallback ensures that, in any environment where the primary fonts are not available, the browser can use a default sans-serif font, maintaining the integrity of the app's design. This font stack not only guarantees a seamless and accessible reading experience but also aligns with MemoMingle's sleek and user-centric design principles.
 
 ## Wireframes
+
 Home Page Wireframe - [View](https://pdfhost.io/v/sJqhKgCY7_MemoMingle_Wireframes)
-
-
-
-
 
 ## Code Overview
 
@@ -101,13 +99,14 @@ API Endpoints:
 Authentication (/auth/sign-in, /auth/sign-up, /auth/sign-out): For user login, registration, and logout.
 Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For listing, creating, deleting, and editing notes.
 
-
 <div align="center"><a href="https://ibb.co/vvSkVMb"><img src="https://i.ibb.co/yBrqdxD/flowchart.jpg" alt="flowchart" border="0"></a></div>
 
 ## Functionality
+
 <div align="center"><a href="https://ibb.co/DMP8830"><img src="https://i.ibb.co/X5f33mc/crud1.jpg" alt="crud1" border="0"></a></div>
 
-## Features 
+## Features
+
 ### Authentication
 
 **Sign-Up:** Users register by providing a username and password. The password is hashed for security and stored in the Users collection.
@@ -131,7 +130,6 @@ Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For
 **User Feedback:** Clear messages are displayed to users upon errors, like invalid login attempts or issues in note operations.
 **Validation Errors:** Input validation errors, such as short usernames or passwords, prompt the user to correct their input.
 
-
 ## Security
 
 In MemoMingle, security is a top priority, and several measures are implemented to protect user data:
@@ -148,7 +146,8 @@ In MemoMingle, security is a top priority, and several measures are implemented 
 
 These technologies and strategies form a robust security posture for MemoMingle, ensuring user data integrity and confidentiality.
 
-## Testing 
+## Testing
+
 For more information on testing, [click here](https://github.com/Moodyw03/MemoMingle/blob/main/testing.md)
 
 ## Bug Fixes and Improvements in MemoMingle
@@ -171,19 +170,18 @@ Fix: Introduced a confirmation dialogue for note deletion. This extra step ensur
 Issue: The search functionality was not effectively filtering notes based on tags, titles, or descriptions.
 Fix: Enhanced the search algorithm to include tags, titles, and descriptions in the search criteria. This enhancement allows users to retrieve notes more efficiently and accurately, based on a variety of relevant parameters.
 
-
-
-
-
 ## Deployment
 
 ### Live Version
+
 Explore the live version of "MemoMingle," now hosted on Vercel! Experience the full functionality of our project by visiting [MemoMingle Live Site](https://memomingle.vercel.app/).
 
 ### Local Development
+
 Interested in contributing to or exploring "MemoMingle" locally? You can interact with our GitHub Repository by either cloning or forking it. Here's how:
 
 ### Cloning the Repository
+
 Cloning creates a local copy of our repository on your computer or a remote server, allowing you to sync changes. To clone the "MemoMingle" repository, follow these steps:
 
 1. Visit the "MemoMingle" GitHub Repository at [MemoMingle Repository](https://github.com/Moodyw03/MemoMingle).
@@ -192,7 +190,7 @@ Cloning creates a local copy of our repository on your computer or a remote serv
 4. Open your Git Bash or Terminal.
 5. Change your working directory to where you want the clone placed.
 6. Type `git clone`, and then paste the URL you copied earlier.
- 
+
    git clone https://github.com/Moodyw03/MemoMingle.git
 
 Visit the "MemoMingle" GitHub Repository at MemoMingle Repository.
@@ -206,12 +204,11 @@ Copy code
 git clone https://github.com/Moodyw03/MemoMingle.git
 Press Enter to create your local clone.
 Forking the Repository
-Forking will create a new instance of our repository in your GitHub account, allowing you to make changes independently of the original repository. Here’s how to fork:
+Forking will create a new instance of our repository in your GitHub account, allowing you to make changes independently of the original repository. Here's how to fork:
 
 Navigate to the "MemoMingle" GitHub Repository at MemoMingle Repository.
 Click the "Fork" button, located at the top right corner.
 A copy of the repository will now be available in your GitHub account for your personal use and modifications.
-
 
 Set Up Your Local Environment:
 
@@ -294,7 +291,6 @@ Run the Flask web application on a local development server.
 Combined
 `export FLASK_APP=app; export FLASK_ENV=development; export FLASK_DEBUG=1; flask run`
 
-
 Certainly! Here's an adapted version of the MongoDB setup instructions for your project, "MemoMingle":
 
 ## MongoDB Setup for MemoMingle
@@ -335,8 +331,8 @@ Additional Note:
 
 If you encounter connection issues, try adding the database name (from step 5) directly into the connection string between the / and ?. This often resolves common connectivity problems.
 
+## Technologies used
 
-## Technologies used 
 The MemoMingle app employs a variety of technologies, each serving a specific role within the project:
 
 **Python:** The primary programming language used for server-side logic.
@@ -347,9 +343,7 @@ The MemoMingle app employs a variety of technologies, each serving a specific ro
 
 **Werkzeug:** Utility library for Python used for password hashing and other HTTP related utilities.
 
-**MongoDB:** NoSQL database used to store user and notes data.
-
-**pymongo:** MongoDB driver for Python, allowing for database interactions.
+**Supabase:** PostgreSQL database service with built-in authentication, real-time capabilities and APIs.
 
 **dotenv:** Library for loading environment variables from a .env file into os.environ.
 
@@ -365,9 +359,9 @@ The MemoMingle app employs a variety of technologies, each serving a specific ro
 
 **Vercel:** Cloud platforms used for deploying, managing, and scaling the app.
 
-**SSL/TLS:** Protocols for secure communication over the internet.
+**PostgreSQL:** The underlying SQL database used by Supabase for structured data storage.
 
-**Let's Encrypt/Certbot:** Tools used to obtain free SSL/TLS certificates for encrypting HTTP traffic.
+**SSL/TLS:** Protocols for secure communication over the internet.
 
 **Flask-Session:** Flask extension for server-side session management.
 
@@ -375,19 +369,15 @@ The MemoMingle app employs a variety of technologies, each serving a specific ro
 
 **JSHint:** A static code analysis tool used for detecting errors and potential problems in JavaScript code.
 
-**Flask-Migrate**: An extension that handles SQLAlchemy database migrations for Flask applications.
+**chat GPT:** GPT was leveraged for advanced problem resolution.
 
-**chat GPT** GPT was leveraged for advanced problem resolution.
+**VS Code:** The application was developed and executed using Visual Studio Code as the preferred Integrated Development Environment (IDE).
 
-**VS Code** The application was developed and executed using Visual Studio Code as the preferred Integrated Development Environment (IDE).
-
-**Eraser** for the creation of flowcharts and wireframes during the design process.
-
+**Eraser:** For the creation of flowcharts and wireframes during the design process.
 
 ## Credits
 
-images by Dalle 
-
+images by Dalle
 
 ## Acknowledgements
 
@@ -403,15 +393,6 @@ I would also like to express my profound gratitude to my family for their patien
 
 Gabriel Pereira, 2024.
 
-
-
 ## Content
 
 All content was written by the developer.
-
-
-
-
-
-
-

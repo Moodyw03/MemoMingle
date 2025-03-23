@@ -1718,8 +1718,8 @@ footer #modal-btn:hover {
   justify-content: center;
   padding: 8px 12px;
   border-radius: 4px;
-  background-color: #45a049;  /* Green background for high contrast */
-  color: white;  /* White icon color for visibility on dark background */
+  background-color: #45a049;
+  color: white;
   border: 1px solid #45a049;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -1740,9 +1740,13 @@ footer #modal-btn:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
+.user-action-button i, .user-action-btn i {
+  color: white !important;
+  font-size: 16px;
+}
+
 .user-action-btn i {
   margin-right: 6px;
-  font-size: 16px;  /* Make icons slightly larger */
 }
 
 /* Main content layout */

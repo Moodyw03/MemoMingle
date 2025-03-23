@@ -87,13 +87,13 @@ class ContentFilter:
     @classmethod
     def filter_text(cls, text):
         """
-        Replace inappropriate words with asterisks
+        Remove inappropriate words from text
         
         Args:
             text (str): Text to filter
             
         Returns:
-            str: Filtered text with inappropriate words replaced
+            str: Filtered text with inappropriate words removed
         """
         if not text:
             return text
@@ -103,10 +103,10 @@ class ContentFilter:
         
         filtered_text = text
         
-        # Replace words using regex patterns (more accurate)
+        # Remove words using regex patterns (more accurate)
         for word, pattern in cls.WORD_PATTERNS:
-            replacement = '*' * len(word)
-            filtered_text = pattern.sub(replacement, filtered_text)
+            # Remove the inappropriate word (replace with empty string)
+            filtered_text = pattern.sub('', filtered_text)
         
         # Additional check for words without boundaries
         # This is more aggressive filtering
@@ -128,12 +128,13 @@ class ContentFilter:
                     start_index = index + len(word)
                     continue
                     
-                # Replace with asterisks
-                replacement = '*' * len(word)
-                filtered_text = filtered_text[:index] + replacement + filtered_text[index + len(word):]
-                text_lower = text_lower[:index] + replacement + text_lower[index + len(word):]
+                # Remove the inappropriate word (replace with empty string)
+                filtered_text = filtered_text[:index] + '' + filtered_text[index + len(word):]
+                text_lower = text_lower[:index] + '' + text_lower[index + len(word):]
                 
-                # Move start index past this replacement
-                start_index = index + len(word)
+                # We don't need to update start_index since we removed the word
+        
+        # Additional cleanup to remove consecutive spaces created by removing words
+        filtered_text = ' '.join(filtered_text.split())
         
         return filtered_text 

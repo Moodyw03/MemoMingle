@@ -618,15 +618,36 @@ document.addEventListener("DOMContentLoaded", () => {
   function checkInputContent(event) {
     const input = event.target;
     const currentValue = input.value;
-    const badWord = containsInappropriateWord(currentValue);
 
-    if (badWord) {
-      // Remove the bad word
-      input.value = currentValue.replace(
-        new RegExp(`\\b${badWord}\\b`, "gi"),
-        ""
-      );
-      showInappropriateLanguageWarning(badWord);
+    // Check for inappropriate words
+    for (const word of inappropriateWords) {
+      // Create pattern that can detect the word with word boundaries
+      const boundaryPattern = new RegExp(`\\b${word}\\b`, "gi");
+
+      // Also check for words embedded within other text
+      const containsPattern = new RegExp(word, "gi");
+
+      // First try to remove whole words
+      if (boundaryPattern.test(currentValue)) {
+        // Remove the bad word completely (replace with empty string)
+        input.value = currentValue.replace(boundaryPattern, "");
+        showInappropriateLanguageWarning(word);
+
+        // Re-check the input in case there are multiple instances
+        setTimeout(() => checkInputContent(event), 10);
+        return;
+      }
+
+      // Then check if the word is contained anywhere
+      if (containsPattern.test(currentValue)) {
+        // Remove the bad word completely (replace with empty string)
+        input.value = currentValue.replace(containsPattern, "");
+        showInappropriateLanguageWarning(word);
+
+        // Re-check the input in case there are multiple instances
+        setTimeout(() => checkInputContent(event), 10);
+        return;
+      }
     }
   }
 

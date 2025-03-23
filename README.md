@@ -1,16 +1,16 @@
-# MemoMingle
+# My Cloud Diary
 
 ## 🚨 Important Update: Now Using Supabase
 
 This application has been migrated from MongoDB to Supabase for enhanced performance, reliability, and security. See [SUPABASE_MIGRATION.md](SUPABASE_MIGRATION.md) for details on the migration process.
 
-<h1 align="center">MemoMingle</h1>
+<h1 align="center">My Cloud Diary</h1>
 
-[View the live project here.](https://memomingle.vercel.app/)
+[View the live project here.](https://myclouddiary.vercel.app/)
 
-Welcome to MemoMingle, an intuitive and robust note-taking application designed to streamline the way individuals capture and organize their thoughts. This application serves as a personal and professional aid, allowing users to create, edit, and manage notes with ease. The sleek user interface, tailored for an optimal user experience, incorporates contemporary design principles to ensure that navigation and note management are both seamless and efficient.
+Welcome to My Cloud Diary, an intuitive and robust note-taking application designed to streamline the way individuals capture and organize their thoughts. This application serves as a personal and professional aid, allowing users to create, edit, and manage notes with ease. The sleek user interface, tailored for an optimal user experience, incorporates contemporary design principles to ensure that navigation and note management are both seamless and efficient.
 
-Whether you're jotting down quick reminders or compiling detailed research notes, MemoMingle is your go-to solution for storing information efficiently. This document will guide you through every aspect of using MemoMingle, from initial setup to advanced features.
+Whether you're jotting down quick reminders or compiling detailed research notes, My Cloud Diary is your go-to solution for storing information efficiently. This document will guide you through every aspect of using My Cloud Diary, from initial setup to advanced features.
 
 This submission represents Milestone Project 3 for the Code Institute's Diploma in Web Application Development program. My website comprises of a note-taking app and utilizes the HTML, CSS, Javascript, and Python technologies I have acquired throughout the course.
 
@@ -28,8 +28,8 @@ This submission represents Milestone Project 3 for the Code Institute's Diploma 
 
 **As a New Visitor:**
 
-I want to quickly understand the purpose and benefits of MemoMingle so that I can decide whether it's the right tool for me.
-I should be able to navigate the site easily and intuitively to explore features that MemoMingle offers.
+I want to quickly understand the purpose and benefits of My Cloud Diary so that I can decide whether it's the right tool for me.
+I should be able to navigate the site easily and intuitively to explore features that My Cloud Diary offers.
 I expect to find compelling reasons to register, such as productivity and secure note management.
 I need to be able to contact the site administrators easily through a contact form for any inquiries or feedback.
 
@@ -50,7 +50,7 @@ I would appreciate having access to version history for my notes.
 
 ## User Interface
 
-MemoMingle's user interface (UI) is crafted with a focus on simplicity and ease of use, ensuring that users can navigate the app intuitively. The UI employs a warm, pastel colour palette that creates a welcoming and calming environment, aimed at enhancing user concentration and reducing visual strain during note management tasks.
+My Cloud Diary's user interface (UI) is crafted with a focus on simplicity and ease of use, ensuring that users can navigate the app intuitively. The UI employs a warm, pastel colour palette that creates a welcoming and calming environment, aimed at enhancing user concentration and reducing visual strain during note management tasks.
 
 Key design elements include:
 
@@ -73,7 +73,7 @@ The colour scheme displayed is carefully selected to offer a balance between aes
 
 ## Typography
 
-MemoMingle employs a thoughtful combination of fonts in its design, prominently featuring 'Inter' as the primary typeface. Inter is a highly legible sans-serif font that was crafted with digital screens in mind, ensuring that text is readable at various sizes and weights. Its clean lines and open shapes contribute to the modern and uncluttered feel of the user interface. As a fallback, the application uses 'Arial', a ubiquitous sans-serif font known for its wide availability and straightforward appearance. The generic 'sans-serif' as the final fallback ensures that, in any environment where the primary fonts are not available, the browser can use a default sans-serif font, maintaining the integrity of the app's design. This font stack not only guarantees a seamless and accessible reading experience but also aligns with MemoMingle's sleek and user-centric design principles.
+My Cloud Diary employs a thoughtful combination of fonts in its design, prominently featuring 'Inter' as the primary typeface. Inter is a highly legible sans-serif font that was crafted with digital screens in mind, ensuring that text is readable at various sizes and weights. Its clean lines and open shapes contribute to the modern and uncluttered feel of the user interface. As a fallback, the application uses 'Arial', a ubiquitous sans-serif font known for its wide availability and straightforward appearance. The generic 'sans-serif' as the final fallback ensures that, in any environment where the primary fonts are not available, the browser can use a default sans-serif font, maintaining the integrity of the app's design. This font stack not only guarantees a seamless and accessible reading experience but also aligns with My Cloud Diary's sleek and user-centric design principles.
 
 ## Wireframes
 
@@ -132,7 +132,7 @@ Note Management (/notes/, /notes/new, /notes/<id>/delete, /notes/<id>/edit): For
 
 ## Security
 
-In MemoMingle, security is a top priority, and several measures are implemented to protect user data:
+In My Cloud Diary, security is a top priority, and several measures are implemented to protect user data:
 
 **Password Hashing:** We use Werkzeug's security features to hash passwords before storing them in the database. This means that actual passwords are never stored, only their secure hashes.
 
@@ -144,15 +144,15 @@ In MemoMingle, security is a top priority, and several measures are implemented 
 
 **Input Validation:** All user inputs are validated and sanitized to protect against SQL injection and XSS attacks.
 
-These technologies and strategies form a robust security posture for MemoMingle, ensuring user data integrity and confidentiality.
+These technologies and strategies form a robust security posture for My Cloud Diary, ensuring user data integrity and confidentiality.
 
 ## Testing
 
 For more information on testing, [click here](https://github.com/Moodyw03/MemoMingle/blob/main/testing.md)
 
-## Bug Fixes and Improvements in MemoMingle
+## Bug Fixes and Improvements in My Cloud Diary
 
-As part of My commitment to providing a seamless and secure user experience, I've identified and addressed several key issues in MemoMingle:
+As part of My commitment to providing a seamless and secure user experience, I've identified and addressed several key issues in My Cloud Diary:
 
 **Bug 1:** Authentication without a Password
 Issue: Users were able to attempt logging in without entering a password.
@@ -174,17 +174,17 @@ Fix: Enhanced the search algorithm to include tags, titles, and descriptions in 
 
 ### Live Version
 
-Explore the live version of "MemoMingle," now hosted on Vercel! Experience the full functionality of our project by visiting [MemoMingle Live Site](https://memomingle.vercel.app/).
+Explore the live version of "My Cloud Diary," now hosted on Vercel! Experience the full functionality of our project by visiting [My Cloud Diary Live Site](https://myclouddiary.vercel.app/).
 
 ### Local Development
 
-Interested in contributing to or exploring "MemoMingle" locally? You can interact with our GitHub Repository by either cloning or forking it. Here's how:
+Interested in contributing to or exploring "My Cloud Diary" locally? You can interact with our GitHub Repository by either cloning or forking it. Here's how:
 
 ### Cloning the Repository
 
-Cloning creates a local copy of our repository on your computer or a remote server, allowing you to sync changes. To clone the "MemoMingle" repository, follow these steps:
+Cloning creates a local copy of our repository on your computer or a remote server, allowing you to sync changes. To clone the "My Cloud Diary" repository, follow these steps:
 
-1. Visit the "MemoMingle" GitHub Repository at [MemoMingle Repository](https://github.com/Moodyw03/MemoMingle).
+1. Visit the "My Cloud Diary" GitHub Repository at [My Cloud Diary Repository](https://github.com/Moodyw03/MemoMingle).
 2. Click the "Code" button above the file list.
 3. Choose your preferred method (HTTPS, SSH, or GitHub CLI) and copy the provided URL.
 4. Open your Git Bash or Terminal.
@@ -193,7 +193,7 @@ Cloning creates a local copy of our repository on your computer or a remote serv
 
    git clone https://github.com/Moodyw03/MemoMingle.git
 
-Visit the "MemoMingle" GitHub Repository at MemoMingle Repository.
+Visit the "My Cloud Diary" GitHub Repository at My Cloud Diary Repository.
 Click the "Code" button above the file list.
 Choose your preferred method (HTTPS, SSH, or GitHub CLI) and copy the provided URL.
 Open your Git Bash or Terminal.
@@ -206,7 +206,7 @@ Press Enter to create your local clone.
 Forking the Repository
 Forking will create a new instance of our repository in your GitHub account, allowing you to make changes independently of the original repository. Here's how to fork:
 
-Navigate to the "MemoMingle" GitHub Repository at MemoMingle Repository.
+Navigate to the "My Cloud Diary" GitHub Repository at My Cloud Diary Repository.
 Click the "Fork" button, located at the top right corner.
 A copy of the repository will now be available in your GitHub account for your personal use and modifications.
 
@@ -291,11 +291,11 @@ Run the Flask web application on a local development server.
 Combined
 `export FLASK_APP=app; export FLASK_ENV=development; export FLASK_DEBUG=1; flask run`
 
-Certainly! Here's an adapted version of the MongoDB setup instructions for your project, "MemoMingle":
+Certainly! Here's an adapted version of the MongoDB setup instructions for your project, "My Cloud Diary":
 
-## MongoDB Setup for MemoMingle
+## MongoDB Setup for My Cloud Diary
 
-"MemoMingle" utilizes MongoDB, a non-relational database. To link your repository to a MongoDB database, follow these steps:
+"My Cloud Diary" utilizes MongoDB, a non-relational database. To link your repository to a MongoDB database, follow these steps:
 
 Sign Up for MongoDB:
 
@@ -320,7 +320,7 @@ Initialize Database and Collections:
 Navigate to 'Databases', and next to your cluster name, click on 'Browse Collections'.
 Click 'Add My Own Data'. Enter a database name (like MemoMingleDB) and a collection name.
 The database name you choose should be added to your env.py file as the value for MONGO_DBNAME.
-Add the necessary collections for MemoMingle: users, memos, categories, messages. If you use different names, update these accordingly in the app.py file.
+Add the necessary collections for My Cloud Diary: users, memos, categories, messages. If you use different names, update these accordingly in the app.py file.
 Database Connection:
 
 From the Cluster's 'Overview' tab, click 'Connect'.
@@ -333,7 +333,7 @@ If you encounter connection issues, try adding the database name (from step 5) d
 
 ## Technologies used
 
-The MemoMingle app employs a variety of technologies, each serving a specific role within the project:
+The My Cloud Diary app employs a variety of technologies, each serving a specific role within the project:
 
 **Python:** The primary programming language used for server-side logic.
 

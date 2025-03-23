@@ -20,7 +20,7 @@ This submission represents Milestone Project 3 for the Code Institute's Diploma 
 
 ## Repository
 
-[Find the project repository here:](https://github.com/Moodyw03/new-world-disorder)
+[Find the project repository here:](https://github.com/Moodyw03/My-Cloud-Diary)
 
 ### UX
 
@@ -148,7 +148,7 @@ These technologies and strategies form a robust security posture for My Cloud Di
 
 ## Testing
 
-For more information on testing, [click here](https://github.com/Moodyw03/MemoMingle/blob/main/testing.md)
+For more information on testing, [click here](https://github.com/Moodyw03/My-Cloud-Diary/blob/main/testing.md)
 
 ## Bug Fixes and Improvements in My Cloud Diary
 
@@ -184,16 +184,16 @@ Interested in contributing to or exploring "My Cloud Diary" locally? You can int
 
 Cloning creates a local copy of our repository on your computer or a remote server, allowing you to sync changes. To clone the "My Cloud Diary" repository, follow these steps:
 
-1. Visit the "My Cloud Diary" GitHub Repository at [My Cloud Diary Repository](https://github.com/Moodyw03/MemoMingle).
+1. Visit the "My Cloud Diary" GitHub Repository at [My Cloud Diary Repository](https://github.com/Moodyw03/My-Cloud-Diary).
 2. Click the "Code" button above the file list.
 3. Choose your preferred method (HTTPS, SSH, or GitHub CLI) and copy the provided URL.
 4. Open your Git Bash or Terminal.
 5. Change your working directory to where you want the clone placed.
 6. Type `git clone`, and then paste the URL you copied earlier.
 
-   git clone https://github.com/Moodyw03/MemoMingle.git
+   git clone https://github.com/Moodyw03/My-Cloud-Diary.git
 
-Visit the "My Cloud Diary" GitHub Repository at My Cloud Diary Repository.
+Visit the "My Cloud Diary" GitHub Repository at [My Cloud Diary Repository](https://github.com/Moodyw03/My-Cloud-Diary).
 Click the "Code" button above the file list.
 Choose your preferred method (HTTPS, SSH, or GitHub CLI) and copy the provided URL.
 Open your Git Bash or Terminal.
@@ -201,12 +201,14 @@ Change your working directory to where you want the clone placed.
 Type git clone, and then paste the URL you copied earlier.
 bash
 Copy code
-git clone https://github.com/Moodyw03/MemoMingle.git
+git clone https://github.com/Moodyw03/My-Cloud-Diary.git
 Press Enter to create your local clone.
-Forking the Repository
+
+## Forking the Repository
+
 Forking will create a new instance of our repository in your GitHub account, allowing you to make changes independently of the original repository. Here's how to fork:
 
-Navigate to the "My Cloud Diary" GitHub Repository at My Cloud Diary Repository.
+Navigate to the "My Cloud Diary" GitHub Repository at [My Cloud Diary Repository](https://github.com/Moodyw03/My-Cloud-Diary).
 Click the "Fork" button, located at the top right corner.
 A copy of the repository will now be available in your GitHub account for your personal use and modifications.
 

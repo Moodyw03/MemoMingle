@@ -16,6 +16,7 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
+CORS(app)  # Initialize CORS
 
 # Session configuration for auto-logout
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)  # Default timeout: 30 minutes
@@ -57,3 +58,7 @@ app.register_blueprint(parent, url_prefix="/parent")
 @app.route("/")
 def index():
     return render_template("index.html")
+
+# This is needed for Vercel deployment
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))

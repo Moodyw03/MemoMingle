@@ -16,11 +16,13 @@ class User:
 
     def insert(self):
         """Insert a user into the database"""
+        # Skip fields that might not exist in the database yet
         data = supabase.table("users").insert({
             "username": self.username,
             "password": self.password,
-            "is_parent": self.is_parent,
-            "parent_id": self.parent_id,
+            # Commenting out fields that might not exist in the database yet
+            # "is_parent": self.is_parent,
+            # "parent_id": self.parent_id,
             "created_at": self.created_at
         }).execute()
 

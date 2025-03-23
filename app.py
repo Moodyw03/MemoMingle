@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, render_template
+from flask import Flask, render_template, session
+from datetime import timedelta
 
 from markupsafe import escape, Markup
 from jinja2 import pass_eval_context
@@ -12,6 +13,9 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
+
+# Session configuration for auto-logout
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)  # Default timeout: 30 minutes
 
 # Security headers middleware
 @app.after_request

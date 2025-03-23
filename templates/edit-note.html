@@ -108,7 +108,24 @@
         class="button"
       />
     </form>
-    {% endif %} {% include 'footer.html' %}
+    {% endif %}
+
+    <!-- Session warning modal -->
+    <div class="session-warning-overlay" id="sessionWarningOverlay">
+      <div class="session-warning-modal">
+        <h3 class="session-warning-title">Session Expiring Soon</h3>
+        <p class="session-warning-message">
+          Your session will expire due to inactivity in:
+        </p>
+        <div class="session-timer" id="sessionCountdown">1:00</div>
+        <div class="session-warning-actions">
+          <button class="session-continue-btn" id="continueSessionBtn">Continue Session</button>
+          <button class="session-logout-btn" id="logoutNowBtn">Logout Now</button>
+        </div>
+      </div>
+    </div>
+
+    {% include 'footer.html' %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>

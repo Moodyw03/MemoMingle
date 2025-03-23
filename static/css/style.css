@@ -1086,134 +1086,325 @@ footer #modal-btn:hover {
 }
 
 .profile-card {
-  background-color: #f8fff9;
+  background-color: white;
   border-radius: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .profile-title {
+  background-color: #45a049;
+  color: white;
   font-family: "Baloo 2", "Comic Neue", cursive;
-  font-size: 2rem;
-  color: #45a049;
-  margin-bottom: 1.5rem;
   text-align: center;
+  padding: 1.5rem;
+  margin: 0;
+  font-size: 1.8rem;
 }
 
 .profile-info {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
 }
 
-.profile-detail {
-  margin-bottom: 0.5rem;
+.profile-details {
+  margin-bottom: 2rem;
+}
+
+.profile-username {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
 }
 
-.profile-label {
-  font-weight: 700;
-  margin-right: 0.5rem;
-  color: #555;
-  min-width: 100px;
-}
-
-.profile-value {
-  color: #333;
-  font-size: 1.1rem;
-}
-
-.profile-actions {
-  margin-top: 2rem;
-}
-
-.profile-actions h3 {
-  font-family: "Comic Neue", cursive;
-  font-size: 1.5rem;
+.profile-subtitle {
   color: #45a049;
+  font-family: "Baloo 2", "Comic Neue", cursive;
+  margin-top: 2rem;
   margin-bottom: 1rem;
+  font-size: 1.4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0f0f0;
 }
 
 .profile-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.profile-form-label {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #444;
-}
-
-.profile-form-input {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border-radius: 1rem;
-  border: 2px solid #c5e5c7;
-  font-size: 1.1rem;
-  background-color: #f8fff9;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.profile-form-input:focus {
-  border: 2px solid #45a049;
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(69, 160, 73, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.profile-form-submit {
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-  border: none;
-  background-color: #45a049;
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   margin-top: 1rem;
 }
 
-.profile-form-submit:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+.profile-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.profile-actions {
+  margin-top: 1.5rem;
+}
+
+.update-btn {
+  background-color: #45a049;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.update-btn:hover {
   background-color: #3d8b40;
+  transform: translateY(-2px);
 }
 
-.profile-form-submit:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.achievement-badge.locked .badge-icon,
+.achievement-badge.locked .badge-name {
+  opacity: 0.5;
 }
 
-.profile-nav-actions {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* Responsive styles for profile page */
 @media (max-width: 768px) {
-  .profile-card {
+  .profile-info {
     padding: 1.5rem;
   }
-  
-  .profile-detail {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .profile-label {
-    margin-bottom: 0.3rem;
-  }
+}
+
+/* Device type checkbox styles */
+.device-type-container {
+  margin: 0.5rem 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.device-checkbox {
+  margin-right: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: #45a049;
+}
+
+.device-label {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Session Expiry Warning */
+.session-warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.session-warning-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.session-warning-modal {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.session-warning-overlay.active .session-warning-modal {
+  transform: translateY(0);
+}
+
+.session-warning-title {
+  font-family: "Baloo 2", "Comic Neue", cursive;
+  color: #45a049;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.session-warning-message {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.session-timer {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #ff6b6b;
+}
+
+.session-warning-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.session-continue-btn {
+  background-color: #45a049;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.session-continue-btn:hover {
+  background-color: #3d8b40;
+  transform: translateY(-2px);
+}
+
+.session-logout-btn {
+  background-color: #ddd;
+  color: #333;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.session-logout-btn:hover {
+  background-color: #ccc;
+  transform: translateY(-2px);
+}
+
+/* Emoji Selector */
+.emoji-selector {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.emoji-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.emoji-button:hover {
+  background-color: #f0f0f0;
+}
+
+.emoji-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px;
+  z-index: 10;
+  display: none;
+}
+
+.emoji-dropdown.open {
+  display: grid;
+}
+
+.emoji-item {
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.emoji-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Achievements badge */
+.streak-badge {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #333;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-left: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.streak-count {
+  margin-left: 5px;
+}
+
+.achievement-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.achievement-title {
+  font-family: "Baloo 2", "Comic Neue", cursive;
+  color: #45a049;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.achievement-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.achievement-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+}
+
+.badge-icon {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.badge-name {
+  font-size: 0.8rem;
+  color: #555;
+  text-align: center;
 }

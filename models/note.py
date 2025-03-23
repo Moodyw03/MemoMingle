@@ -1,7 +1,5 @@
 from datetime import datetime
-from bson import ObjectId
-
-from config.db import db
+from config.supabase import supabase
 
 
 class Note:
@@ -14,50 +12,54 @@ class Note:
 
     def insert(self):
         # Set 'lastModified' to the current time on insert
-        result = db.notes.insert_one(
+        result = supabase.table("notes").insert(
             {
                 "title": self.title,
                 "content": self.content,
-                "dateCreated": self.dateCreated,
-                "lastModified": datetime.now(),
+                "datecreated": self.dateCreated.isoformat(),
+                "lastmodified": datetime.now().isoformat(),
                 "tags": self.tags,
                 "user_id": self.user_id,
             }
-        )
-        return result.inserted_id
+        ).execute()
+        return result.data[0]['id'] if result.data else None
 
     @staticmethod
     def find_all(user_id=None):
-        return db.notes.find({"user_id": user_id}).sort("lastModified", -1)
+        result = supabase.table("notes").select("*").eq("user_id", user_id).order("lastmodified", desc=True).execute()
+        return result.data
 
     @staticmethod
     def find_by_id(note_id):
-        return db.notes.find_one({"_id": ObjectId(note_id)})
+        result = supabase.table("notes").select("*").eq("id", note_id).execute()
+        return result.data[0] if result.data else None
 
     @staticmethod
     def update(note_id, new_data):
-        new_data["lastModified"] = datetime.now()
-        db.notes.update_one({"_id": ObjectId(note_id)}, {"$set": new_data})
+        # Update the lastmodified field with current time
+        new_data["lastmodified"] = datetime.now().isoformat()
+        supabase.table("notes").update(new_data).eq("id", note_id).execute()
 
     @staticmethod
     def delete(note_id):
-        db.notes.delete_one({"_id": ObjectId(note_id)})
+        supabase.table("notes").delete().eq("id", note_id).execute()
 
     @staticmethod
     def search(query, user_id=None):
-        return db.notes.find(
-            {
-                "$and": [
-                    {
-                        "$or": [
-                            {"title": {"$regex": query, "$options": "i"}},
-                            {"content": {"$regex": query, "$options": "i"}},
-                            {"tags": {"$regex": query, "$options": "i"}},
-                            {"dateCreated": {"$regex": query, "$options": "i"}},
-                            {"lastModified": {"$regex": query, "$options": "i"}},
-                        ]
-                    },
-                    {"user_id": user_id},
-                ]
-            }
-        ).sort("lastModified", -1)
+        # Note: Supabase uses PostgreSQL with different search capabilities
+        # Search by title
+        title_results = supabase.table("notes").select("*").eq("user_id", user_id).ilike("title", f"%{query}%").execute()
+        # Search by content
+        content_results = supabase.table("notes").select("*").eq("user_id", user_id).ilike("content", f"%{query}%").execute()
+        
+        # Combine results (removing duplicates)
+        all_results = title_results.data + content_results.data
+        unique_ids = set()
+        unique_results = []
+        
+        for note in all_results:
+            if note['id'] not in unique_ids:
+                unique_ids.add(note['id'])
+                unique_results.append(note)
+                
+        return unique_results

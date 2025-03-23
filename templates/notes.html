@@ -123,7 +123,7 @@
         {% for note in notes %}
         <div class="note">
           <a
-            href="{{ url_for('note.edit_note', note_id=note._id) }}"
+            href="{{ url_for('note.edit_note', note_id=note.id) }}"
             class="notes__container"
           >
             <h3 class="notes__container--title">{{ note.title }}</h3>
@@ -135,22 +135,24 @@
                 {% endfor %}
               </div>
               <div class="notes__container--date">
-                <!-- <span>{{ note.lastModified.strftime('%d/%m/%Y %H:%M') }}</span> -->
-
-                {% if note.lastModified.date() == current_date %}
-                <div>{{ note.lastModified.strftime('%I:%M %p') }}</div>
+                <!-- Using lowercase column names for Supabase and ISO date parsing -->
+                {% set lastmod = note.lastmodified %}
+                {% if lastmod is string %}
+                  {% set lastmod_date = lastmod.split('T')[0] %}
+                  {% set lastmod_time = lastmod.split('T')[1].split('.')[0] %}
+                  <div>
+                    <span>{{ lastmod_date }}</span>
+                    <span>{{ lastmod_time }}</span>
+                  </div>
                 {% else %}
-                <div>
-                  <span>{{ note.lastModified.strftime('%b %d, %Y') }}</span>
-                  <span>{{ note.lastModified.strftime('%I:%M %p') }}</span>
-                </div>
+                  <div>{{ lastmod }}</div>
                 {% endif %}
               </div>
             </div>
             <div class="notes__container--actions">
               <!-- Delete note -->
               <form
-                action="{{ url_for('note.delete_note', note_id=note._id) }}"
+                action="{{ url_for('note.delete_note', note_id=note.id) }}"
                 method="post"
               >
                 <button type="submit" class="notes__container--actions--button">

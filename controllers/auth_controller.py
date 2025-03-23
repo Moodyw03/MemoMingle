@@ -16,7 +16,7 @@ def sign_in():
 
         if User.verify_password(username, password):
             user = User.find_by_username(username)
-            session["user_id"] = str(user["_id"])
+            session["user_id"] = user["id"]
             return redirect(url_for("note.get_notes"))
         return render_template("sign-in.html", error="Invalid credentials")
     return render_template("sign-in.html")

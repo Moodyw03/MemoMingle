@@ -1,7 +1,5 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from bson import ObjectId
-
-from config.db import db
+from config.supabase import supabase
 
 
 class User:
@@ -10,19 +8,21 @@ class User:
         self.password = generate_password_hash(password)
 
     def insert(self):
-        result = db.users.insert_one({
+        result = supabase.table('users').insert({
             'username': self.username,
             'password': self.password
-        })
-        return result.inserted_id
+        }).execute()
+        return result.data[0]['id'] if result.data else None
 
     @staticmethod
     def find_by_username(username):
-        return db.users.find_one({'username': username})
+        result = supabase.table('users').select('*').eq('username', username).execute()
+        return result.data[0] if result.data else None
 
     @staticmethod
     def find_by_id(user_id):
-        return db.users.find_one({'_id': ObjectId(user_id)})
+        result = supabase.table('users').select('*').eq('id', user_id).execute()
+        return result.data[0] if result.data else None
 
     @staticmethod
     def verify_password(email, password):

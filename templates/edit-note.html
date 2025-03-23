@@ -68,7 +68,7 @@
     {% if note %}
     <form
       class="note_edit_form"
-      action="{{ url_for('note.edit_note', note_id=note._id) }}"
+      action="{{ url_for('note.edit_note', note_id=note.id) }}"
       method="POST"
     >
       <label class="note_edit_form--label" for="title">Title</label>

@@ -15,9 +15,10 @@ from decorators import login_required
 note = Blueprint("note", __name__)
 
 
-def serialize(doc):
-    doc["_id"] = str(doc["_id"])
-    return doc
+# Not needed anymore as Supabase already returns JSON-serializable data
+# def serialize(doc):
+#     doc["_id"] = str(doc["_id"])
+#     return doc
 
 
 # Notes
@@ -132,8 +133,6 @@ def search_notes():
     if request.method == "POST":
         search = request.form["search"]
         query = search.strip()
-
-        print(query)
 
         notes = Note.search(query, user_id)
         current_date = datetime.now().date()

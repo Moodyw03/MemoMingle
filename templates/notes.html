@@ -70,13 +70,16 @@
           />
         </button>
       </form>
-      <div class="notes__nav--logout">
-        <a href="{{ url_for('auth.sign_out') }}" title="Sign Out">
+
+      <!-- Notes Actions -->
+      <div class="notes__nav--actions">
+        <a href="{{ url_for('auth.profile') }}" class="notes__nav--actions--button">
+          <img src="https://unpkg.com/lucide-static@latest/icons/user.svg" />
+        </a>
+        <a href="{{ url_for('auth.sign_out') }}" class="notes__nav--actions--button">
           <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
         </a>
       </div>
-
-      <!-- Sign Out -->
     </nav>
 
     <!-- NEW NOTE -->

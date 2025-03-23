@@ -42,6 +42,19 @@ function checkPasswords() {
   return true;
 }
 
+// Check if the both passwords are the same for profile update
+function checkPasswordsProfile() {
+  var newPassword = document.getElementById("new-password").value;
+  var confirmNewPassword = document.getElementById(
+    "confirm-new-password"
+  ).value;
+
+  if (newPassword !== confirmNewPassword) {
+    alert("New passwords do not match.");
+    return false; // Prevent form submission
+  }
+  return true;
+}
 
 // Get the modal
 var modal = document.getElementById("myModal");

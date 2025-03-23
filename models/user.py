@@ -30,3 +30,14 @@ class User:
         if user:
             return check_password_hash(user['password'], password)
         return False
+
+    @staticmethod
+    def update_password(user_id, new_password):
+        """Update the user's password"""
+        hashed_password = generate_password_hash(new_password)
+        
+        result = supabase.table('users').update({
+            'password': hashed_password
+        }).eq('id', user_id).execute()
+        
+        return result.data[0] if result.data else None

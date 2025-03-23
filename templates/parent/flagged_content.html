@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cloud Diary - Flagged Content</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <header class="header">
+            <div class="header__logo">
+                <a href="{{ url_for('parent.dashboard') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="My Cloud Diary Logo" height="60">
+                </a>
+                <h1>Flagged Content</h1>
+            </div>
+            <div class="header__actions">
+                <a href="{{ url_for('parent.dashboard') }}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </a>
+            </div>
+        </header>
+
+        <main class="flagged-content">
+            <div class="flagged-content__header">
+                <h2>Content Flagged for Review</h2>
+                <p class="explanation">
+                    The entries below contain potentially inappropriate content that has been automatically
+                    filtered. Please review these entries and take appropriate action if needed.
+                </p>
+            </div>
+
+            <div class="flagged-content__list">
+                {% if notes %}
+                    {% for note in notes %}
+                        <div class="flagged-note">
+                            <div class="flagged-note__header">
+                                <h3>{{ note.title }}</h3>
+                                <span class="child-name">By: {{ note.child_username }}</span>
+                                <span class="date">{{ note.datecreated.split('T')[0] }}</span>
+                            </div>
+                            <div class="flagged-note__content">
+                                <p>{{ note.content }}</p>
+                            </div>
+                            <div class="flagged-note__actions">
+                                <a href="{{ url_for('parent.view_note', child_id=note.user_id, note_id=note.id) }}" class="btn btn-primary">
+                                    View Full Entry
+                                </a>
+                                <a href="{{ url_for('parent.child_details', child_id=note.user_id) }}" class="btn btn-secondary">
+                                    Go to Child's Profile
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="no-content">
+                        <p>No flagged content found. Great job!</p>
+                        <p>When the system detects potentially inappropriate content in your children's diary entries, they will appear here for your review.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </main>
+
+        <section class="parent-guidance">
+            <h3>Parent Guidance</h3>
+            <div class="guidance-content">
+                <h4>How to Handle Flagged Content</h4>
+                <ul>
+                    <li><strong>Review Context:</strong> Read the full entry to understand the context before taking action.</li>
+                    <li><strong>Discuss, Don't Punish:</strong> Use flagged content as an opportunity for constructive conversation rather than punishment.</li>
+                    <li><strong>Privacy Balance:</strong> Respect your child's privacy while ensuring their safety and appropriate content use.</li>
+                    <li><strong>Teaching Moment:</strong> Explain why certain language might be inappropriate in a calm, educational manner.</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2023 My Cloud Diary - Parental Controls</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 

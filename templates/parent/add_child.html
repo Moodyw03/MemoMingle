@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Child Account - My Cloud Diary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/parent.css') }}" />
+  </head>
+  <body>
+    <!-- Success/Error messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div id="{{ category }}">
+            <p>{{ message }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <header class="parent-header">
+      <div class="parent-header-container">
+        <img src="{{ url_for('static', filename='images/myclouddiary.png') }}" alt="My Cloud Diary logo" class="parent-logo" />
+        <h1 class="parent-title">Add Child Account</h1>
+        <div class="parent-menu">
+          <a href="{{ url_for('parent.dashboard') }}" class="parent-back-btn">
+            <img src="https://unpkg.com/lucide-static@latest/icons/arrow-left.svg" alt="Back" />
+            Back to Dashboard
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="parent-main">
+      <section class="add-child-container">
+        <div class="add-child-card">
+          <h2>Create a Child Account</h2>
+          <p class="subtitle">Set up a new diary account for your child.</p>
+
+          <form class="add-child-form" action="{{ url_for('parent.add_child') }}" method="post">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                required 
+                minlength="3"
+                placeholder="Enter a username for your child"
+              >
+              <small>Choose a username your child will remember. Minimum 3 characters.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                required 
+                minlength="4"
+                placeholder="Create a password"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="confirm_password">Confirm Password</label>
+              <input 
+                type="password" 
+                id="confirm_password" 
+                name="confirm_password" 
+                required 
+                minlength="4"
+                placeholder="Confirm the password"
+              >
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Create Account</button>
+              <a href="{{ url_for('parent.dashboard') }}" class="btn btn-secondary">Cancel</a>
+            </div>
+          </form>
+        </div>
+
+        <div class="child-account-tips">
+          <h3>Tips for Child Accounts</h3>
+          <ul>
+            <li>Choose an easy-to-remember username that your child will recognize</li>
+            <li>Create a simple password that your child can type</li>
+            <li>Help your child log in for the first few times</li>
+            <li>Explain what the diary is for and encourage daily writing</li>
+            <li>Set a regular time each day for diary writing</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <script>
+      // Password confirmation check
+      document.querySelector('.add-child-form').addEventListener('submit', function(e) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+        
+        if (password !== confirmPassword) {
+          e.preventDefault();
+          alert("Passwords do not match. Please try again.");
+        }
+      });
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html> 

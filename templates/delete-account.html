@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Cloud Diary - Delete Account</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Success/Error messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div id="{{ category }}">
+            <p>{{ message }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="container delete-account-container">
+      <div class="sign-in__logo">
+        <a href="{{ url_for('note.get_notes') }}">
+          <img
+            src="{{ url_for('static', filename='images/myclouddiary.png') }}"
+            alt="My Cloud Diary logo"
+            class="sign-in__logo--img"
+          />
+        </a>
+      </div>
+  
+      <div class="delete-account-card">
+        <h1 class="delete-account-title">Delete Your Account</h1>
+        
+        <div class="delete-account-warning">
+          <h3>Warning: This action cannot be undone!</h3>
+          <p>Deleting your account will permanently remove:</p>
+          <ul>
+            <li>All your personal information</li>
+            <li>All your diary entries</li>
+            <li>All your achievements and progress</li>
+          </ul>
+        </div>
+        
+        <form class="delete-account-form" action="{{ url_for('auth.delete_account') }}" method="POST">
+          <div class="form-group">
+            <label for="password">Enter your password to confirm deletion:</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="sign-in__form--input" 
+              required
+            />
+          </div>
+          
+          <div class="delete-account-actions">
+            <a href="{{ url_for('auth.profile') }}" class="btn-secondary">Cancel</a>
+            <button type="submit" class="btn-danger">Delete My Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {% include 'footer.html' %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html> 

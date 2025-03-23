@@ -659,3 +659,124 @@ document.addEventListener("DOMContentLoaded", () => {
     noteContent.addEventListener("input", checkInputContent);
   }
 });
+
+// Time tracking for child accounts
+let sessionStartTime = Date.now();
+let isTimedOut = false;
+let timeLimit = null;
+let timeWarningShown = false;
+
+// Initialize time tracking on page load for child accounts
+document.addEventListener("DOMContentLoaded", function () {
+  // Check if this is a child account with time limits
+  const timeTrackerElement = document.getElementById("time-tracker");
+  if (timeTrackerElement) {
+    // Get the daily time limit from data attribute (in minutes)
+    timeLimit = parseInt(timeTrackerElement.dataset.timeLimit);
+
+    if (timeLimit) {
+      // Start tracking time
+      trackSessionTime();
+
+      // Set up activity tracking to reset inactivity timer
+      setupActivityTracking();
+    }
+  }
+});
+
+function trackSessionTime() {
+  if (isTimedOut || !timeLimit) return;
+
+  // Calculate elapsed time in minutes
+  const elapsedMinutes = Math.floor((Date.now() - sessionStartTime) / 60000);
+  const remainingMinutes = timeLimit - elapsedMinutes;
+
+  // Update time display if element exists
+  const timeDisplayElement = document.getElementById("time-remaining");
+  if (timeDisplayElement) {
+    timeDisplayElement.textContent = `${remainingMinutes} minutes remaining`;
+  }
+
+  // Show warning when 5 minutes remaining
+  if (remainingMinutes <= 5 && !timeWarningShown) {
+    showTimeWarning(remainingMinutes);
+    timeWarningShown = true;
+  }
+
+  // Enforce time limit
+  if (remainingMinutes <= 0) {
+    isTimedOut = true;
+    showTimeoutMessage();
+  } else {
+    // Continue tracking
+    setTimeout(trackSessionTime, 60000); // Update every minute
+  }
+}
+
+function showTimeWarning(minutesLeft) {
+  // Create and show warning modal
+  const warningModal = document.createElement("div");
+  warningModal.className = "time-warning-modal";
+  warningModal.innerHTML = `
+        <div class="time-warning-content">
+            <h3>Time Limit Warning</h3>
+            <p>You have ${minutesLeft} minutes left in your daily diary time.</p>
+            <p>Please finish what you're working on and save your entries.</p>
+            <button id="acknowledge-warning" class="btn">I understand</button>
+        </div>
+    `;
+
+  document.body.appendChild(warningModal);
+
+  // Add event listener to close button
+  document
+    .getElementById("acknowledge-warning")
+    .addEventListener("click", function () {
+      warningModal.remove();
+    });
+}
+
+function showTimeoutMessage() {
+  // Create timeout modal that cannot be dismissed
+  const timeoutModal = document.createElement("div");
+  timeoutModal.className = "timeout-modal";
+  timeoutModal.innerHTML = `
+        <div class="timeout-content">
+            <h3>Daily Time Limit Reached</h3>
+            <p>You've reached your daily time limit for My Cloud Diary.</p>
+            <p>Your progress has been saved. Please come back tomorrow!</p>
+            <p>You will be signed out in <span id="logout-countdown">10</span> seconds.</p>
+        </div>
+    `;
+
+  document.body.appendChild(timeoutModal);
+
+  // Countdown to logout
+  let secondsLeft = 10;
+  const countdownElement = document.getElementById("logout-countdown");
+
+  const countdownInterval = setInterval(function () {
+    secondsLeft--;
+    if (countdownElement) {
+      countdownElement.textContent = secondsLeft;
+    }
+
+    if (secondsLeft <= 0) {
+      clearInterval(countdownInterval);
+      // Redirect to sign-out page
+      window.location.href = "/sign-out";
+    }
+  }, 1000);
+}
+
+function setupActivityTracking() {
+  // Track user activity to prevent timeout during active use
+  const events = ["mousedown", "keypress", "scroll", "touchstart"];
+
+  events.forEach(function (event) {
+    document.addEventListener(event, function () {
+      // Reset inactivity timer
+      lastActivityTime = Date.now();
+    });
+  });
+}

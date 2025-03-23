@@ -2,12 +2,15 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, render_template, session
 from datetime import timedelta
+from flask_cors import CORS
 
 from markupsafe import escape, Markup
 from jinja2 import pass_eval_context
 
 from controllers.auth_controller import auth
 from controllers.note_controller import note
+from controllers.parent_controller import parent
+from config.supabase import supabase
 
 load_dotenv()
 
@@ -48,6 +51,7 @@ app.jinja_env.filters["nl2br"] = nl2br
 
 app.register_blueprint(auth, url_prefix="/auth")
 app.register_blueprint(note, url_prefix="/notes")
+app.register_blueprint(parent, url_prefix="/parent")
 
 
 @app.route("/")

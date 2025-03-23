@@ -101,6 +101,14 @@
                 <button type="submit" class="update-btn">Update Password</button>
               </div>
             </form>
+            
+            <div class="danger-zone">
+              <h3 class="danger-title">Danger Zone</h3>
+              <div class="danger-content">
+                <p>Permanently delete your account and all associated data.</p>
+                <a href="{{ url_for('auth.delete_account') }}" class="delete-account-btn">Delete My Account</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

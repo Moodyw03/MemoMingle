@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Note - My Cloud Diary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/parent.css') }}" />
+  </head>
+  <body>
+    <!-- Success/Error messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div id="{{ category }}">
+            <p>{{ message }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <header class="parent-header">
+      <div class="parent-header-container">
+        <img src="{{ url_for('static', filename='images/myclouddiary.png') }}" alt="My Cloud Diary logo" class="parent-logo" />
+        <h1 class="parent-title">Viewing Diary Entry</h1>
+        <div class="parent-menu">
+          <a href="{{ url_for('parent.child_details', child_id=child_id) }}" class="parent-back-btn">
+            <img src="https://unpkg.com/lucide-static@latest/icons/arrow-left.svg" alt="Back" />
+            Back to Child Profile
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="parent-main">
+      <section class="view-note-container">
+        <div class="note-view-card">
+          <div class="note-header">
+            <h2 class="note-title">{{ note.title }}</h2>
+            <div class="note-metadata">
+              <span class="note-date">Written on: {{ note.created_at.split('T')[0] }}</span>
+              <span class="note-time">at {{ note.created_at.split('T')[1].split('.')[0] }}</span>
+            </div>
+          </div>
+          
+          <div class="note-content">
+            <p>{{ note.content|nl2br }}</p>
+          </div>
+          
+          {% if note.tags %}
+            <div class="note-tags">
+              <span class="tags-label">Tags:</span>
+              {% for tag in note.tags %}
+                <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="parent-note-actions">
+          <a href="{{ url_for('parent.child_details', child_id=child_id) }}" class="btn btn-primary">
+            Return to Child's Profile
+          </a>
+        </div>
+        
+        <div class="parent-guidance">
+          <h3>Guidance for Parents</h3>
+          <div class="guidance-content">
+            <p>As you read your child's diary entries, remember:</p>
+            <ul>
+              <li><strong>Respect privacy</strong> - Children need safe spaces to express themselves</li>
+              <li><strong>Be supportive</strong> - If you see concerning content, approach conversations with care</li>
+              <li><strong>Look for patterns</strong> - Regular diary entries can provide insights into your child's emotional well-being</li>
+              <li><strong>Praise their writing</strong> - Encourage their expressive skills without criticizing spelling or grammar</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html> 

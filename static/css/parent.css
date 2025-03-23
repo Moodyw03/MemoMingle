@@ -1,0 +1,126 @@
+/* Flagged Content Page */
+.flagged-content {
+    margin: 20px 0;
+}
+
+.flagged-content__header {
+    margin-bottom: 30px;
+}
+
+.flagged-content__header h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.flagged-content__header .explanation {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.flagged-content__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.flagged-note {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #ff9800;
+}
+
+.flagged-note__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.flagged-note__header h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin: 0;
+    flex: 1;
+}
+
+.flagged-note__header .child-name {
+    font-weight: bold;
+    color: #4285f4;
+    margin-right: 15px;
+}
+
+.flagged-note__header .date {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.flagged-note__content {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.flagged-note__actions {
+    display: flex;
+    gap: 10px;
+}
+
+.no-content {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #666;
+}
+
+.no-content p:first-child {
+    font-size: 1.2rem;
+    color: #4caf50;
+    margin-bottom: 15px;
+}
+
+/* Parent Guidance Section */
+.parent-guidance {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.parent-guidance h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.guidance-content h4 {
+    color: #4285f4;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.guidance-content ul {
+    padding-left: 20px;
+}
+
+.guidance-content li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Button styles */
+.btn-warning {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #f57c00;
+} 

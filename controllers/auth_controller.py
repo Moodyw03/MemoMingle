@@ -10,8 +10,10 @@ auth = Blueprint("auth", __name__)
 
 @auth.route("/sign-in", methods=["GET", "POST"])
 def sign_in():
-    # if the user is already logged in, redirect to the notes page
+    # if the user is already logged in, redirect to the appropriate page
     if "user_id" in session:
+        if session.get("is_parent"):
+            return redirect(url_for("parent.dashboard"))
         return redirect(url_for("note.get_notes"))
 
     if request.method == "POST":
@@ -44,12 +46,17 @@ def sign_in():
             
             session["user_id"] = user["id"]
             session["username"] = user["username"]
+            session["is_parent"] = user.get("is_parent", False)
             session["last_activity"] = datetime.now().timestamp()
             
             # Update user login streak
             User.update_streak(user["id"])
             
-            return redirect(url_for("note.get_notes"))
+            # Redirect to appropriate page based on account type
+            if session["is_parent"]:
+                return redirect(url_for("parent.dashboard"))
+            else:
+                return redirect(url_for("note.get_notes"))
 
         flash(error)
 
@@ -60,11 +67,14 @@ def sign_in():
 def sign_up():
     # if the user is already logged in, redirect to the notes page
     if "user_id" in session:
+        if session.get("is_parent"):
+            return redirect(url_for("parent.dashboard"))
         return redirect(url_for("note.get_notes"))
 
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+        is_parent = request.form.get("is_parent") == "on"
 
         # Check if username or password is less than 4 characters
         if len(username) < 4 or len(password) < 4:
@@ -76,7 +86,7 @@ def sign_up():
         if User.find_by_username(username):
             return render_template("sign-up.html", error="Username already exists")
 
-        user = User(username, password)
+        user = User(username, password, is_parent=is_parent)
         user.insert()
         return render_template("sign-in.html", success="Account created successfully")
 
@@ -121,3 +131,40 @@ def profile():
         return render_template("profile.html", user=user, achievements=achievements, success="Password updated successfully")
     
     return render_template("profile.html", user=user, achievements=achievements)
+
+
+@auth.route("/delete-account", methods=["GET", "POST"])
+@login_required
+def delete_account():
+    """Delete the user's own account"""
+    user_id = session["user_id"]
+    user = User.find_by_id(user_id)
+    
+    if request.method == "POST":
+        # Check if user is confirming deletion with their password
+        password = request.form.get("password")
+        
+        if not password or not check_password_hash(user["password"], password):
+            flash("Incorrect password. Account not deleted.", "error")
+            return render_template("delete-account.html")
+        
+        # If this is a parent account, check for child accounts
+        if user.get("is_parent", False):
+            children = User.get_children(user_id)
+            if children:
+                flash("You cannot delete your account while you have child accounts. Please delete child accounts first.", "error")
+                return render_template("delete-account.html")
+        
+        # Delete the account
+        success, message = User.delete_user(user_id)
+        
+        if success:
+            # Clear the session
+            session.clear()
+            flash("Your account has been successfully deleted.", "success")
+            return redirect(url_for("auth.sign_in"))
+        else:
+            flash(message, "error")
+            return render_template("delete-account.html")
+    
+    return render_template("delete-account.html")

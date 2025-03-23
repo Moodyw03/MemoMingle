@@ -11,6 +11,7 @@ from flask import (
 
 
 from models.note import Note
+from models.user import User
 from decorators import login_required
 from utils.content_filter import ContentFilter
 
@@ -31,6 +32,9 @@ def get_notes():
     if not user_id:
         return redirect(url_for("auth.sign_in"))
 
+    # Get user details for time limits
+    user = User.find_by_id(user_id)
+
     # Fetch message from query parameters
     success = request.args.get("success")
     error = request.args.get("error")
@@ -43,6 +47,7 @@ def get_notes():
         current_date=current_date,
         success=success,
         error=error,
+        user=user
     )
 
 
@@ -150,6 +155,9 @@ def search_notes():
     if not user_id:
         return redirect(url_for("auth.sign_in"))
 
+    # Get user details for time limits
+    user = User.find_by_id(user_id)
+
     if request.method == "POST":
         search = request.form["search"]
         query = search.strip()
@@ -157,5 +165,5 @@ def search_notes():
         notes = Note.search(query, user_id)
         current_date = datetime.now().date()
         return render_template(
-            "notes.html", notes=notes, current_date=current_date, search=query
+            "notes.html", notes=notes, current_date=current_date, search=query, user=user
         )

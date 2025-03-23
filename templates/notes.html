@@ -50,6 +50,17 @@
         </a>
       </div>
 
+      <!-- Add time tracker for child accounts -->
+      {% if not session.get('is_parent') and session.get('user_id') %}
+        {% set user = user or {} %}
+        {% if user.get('daily_time_limit') %}
+          <div id="time-tracker" class="time-tracker" data-time-limit="{{ user.daily_time_limit }}">
+            <span class="icon">⏱️</span>
+            <span id="time-remaining">Loading time...</span>
+          </div>
+        {% endif %}
+      {% endif %}
+
       <!-- Search bar -->
       <form
         class="notes__nav--search"

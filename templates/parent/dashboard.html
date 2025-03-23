@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent Dashboard - My Cloud Diary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/parent.css') }}" />
+  </head>
+  <body>
+    <!-- Success/Error messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div id="{{ category }}">
+            <p>{{ message }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <header class="parent-header">
+      <div class="parent-header-container">
+        <img src="{{ url_for('static', filename='images/myclouddiary.png') }}" alt="My Cloud Diary logo" class="parent-logo" />
+        <h1 class="parent-title">Parent Dashboard</h1>
+        <div class="parent-menu">
+          <a href="{{ url_for('auth.sign_out') }}" class="parent-logout-btn">Sign Out</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="parent-main">
+      <section class="parent-dashboard">
+        <div class="parent-welcome">
+          <h2>Welcome, {{ session.username }}!</h2>
+          <p>Manage your children's accounts and monitor their diary entries.</p>
+        </div>
+
+        <div class="parent-actions">
+          <a href="{{ url_for('parent.add_child') }}" class="btn btn-primary">
+            <span class="btn-icon">+</span> Add Child Account
+          </a>
+          <a href="{{ url_for('parent.flagged_content') }}" class="btn btn-warning">
+            <span class="btn-icon">⚠️</span> View Flagged Content
+          </a>
+        </div>
+
+        <div class="parent-children-list">
+          <h3>Child Accounts</h3>
+          
+          {% if children %}
+            <div class="children-grid">
+              {% for child in children %}
+                <div class="child-card">
+                  <div class="child-info">
+                    <h4>{{ child.username }}</h4>
+                    <p class="child-since">Account created: {{ child.created_at.split('T')[0] }}</p>
+                    
+                    {% if child.streak and child.streak > 1 %}
+                      <div class="child-streak">
+                        <span class="streak-badge">
+                          <span class="streak-icon">🔥</span>
+                          <span class="streak-count">{{ child.streak }}-day streak</span>
+                        </span>
+                      </div>
+                    {% endif %}
+                  </div>
+                  
+                  <div class="child-actions">
+                    <a href="{{ url_for('parent.child_details', child_id=child.id) }}" class="btn btn-secondary">
+                      View Details
+                    </a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="no-children">
+              <p>You haven't added any child accounts yet.</p>
+              <a href="{{ url_for('parent.add_child') }}" class="btn btn-primary">Add Your First Child</a>
+            </div>
+          {% endif %}
+        </div>
+      </section>
+
+      <section class="parent-tips">
+        <h3>Tips for Parents</h3>
+        <div class="tip-card">
+          <h4>Privacy & Trust</h4>
+          <p>While monitoring your child's diary entries can help ensure their safety, it's also important to respect their privacy and build trust.</p>
+        </div>
+        <div class="tip-card">
+          <h4>Encourage Daily Writing</h4>
+          <p>Regular journaling helps develop writing skills, emotional intelligence, and self-reflection habits.</p>
+        </div>
+        <div class="tip-card">
+          <h4>Discuss Entries Positively</h4>
+          <p>If you read something concerning, approach the conversation with curiosity rather than judgment.</p>
+        </div>
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html> 

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Child Details - My Cloud Diary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/parent.css') }}" />
+  </head>
+  <body>
+    <!-- Success/Error messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div id="{{ category }}">
+            <p>{{ message }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <header class="parent-header">
+      <div class="parent-header-container">
+        <img src="{{ url_for('static', filename='images/myclouddiary.png') }}" alt="My Cloud Diary logo" class="parent-logo" />
+        <h1 class="parent-title">Child Account: {{ child.username }}</h1>
+        <div class="parent-menu">
+          <a href="{{ url_for('parent.dashboard') }}" class="parent-back-btn">
+            <img src="https://unpkg.com/lucide-static@latest/icons/arrow-left.svg" alt="Back" />
+            Back to Dashboard
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="parent-main">
+      <section class="child-details-container">
+        <div class="child-details-card">
+          <div class="child-profile">
+            <h2>{{ child.username }}'s Profile</h2>
+            
+            <div class="child-stats">
+              <div class="stat-item">
+                <span class="stat-label">Account Created</span>
+                <span class="stat-value">{{ child.created_at.split('T')[0] }}</span>
+              </div>
+              
+              <div class="stat-item">
+                <span class="stat-label">Last Login</span>
+                <span class="stat-value">
+                  {% if child.last_login %}
+                    {{ child.last_login.split('T')[0] }}
+                  {% else %}
+                    Never
+                  {% endif %}
+                </span>
+              </div>
+              
+              <div class="stat-item">
+                <span class="stat-label">Current Streak</span>
+                <span class="stat-value">
+                  {% if child.streak %}
+                    {{ child.streak }} days 🔥
+                  {% else %}
+                    0 days
+                  {% endif %}
+                </span>
+              </div>
+              
+              <div class="stat-item">
+                <span class="stat-label">Notes Count</span>
+                <span class="stat-value">{{ notes|length }}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="child-controls">
+            <div class="control-section">
+              <h3>Time Limits</h3>
+              <form action="{{ url_for('parent.set_time_limit', child_id=child.id) }}" method="post" class="time-limit-form">
+                <div class="form-group">
+                  <label for="daily_limit">Daily Usage Limit (minutes)</label>
+                  <input 
+                    type="number" 
+                    id="daily_limit" 
+                    name="daily_limit" 
+                    min="0" 
+                    max="240" 
+                    value="{{ child.daily_time_limit or 60 }}"
+                  >
+                </div>
+                <button type="submit" class="btn btn-secondary">Update Time Limit</button>
+              </form>
+            </div>
+            
+            <div class="control-section">
+              <h3>Account Management</h3>
+              <button type="button" class="btn btn-warning" onclick="toggleResetPasswordForm()">Reset Password</button>
+              
+              <div class="danger-zone">
+                <form action="{{ url_for('parent.delete_child_account', child_id=child.id) }}" method="post" onsubmit="return confirmDeleteChild()">
+                  <button type="submit" class="btn btn-danger">Delete Account</button>
+                </form>
+              </div>
+              
+              <div id="resetPasswordForm" style="display: none;">
+                <form action="{{ url_for('parent.reset_child_password', child_id=child.id) }}" method="post" class="reset-password-form">
+                  <div class="form-group">
+                    <label for="new_password">New Password</label>
+                    <input 
+                      type="password" 
+                      id="new_password" 
+                      name="new_password" 
+                      required 
+                      minlength="4"
+                      placeholder="Enter new password"
+                    >
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input 
+                      type="password" 
+                      id="confirm_password" 
+                      name="confirm_password" 
+                      required 
+                      minlength="4"
+                      placeholder="Confirm new password"
+                    >
+                  </div>
+                  
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-warning">Update Password</button>
+                    <button type="button" class="btn btn-secondary" onclick="toggleResetPasswordForm()">Cancel</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="child-notes-section">
+          <h2>{{ child.username }}'s Diary Entries</h2>
+          
+          {% if notes %}
+            <div class="notes-list">
+              {% for note in notes %}
+                <div class="note-card">
+                  <div class="note-header">
+                    <h3>{{ note.title }}</h3>
+                    <span class="note-date">{{ note.created_at.split('T')[0] }}</span>
+                  </div>
+                  
+                  <div class="note-preview">
+                    <p>{{ note.content|truncate(150) }}</p>
+                  </div>
+                  
+                  <div class="note-actions">
+                    <a href="{{ url_for('parent.view_note', child_id=child.id, note_id=note.id) }}" class="btn btn-secondary btn-sm">View Full Entry</a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="no-notes">
+              <p>{{ child.username }} hasn't written any diary entries yet.</p>
+              <div class="tips">
+                <h4>Tips to Encourage Writing:</h4>
+                <ul>
+                  <li>Set a regular time each day for writing</li>
+                  <li>Ask open-ended questions about their day</li>
+                  <li>Start with a fun writing prompt</li>
+                  <li>Reward consistent writing</li>
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        
+        {% if achievements %}
+          <div class="child-achievements">
+            <h2>Achievements</h2>
+            <div class="achievements-grid">
+              {% for achievement in achievements %}
+                <div class="achievement-badge {% if not achievement.unlocked %}locked{% endif %}">
+                  <div class="badge-icon">{{ achievement.icon }}</div>
+                  <div class="badge-name">{{ achievement.name }}</div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <script>
+      function toggleResetPasswordForm() {
+        const form = document.getElementById('resetPasswordForm');
+        if (form.style.display === 'none') {
+          form.style.display = 'block';
+        } else {
+          form.style.display = 'none';
+        }
+      }
+      
+      function confirmDeleteChild() {
+        return confirm("WARNING: This will permanently delete {{ child.username }}'s account and all their diary entries. This action cannot be undone. Are you sure you want to proceed?");
+      }
+      
+      // Password confirmation check
+      document.querySelector('.reset-password-form')?.addEventListener('submit', function(e) {
+        const password = document.getElementById('new_password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+        
+        if (password !== confirmPassword) {
+          e.preventDefault();
+          alert("Passwords do not match. Please try again.");
+        }
+      });
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html> 

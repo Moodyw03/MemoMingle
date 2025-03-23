@@ -73,13 +73,23 @@
             class="sign-in__form--input"
             type="password"
             name="password"
-            id="password"
             placeholder="Password"
-            minlength="4"
+            id="password"
           />
-          <label class="sign-in__form--label" for="confirm-password">
-            Confirm Password
-          </label>
+          
+          <div class="form-group account-type-container">
+            <label class="account-type-label">
+              <input type="checkbox" name="is_parent" id="is-parent" class="account-type-checkbox">
+              <span class="checkbox-label">Create a parent account</span>
+            </label>
+            <small class="account-type-help">
+              Parent accounts can create and manage child accounts, monitor diary entries, and set usage limits.
+            </small>
+          </div>
+          
+          <label class="sign-in__form--label" for="confirm-password"
+            >Confirm Password</label
+          >
           <input
             class="sign-in__form--input"
             type="password"

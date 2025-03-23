@@ -1,6 +1,6 @@
 /* static/css/style.css */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Comic+Neue:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Comic+Neue:wght@400;700&family=Baloo+2:wght@400;700&display=swap");
 
 body {
   font-family: Inter, Arial, sans-serif;
@@ -177,12 +177,10 @@ a {
 }
 
 .sign-in__heading {
-  margin-top: 30px;
-  font-size: 30px;
-  font-weight: 400;
+  margin-top: 10px;
   text-align: center;
   display: flex;
-  gap: 1rem;
+  gap: 0.7rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -989,4 +987,93 @@ footer #modal-btn:hover {
   .memologo {
     max-width: 48px;
   }
+}
+
+/* Child-friendly text styling */
+.homepage_hero--heading strong,
+.sign-in__heading strong,
+.written-note h2 strong,
+.memo h2 strong {
+  font-family: "Baloo 2", "Comic Neue", cursive;
+  font-size: 2.5rem;
+  color: #45a049;
+  text-shadow: 1px 1px 0 #fff, 2px 2px 0 rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+  animation: bounce 2s ease infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+.homepage_hero--heading span,
+.sign-in__heading span,
+.written-note .slogan,
+.memo .slogan {
+  font-family: "Comic Neue", cursive;
+  font-size: 1.4rem;
+  color: #45a049;
+  opacity: 0.9;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+/* Homepage specific styling */
+.homepage_hero--heading {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Navigation styling for notes and edit pages */
+.written-note h2 {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.written-note h2 .slogan {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.written-note h2 strong {
+  line-height: 1;
+  font-size: 1.8rem;
+}
+
+.memologo {
+  width: 60px;
+  height: auto;
+  margin-right: 0.5rem;
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.memologo:hover {
+  transform: scale(1.05) rotate(3deg);
 }

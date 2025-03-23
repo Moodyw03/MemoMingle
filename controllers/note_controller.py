@@ -6,11 +6,13 @@ from flask import (
     redirect,
     url_for,
     render_template,
+    flash,
 )
 
 
 from models.note import Note
 from decorators import login_required
+from utils.content_filter import ContentFilter
 
 note = Blueprint("note", __name__)
 
@@ -56,9 +58,15 @@ def create_note():
         title = request.form["title"]
         content = request.form["content"]
         tags = [tag.strip() for tag in request.form["tags"].split(";")]
+        
+        # Apply content filter
+        contains_inappropriate = ContentFilter.contains_inappropriate_language(title) or ContentFilter.contains_inappropriate_language(content)
+        filtered_title = ContentFilter.filter_text(title)
+        filtered_content = ContentFilter.filter_text(content)
+        
         note = Note(
-            title=title,
-            content=content,
+            title=filtered_title,
+            content=filtered_content,
             tags=tags,
             user_id=user_id,
         )
@@ -68,7 +76,10 @@ def create_note():
         error = None
 
         if note_id:
-            success = "Note created successfully"
+            if contains_inappropriate:
+                success = "Note created successfully (some words were filtered for child-friendly content)"
+            else:
+                success = "Note created successfully"
         else:
             error = "Failed to create note"
         return redirect(url_for("note.get_notes", success=success, error=error))
@@ -105,16 +116,25 @@ def edit_note(note_id):
         title = request.form["title"]
         content = request.form["content"]
         tags = [tag.strip() for tag in request.form["tags"].split(";")]
+        
+        # Apply content filter
+        contains_inappropriate = ContentFilter.contains_inappropriate_language(title) or ContentFilter.contains_inappropriate_language(content)
+        filtered_title = ContentFilter.filter_text(title)
+        filtered_content = ContentFilter.filter_text(content)
 
         # Create a dictionary for the new data
         new_data = {
-            "title": title,
-            "content": content,
+            "title": filtered_title,
+            "content": filtered_content,
             "tags": tags,
         }
 
         Note.update(note_id, new_data)  # Update the note in the DB
-        return redirect(url_for("note.get_notes", success="Note edited successfully"))
+        
+        if contains_inappropriate:
+            return redirect(url_for("note.get_notes", success="Note edited successfully (some words were filtered for child-friendly content)"))
+        else:
+            return redirect(url_for("note.get_notes", success="Note edited successfully"))
 
     if note:
         # Prepare tags for display

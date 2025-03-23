@@ -382,3 +382,259 @@ document.addEventListener("DOMContentLoaded", () => {
     formGroup.insertBefore(emojiSelector, noteTextarea);
   }
 });
+
+// Content filtering for preventing inappropriate input
+document.addEventListener("DOMContentLoaded", () => {
+  // Import the inappropriate words list from our filter
+  // This is a simplified version of the server-side list
+  const inappropriateWords = [
+    // Common profanity
+    "shit",
+    "fuck",
+    "damn",
+    "hell",
+    "ass",
+    "bitch",
+    "crap",
+    "piss",
+    "dick",
+    "cock",
+    "pussy",
+    "asshole",
+    "bastard",
+    "motherfucker",
+    "bullshit",
+    "horseshit",
+    "jackass",
+    "cunt",
+    "twat",
+    "whore",
+    "slut",
+    "hoe",
+    "tits",
+    "boobs",
+    "wanker",
+    "douchebag",
+    "douche",
+    "jerk",
+    "jerkoff",
+    "dumbass",
+    "fag",
+    "faggot",
+    "homo",
+    "queer",
+    "retard",
+    "retarded",
+    "nigger",
+    "nigga",
+    "spic",
+    "wetback",
+    "chink",
+    "gook",
+    "kike",
+    "paki",
+    "dyke",
+    "kyke",
+    "raghead",
+    "negro",
+
+    // Partial matches
+    "f*ck",
+    "f**k",
+    "f***",
+    "s***",
+    "sh*t",
+    "b*tch",
+    "a**",
+    "a**hole",
+    "a-hole",
+    "bs",
+    "b.s.",
+    "wtf",
+    "stfu",
+    "fu",
+    "sob",
+    "pos",
+    "mofo",
+    "mf",
+    "mtf",
+    "ftm",
+    "lmfao",
+    "lmao",
+
+    // Sexual terms
+    "porn",
+    "blowjob",
+    "handjob",
+    "rimjob",
+    "anal",
+    "cum",
+    "cumming",
+    "jizz",
+    "masturbate",
+    "dildo",
+    "vibrator",
+    "sex",
+    "sexy",
+    "orgasm",
+    "boner",
+    "erection",
+    "horny",
+
+    // Drug-related
+    "weed",
+    "cocaine",
+    "heroin",
+    "meth",
+    "crack",
+    "lsd",
+    "ecstasy",
+    "marijuana",
+    "pot",
+    "dope",
+    "high",
+    "stoned",
+    "junkie",
+  ];
+
+  // Create a message container for warnings
+  let messageContainer = null;
+
+  function createMessageContainer() {
+    if (messageContainer) return messageContainer;
+
+    messageContainer = document.createElement("div");
+    messageContainer.className = "inappropriate-language-warning";
+    messageContainer.style.display = "none";
+    messageContainer.style.position = "fixed";
+    messageContainer.style.bottom = "20px";
+    messageContainer.style.right = "20px";
+    messageContainer.style.backgroundColor = "#ff6b6b";
+    messageContainer.style.color = "white";
+    messageContainer.style.padding = "12px 20px";
+    messageContainer.style.borderRadius = "8px";
+    messageContainer.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+    messageContainer.style.zIndex = "9999";
+    messageContainer.style.fontWeight = "bold";
+    messageContainer.style.fontSize = "14px";
+    messageContainer.style.transition = "opacity 0.3s ease";
+
+    document.body.appendChild(messageContainer);
+    return messageContainer;
+  }
+
+  function showInappropriateLanguageWarning(word) {
+    const container = createMessageContainer();
+    container.textContent = `⚠️ Please use child-friendly language. The word "${word}" is not allowed.`;
+    container.style.display = "block";
+    container.style.opacity = "1";
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+      container.style.opacity = "0";
+      setTimeout(() => {
+        container.style.display = "none";
+      }, 300);
+    }, 3000);
+  }
+
+  // Function to detect inappropriate words in a string
+  function containsInappropriateWord(text) {
+    if (!text) return false;
+
+    const textLower = text.toLowerCase();
+
+    for (const word of inappropriateWords) {
+      // Check for whole words using regex
+      const pattern = new RegExp(`\\b${word}\\b`, "i");
+      if (pattern.test(textLower)) {
+        return word;
+      }
+
+      // Also check if the word is contained anywhere
+      if (textLower.includes(word)) {
+        return word;
+      }
+    }
+
+    return false;
+  }
+
+  // Function to prevent entering inappropriate words
+  function preventInappropriateInput(event) {
+    const input = event.target;
+    const currentValue = input.value;
+
+    // Check what the text would be after this key press
+    const newChar = event.key;
+    if (newChar.length === 1 || newChar === "Space") {
+      // For regular key presses, check if adding this character would create a bad word
+      const potentialValue =
+        currentValue + (newChar === "Space" ? " " : newChar);
+      const badWord = containsInappropriateWord(potentialValue);
+
+      if (badWord) {
+        event.preventDefault();
+        showInappropriateLanguageWarning(badWord);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  // Function to check pasted content
+  function checkPastedContent(event) {
+    // Get pasted content
+    const clipboardData = event.clipboardData || window.clipboardData;
+    const pastedText = clipboardData.getData("text");
+
+    // Check if the pasted content contains inappropriate words
+    const badWord = containsInappropriateWord(pastedText);
+    if (badWord) {
+      event.preventDefault();
+      showInappropriateLanguageWarning(badWord);
+      return false;
+    }
+
+    return true;
+  }
+
+  // Apply the filters to note title and content fields
+  const noteTitle = document.querySelector('input[name="title"]');
+  const noteContent = document.querySelector('textarea[name="content"]');
+
+  if (noteTitle) {
+    noteTitle.addEventListener("keypress", preventInappropriateInput);
+    noteTitle.addEventListener("paste", checkPastedContent);
+  }
+
+  if (noteContent) {
+    noteContent.addEventListener("keypress", preventInappropriateInput);
+    noteContent.addEventListener("paste", checkPastedContent);
+  }
+
+  // Check the input whenever it changes (for cases like auto-complete)
+  function checkInputContent(event) {
+    const input = event.target;
+    const currentValue = input.value;
+    const badWord = containsInappropriateWord(currentValue);
+
+    if (badWord) {
+      // Remove the bad word
+      input.value = currentValue.replace(
+        new RegExp(`\\b${badWord}\\b`, "gi"),
+        ""
+      );
+      showInappropriateLanguageWarning(badWord);
+    }
+  }
+
+  if (noteTitle) {
+    noteTitle.addEventListener("input", checkInputContent);
+  }
+
+  if (noteContent) {
+    noteContent.addEventListener("input", checkInputContent);
+  }
+});

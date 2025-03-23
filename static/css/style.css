@@ -1408,3 +1408,27 @@ footer #modal-btn:hover {
   color: #555;
   text-align: center;
 }
+
+/* Inappropriate language warning */
+.inappropriate-language-warning {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff6b6b;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 9999;
+  font-weight: bold;
+  font-size: 14px;
+  animation: warning-bounce 0.5s ease;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes warning-bounce {
+  0% { transform: translateY(20px); opacity: 0; }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); opacity: 1; }
+}

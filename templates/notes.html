@@ -131,6 +131,8 @@
                   </div>
                 </div>
               </div>
+              <!-- Fallback link that will work even if JavaScript fails -->
+              <a href="{{ url_for('note.edit_note', note_id=note.id) }}" class="hidden-link" aria-hidden="true" tabindex="-1">View Note</a>
             </div>
             {% endfor %}
           </div>
@@ -222,18 +224,62 @@
       document.addEventListener('DOMContentLoaded', function() {
         // Handle note card selection
         const noteCards = document.querySelectorAll('.note-card');
+        console.log('Found ' + noteCards.length + ' note cards');
+        
         noteCards.forEach(card => {
-          card.addEventListener('click', function() {
+          // Make sure the entire card and all its children trigger the click
+          card.style.cursor = 'pointer';
+          
+          card.addEventListener('click', function(e) {
+            // Don't handle clicks on anchor elements - let them work normally
+            if (e.target.tagName === 'A') {
+              return;
+            }
+            
+            // Prevent default behavior for links or other clickable elements
+            e.preventDefault();
+            
+            const noteId = this.getAttribute('data-id');
+            console.log('Note card clicked:', noteId);
+            
+            // Visible feedback for debugging
+            const debugMsg = document.createElement('div');
+            debugMsg.style.position = 'fixed';
+            debugMsg.style.top = '50%';
+            debugMsg.style.left = '50%';
+            debugMsg.style.transform = 'translate(-50%, -50%)';
+            debugMsg.style.padding = '20px';
+            debugMsg.style.backgroundColor = 'rgba(0,0,0,0.8)';
+            debugMsg.style.color = 'white';
+            debugMsg.style.borderRadius = '8px';
+            debugMsg.style.zIndex = '9999';
+            debugMsg.innerText = 'Clicking note ' + noteId + '...';
+            document.body.appendChild(debugMsg);
+            
             // Remove selected class from all cards
             noteCards.forEach(c => c.classList.remove('selected'));
+            
             // Add selected class to clicked card
             this.classList.add('selected');
             
-            // Here you would load the selected note content
-            // This would require AJAX or additional server-side logic
-            const noteId = this.getAttribute('data-id');
-            window.location.href = "{{ url_for('note.edit_note', note_id='') }}" + noteId;
+            // Find and click the hidden link - the simplest and most reliable approach
+            const hiddenLink = this.querySelector('.hidden-link');
+            if (hiddenLink) {
+              console.log('Using hidden link to navigate:', hiddenLink.href);
+              
+              // Setup a timer to remove the debug message
+              setTimeout(() => {
+                document.body.removeChild(debugMsg);
+                // Navigate after the message has been shown
+                window.location.href = hiddenLink.href;
+              }, 1000);
+            } else {
+              console.error('No fallback link found!');
+              document.body.removeChild(debugMsg);
+            }
           });
+          
+          // Don't attach events to children anymore - we're using hidden link approach
         });
         
         // Close messages

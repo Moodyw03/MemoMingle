@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Cloud Diary - Edit Note</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
@@ -25,65 +24,99 @@
 
     <!-- App Header -->
     <header class="app-header">
-      <div class="app-logo">
-        <a href="{{ url_for('note.get_notes') }}" title="My Cloud Diary">
-          <img class="memologo" src="{{ url_for('static', filename='images/myclouddiary.png') }}" alt="My Cloud Diary logo" />
+      <div class="header-left">
+        <a href="{{ url_for('note.get_notes') }}" class="logo-container">
+          <img class="app-logo" src="{{ url_for('static', filename='images/myclouddiary.png') }}" alt="My Cloud Diary logo" />
+          <div class="app-title">
+            <h1>My Cloud Diary</h1>
+            <p class="app-slogan">Capture your thoughts. Keep them forever!</p>
+          </div>
         </a>
-        <div class="app-title">
-          <h1>My Cloud Diary</h1>
-          <p class="app-slogan">Capture your thoughts. Keep them forever!</p>
-        </div>
       </div>
       
-      <div class="user-actions">
-        <a href="{{ url_for('note.get_notes') }}" class="user-action-btn" title="Back to Notes">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-          </svg>
-          <span>Back to Notes</span>
-        </a>
-        <a href="{{ url_for('auth.sign_out') }}" class="user-action-btn" title="Sign Out">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-          </svg>
-          <span>Sign Out</span>
-        </a>
+      <div class="header-right">
+        <div class="user-actions">
+          <a href="{{ url_for('note.get_notes') }}" class="user-action-btn" title="Back to Notes">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Notes</span>
+          </a>
+          <a href="{{ url_for('auth.sign_out') }}" class="user-action-btn" title="Sign Out">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sign Out</span>
+          </a>
+        </div>
       </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
-      <div class="note-editor-container">
-        <h2 class="section-title">Edit Note</h2>
+      <div class="content-container edit-note-content">
         {% if note %}
-        <form class="note-form" action="{{ url_for('note.edit_note', note_id=note.id) }}" method="POST">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" placeholder="Title" value="{{ note.title }}" required>
+        <div class="note-editor-container">
+          <div class="section-header">
+            <h2>Edit Note</h2>
           </div>
-          
-          <div class="form-group">
-            <label for="content">Content</label>
-            <textarea id="content" name="content" placeholder="Write your thoughts here..." rows="12">{{ note.content }}</textarea>
+          <div class="note-editor">
+            <form class="note-form" action="{{ url_for('note.edit_note', note_id=note.id) }}" method="POST">
+              <div class="form-group">
+                <input 
+                  type="text" 
+                  id="title" 
+                  name="title" 
+                  class="note-title-input" 
+                  placeholder="Title" 
+                  value="{{ note.title }}" 
+                  required
+                >
+              </div>
+              
+              <div class="form-group">
+                <textarea 
+                  id="content" 
+                  name="content" 
+                  class="note-content-input" 
+                  placeholder="Write your thoughts here..." 
+                  rows="12"
+                >{{ note.content }}</textarea>
+              </div>
+              
+              <div class="form-group">
+                <div class="tags-container">
+                  <input 
+                    type="text" 
+                    id="tags" 
+                    name="tags" 
+                    class="note-tags-input"
+                    placeholder="Enter tags separated by semi-colons" 
+                    value="{{ note.tags }}"
+                  >
+                </div>
+              </div>
+              
+              <div class="note-actions">
+                <button type="submit" class="action-button primary">
+                  <i class="fas fa-save"></i> Update Note
+                </button>
+                <a href="{{ url_for('note.get_notes') }}" class="action-button secondary">
+                  <i class="fas fa-times"></i> Cancel
+                </a>
+              </div>
+            </form>
           </div>
-          
-          <div class="form-group">
-            <label for="tags">Tags</label>
-            <input type="text" id="tags" name="tags" placeholder="Enter tags separated by semi-colons" value="{{ note.tags }}">
-          </div>
-          
-          <div class="form-actions">
-            <button type="submit" class="primary-btn">Update Note</button>
-            <a href="{{ url_for('note.get_notes') }}" class="secondary-btn">Cancel</a>
-          </div>
-        </form>
-        {% else %}
-        <div class="message error-message">
-          <p>Note not found!</p>
         </div>
-        <div class="form-actions">
-          <a href="{{ url_for('note.get_notes') }}" class="primary-btn">Back to Notes</a>
+        {% else %}
+        <div class="note-editor-container">
+          <div class="empty-notes">
+            <div class="empty-state">
+              <i class="fas fa-exclamation-circle empty-icon"></i>
+              <p>Note not found!</p>
+              <div class="form-actions">
+                <a href="{{ url_for('note.get_notes') }}" class="action-button primary">
+                  <i class="fas fa-arrow-left"></i> Back to Notes
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         {% endif %}
       </div>
@@ -112,6 +145,19 @@
         button.addEventListener('click', () => {
           button.parentElement.remove();
         });
+      });
+      
+      // Add debug function to check content value
+      window.addEventListener('DOMContentLoaded', function() {
+        const contentTextarea = document.getElementById('content');
+        if (contentTextarea) {
+          console.log('Content value:', contentTextarea.value);
+          
+          // Make sure the content is visible
+          contentTextarea.style.minHeight = '200px';
+          contentTextarea.style.padding = '15px';
+          contentTextarea.style.border = '1px solid #ccc';
+        }
       });
     </script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

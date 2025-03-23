@@ -9,183 +9,190 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
+    <!-- Add Font Awesome for better icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
-  <body>
-    <!-- Success -->
-    {% if success %}
-    <div id="success">
-      <p>{{ success }}</p>
-    </div>
-    {% endif %}
+  <body class="notes-page">
+    <!-- Success/Error Message Container -->
+    <div class="message-container">
+      {% if success %}
+      <div id="success" class="message-box">
+        <p>{{ success }}</p>
+        <button class="close-message"><i class="fas fa-times"></i></button>
+      </div>
+      {% endif %}
 
-    <!-- Error -->
-    {% if error %}
-    <div id="error">
-      <p>{{ error }}</p>
+      {% if error %}
+      <div id="error" class="message-box">
+        <p>{{ error }}</p>
+        <button class="close-message"><i class="fas fa-times"></i></button>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
 
-    <!-- NAV -->
-    <nav class="notes__nav">
-      <div class="written-note">
-        <a href="{{ url_for('note.get_notes') }}" title="My Cloud Diary">
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <a href="{{ url_for('note.get_notes') }}" class="logo-container">
           <img
-            class="memologo"
+            class="app-logo"
             src="{{ url_for('static', filename='images/myclouddiary.png') }}"
             alt="My Cloud Diary logo"
           />
-        </a>
-        <a
-          class="memo"
-          href="{{ url_for('note.get_notes') }}"
-          title="My Cloud Diary"
-        >
-          <h2>
-            <strong class="">My Cloud Diary</strong>
-            <span class="slogan">
-              <span>Capture your thoughts.</span>
-              <span>Keep them forever!</span>
-            </span>
-          </h2>
-        </a>
-      </div>
-
-      <!-- Add time tracker for child accounts -->
-      {% if not session.get('is_parent') and session.get('user_id') %}
-        {% set user = user or {} %}
-        {% if user.get('daily_time_limit') %}
-          <div id="time-tracker" class="time-tracker" data-time-limit="{{ user.daily_time_limit }}">
-            <span class="icon">⏱️</span>
-            <span id="time-remaining">Loading time...</span>
+          <div class="app-title">
+            <h1>My Cloud Diary</h1>
+            <p class="app-slogan">Capture your thoughts. Keep them forever!</p>
           </div>
-        {% endif %}
-      {% endif %}
-
-      <!-- Search bar -->
-      <form
-        class="notes__nav--search"
-        action="{{ url_for('note.search_notes') }}"
-        method="POST"
-      >
-        <input
-          class="notes__nav--search--input"
-          type="text"
-          name="search"
-          placeholder="Search"
-          value="{% if search %}{{ search }}{% endif %}"
-        />
-        <button class="notes__nav--search--button" type="submit">
-          <img
-            class="notes__nav--search--button--icon"
-            src="https://unpkg.com/lucide-static@latest/icons/search.svg"
-          />
-        </button>
-      </form>
-
-      <!-- Notes Actions -->
-      <div class="notes__nav--actions">
-        <a href="{{ url_for('auth.profile') }}" class="notes__nav--actions--button">
-          <img src="https://unpkg.com/lucide-static@latest/icons/user.svg" />
-        </a>
-        <a href="{{ url_for('auth.sign_out') }}" class="notes__nav--actions--button">
-          <img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" />
         </a>
       </div>
-    </nav>
-
-    <!-- NEW NOTE -->
-    <section class="notes_new_section">
-      <form
-        class="notes__form"
-        action="{{ url_for('note.create_note') }}"
-        method="POST"
-      >
-        <input
-          class="notes__form--input title"
-          type="text"
-          name="title"
-          placeholder="TITLE"
-          value=""
-        />
-
-        <textarea
-          class="notes__form--input textarea"
-          name="content"
-          placeholder="A new note ..."
-          rows="6"
-          wrap="soft"
-        ></textarea>
-
-        <button class="notes__form--button" type="submit">
-          <img src="https://unpkg.com/lucide-static@latest/icons/send.svg" />
-        </button>
-
-        <input
-          class="notes__form--input tags"
-          type="text"
-          name="tags"
-          placeholder="tags (';' separated)"
-          value=""
-        />
-      </form>
-    </section>
-
-    <section class="notes__section">
-      <!-- NOTES -->
-      {% if notes %}
-      <div class="notes">
-        {% for note in notes %}
-        <div class="note">
-          <a
-            href="{{ url_for('note.edit_note', note_id=note.id) }}"
-            class="notes__container"
-          >
-            <h3 class="notes__container--title">{{ note.title }}</h3>
-            <p class="notes__container--content">{{ note.content | nl2br }}</p>
-            <div class="notes__container--metadata">
-              <div class="notes__container--tags">
-                {% for tag in note.tags %}
-                <span class="notes__container--tags--tag">{{ tag }}</span>
-                {% endfor %}
-              </div>
-              <div class="notes__container--date">
-                <!-- Using lowercase column names for Supabase and ISO date parsing -->
-                {% set lastmod = note.lastmodified %}
-                {% if lastmod is string %}
-                  {% set lastmod_date = lastmod.split('T')[0] %}
-                  {% set lastmod_time = lastmod.split('T')[1].split('.')[0] %}
-                  <div>
-                    <span>{{ lastmod_date }}</span>
-                    <span>{{ lastmod_time }}</span>
-                  </div>
-                {% else %}
-                  <div>{{ lastmod }}</div>
-                {% endif %}
-              </div>
+      
+      <div class="header-center">
+        <!-- Time tracker for child accounts -->
+        {% if not session.get('is_parent') and session.get('user_id') %}
+          {% set user = user or {} %}
+          {% if user.get('daily_time_limit') %}
+            <div id="time-tracker" class="time-tracker">
+              <span class="icon"><i class="fas fa-clock"></i></span>
+              <span id="time-remaining">{{ user.daily_time_limit }} minutes remaining</span>
             </div>
-            <div class="notes__container--actions">
-              <!-- Delete note -->
-              <form
-                action="{{ url_for('note.delete_note', note_id=note.id) }}"
-                method="post"
-              >
-                <button type="submit" class="notes__container--actions--button">
-                  <img
-                    src="https://unpkg.com/lucide-static@latest/icons/trash-2.svg"
-                  />
-                </button>
-              </form>
-            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+
+      <div class="header-right">
+        <!-- Search bar -->
+        <form
+          class="search-form"
+          action="{{ url_for('note.search_notes') }}"
+          method="POST"
+        >
+          <input
+            class="search-input"
+            type="text"
+            name="search"
+            placeholder="Search your notes..."
+            value="{% if search %}{{ search }}{% endif %}"
+          />
+          <button class="search-button" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+
+        <!-- User actions menu -->
+        <div class="user-actions">
+          <a href="{{ url_for('auth.profile') }}" class="user-action-button" title="My Profile">
+            <i class="fas fa-user"></i>
+          </a>
+          <a href="{{ url_for('auth.sign_out') }}" class="user-action-button" title="Sign Out">
+            <i class="fas fa-sign-out-alt"></i>
           </a>
         </div>
-        {% endfor %}
       </div>
-      {% else %}
-      <div class="notes__empty">
-        <p>No notes yet</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-container">
+        <!-- Left Sidebar - Notes List -->
+        <section class="notes-list-container">
+          <div class="section-header">
+            <h2>My Notes</h2>
+            <button id="create-note-btn" class="action-button">
+              <i class="fas fa-plus"></i> New Note
+            </button>
+          </div>
+
+          <!-- Notes List -->
+          {% if notes %}
+          <div class="notes-list">
+            {% for note in notes %}
+            <div class="note-card {% if loop.first %}selected{% endif %}" data-id="{{ note.id }}">
+              <div class="note-card-content">
+                <h3 class="note-title">{{ note.title }}</h3>
+                <p class="note-preview">{{ note.content | truncate(60) }}</p>
+                <div class="note-meta">
+                  <div class="note-tags">
+                    {% for tag in note.tags %}
+                    <span class="note-tag">{{ tag }}</span>
+                    {% endfor %}
+                  </div>
+                  <div class="note-date">
+                    {% set lastmod = note.lastmodified %}
+                    {% if lastmod is string %}
+                      {{ lastmod.split('T')[0] }}
+                    {% else %}
+                      {{ lastmod }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <div class="empty-notes">
+            <div class="empty-state">
+              <i class="fas fa-book-open empty-icon"></i>
+              <p>No notes yet</p>
+              <p>Start writing by clicking the "New Note" button above!</p>
+            </div>
+          </div>
+          {% endif %}
+        </section>
+
+        <!-- Right Side - Note Editor -->
+        <section class="note-editor-container">
+          <div id="note-editor" class="note-editor {% if not notes %}new-note-mode{% endif %}">
+            <form
+              class="note-form"
+              action="{{ url_for('note.create_note') }}"
+              method="POST"
+              id="note-form"
+            >
+              <div class="form-group">
+                <input
+                  class="note-title-input"
+                  type="text"
+                  name="title"
+                  placeholder="TITLE"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group">
+                <textarea
+                  class="note-content-input"
+                  name="content"
+                  placeholder="A new note ..."
+                  rows="12"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="tags-container">
+                  <input
+                    class="note-tags-input"
+                    type="text"
+                    name="tags"
+                    placeholder="Tags (';' separated)"
+                    value=""
+                  />
+                </div>
+              </div>
+
+              <div class="note-actions">
+                <button class="action-button primary" type="submit">
+                  <i class="fas fa-save"></i> Save
+                </button>
+                <button class="action-button secondary" type="reset" id="clear-button">
+                  <i class="fas fa-undo"></i> Clear
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
       </div>
-      {% endif %}
-    </section>
+    </main>
 
     <!-- Session warning modal -->
     <div class="session-warning-overlay" id="sessionWarningOverlay">
@@ -203,6 +210,45 @@
     </div>
 
     {% include 'footer.html' %}
+    
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+      // Client-side JavaScript for improved UI interactions
+      document.addEventListener('DOMContentLoaded', function() {
+        // Handle note card selection
+        const noteCards = document.querySelectorAll('.note-card');
+        noteCards.forEach(card => {
+          card.addEventListener('click', function() {
+            // Remove selected class from all cards
+            noteCards.forEach(c => c.classList.remove('selected'));
+            // Add selected class to clicked card
+            this.classList.add('selected');
+            
+            // Here you would load the selected note content
+            // This would require AJAX or additional server-side logic
+            const noteId = this.getAttribute('data-id');
+            window.location.href = "{{ url_for('note.edit_note', note_id='') }}" + noteId;
+          });
+        });
+        
+        // Close messages
+        const closeButtons = document.querySelectorAll('.close-message');
+        closeButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            this.parentElement.style.display = 'none';
+          });
+        });
+        
+        // Create note button
+        const createNoteBtn = document.getElementById('create-note-btn');
+        if (createNoteBtn) {
+          createNoteBtn.addEventListener('click', function() {
+            // Clear form and focus on title
+            document.getElementById('note-form').reset();
+            document.querySelector('.note-title-input').focus();
+          });
+        }
+      });
+    </script>
   </body>
 </html>

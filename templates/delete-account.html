@@ -4,68 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Cloud Diary - Delete Account</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
-  <body>
-    <!-- Success/Error messages -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div id="{{ category }}">
-            <p>{{ message }}</p>
-          </div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-
-    <div class="container delete-account-container">
-      <div class="sign-in__logo">
-        <a href="{{ url_for('note.get_notes') }}">
-          <img
-            src="{{ url_for('static', filename='images/myclouddiary.png') }}"
-            alt="My Cloud Diary logo"
-            class="sign-in__logo--img"
-          />
-        </a>
-      </div>
-  
-      <div class="delete-account-card">
-        <h1 class="delete-account-title">Delete Your Account</h1>
-        
-        <div class="delete-account-warning">
-          <h3>Warning: This action cannot be undone!</h3>
-          <p>Deleting your account will permanently remove:</p>
-          <ul>
-            <li>All your personal information</li>
-            <li>All your diary entries</li>
-            <li>All your achievements and progress</li>
-          </ul>
-        </div>
-        
-        <form class="delete-account-form" action="{{ url_for('auth.delete_account') }}" method="POST">
-          <div class="form-group">
-            <label for="password">Enter your password to confirm deletion:</label>
-            <input 
-              type="password" 
-              id="password" 
-              name="password" 
-              class="sign-in__form--input" 
-              required
-            />
-          </div>
-          
-          <div class="delete-account-actions">
-            <a href="{{ url_for('auth.profile') }}" class="btn-secondary">Cancel</a>
-            <button type="submit" class="btn-danger">Delete My Account</button>
-          </div>
-        </form>
-      </div>
+  <body class="notes-page">
+    <!-- Message container for success and error messages -->
+    <div class="message-container" id="message-container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="message {{ category }}-message">
+              <p>{{ message }}</p>
+              <button class="close-message"><i class="fas fa-times"></i></button>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
     </div>
 
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="app-logo">
+        <a href="{{ url_for('note.get_notes') }}" title="My Cloud Diary">
+          <img class="memologo" src="{{ url_for('static', filename='images/myclouddiary.png') }}" alt="My Cloud Diary logo" />
+        </a>
+        <div class="app-title">
+          <h1>My Cloud Diary</h1>
+          <p class="app-slogan">Capture your thoughts. Keep them forever!</p>
+        </div>
+      </div>
+      
+      <div class="user-actions">
+        <a href="{{ url_for('auth.profile') }}" class="user-action-btn" title="Back to Profile">
+          <i class="fas fa-arrow-left"></i>
+          <span>Back to Profile</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="delete-account-container">
+        <div class="delete-account-card">
+          <h2 class="section-title">Delete Your Account</h2>
+          
+          <div class="delete-account-warning">
+            <h3><i class="fas fa-exclamation-triangle"></i> Warning: This action cannot be undone!</h3>
+            <p>Deleting your account will permanently remove:</p>
+            <ul>
+              <li>All your personal information</li>
+              <li>All your diary entries</li>
+              <li>All your achievements and progress</li>
+            </ul>
+          </div>
+          
+          <form class="delete-account-form" action="{{ url_for('auth.delete_account') }}" method="POST">
+            <div class="form-group">
+              <label for="password">Enter your password to confirm deletion:</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            
+            <div class="form-actions">
+              <a href="{{ url_for('auth.profile') }}" class="secondary-btn">Cancel</a>
+              <button type="submit" class="danger-btn">Delete My Account</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
     {% include 'footer.html' %}
+    
+    <script>
+      // Close message buttons
+      document.querySelectorAll('.close-message').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.remove();
+        });
+      });
+    </script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html> 
